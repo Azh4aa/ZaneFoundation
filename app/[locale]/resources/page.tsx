@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { PageHero } from "@/components/PageHero";
+import { SectionHeading } from "@/components/SectionHeading";
+import { makePageMetadata } from "@/lib/metadata";
+import { isLocale } from "@/lib/site";
+
+const title = { en: "Family resources", ku: "سەرچاوەی خێزان" };
+const description = { en: "A carefully staged resource hub for families of people with Down syndrome and intellectual disabilities.", ku: "ناوەندێکی سەرچاوەی بە وریایی ئامادەکراو بۆ خێزانەکانی کەسانی داون سیندرۆم و کەم توانایی ژیری." };
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { return makePageMetadata(params, title, description, "/resources"); }
+
+export default async function ResourcesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const isKu = raw === "ku";
+  return <>
+    <PageHero eyebrow={isKu ? "بۆ خێزان" : "For families"} title={isKu ? "زانیاری دروست. ڕێنمایی بە ڕێز. هیچ حوکمێک نییە." : <>Clear information.<br /><em>Respectful guidance.</em></>} intro={<p>{isKu ? "ئەم ناوەندە بۆ ئەوە درووست دەکرێت کە خێزان زانیاری پشتڕاستکراو، دابینکەری شیاو و هەنگاوی داهاتوو لە یەک شوێندا بدۆزێتەوە." : "This hub is being built so families can find verified information, qualified local providers and practical next steps in one place."}</p>} aside={<p>{isKu ? "هێڵی سەرچاوە هێشتا دەستی بە کار نەکردووە. ئەم وێبسایتە خزمەتگوزاری فریاکەوتن یان دەستنیشانکردنی پزیشکی نییە." : "The resource line has not launched yet. This website is not an emergency or medical diagnosis service."}</p>} />
+    <section className="section-pad"><div className="shell"><SectionHeading eyebrow={isKu ? "ئێستا چی بەردەستە" : "Available now"} title={isKu ? "سەرچاوە جیهانییە باوەڕپێکراوەکان، تا سەرچاوە ناوخۆییەکان پشتڕاست دەکەینەوە." : "Trusted global references while we verify local resources."} /><div className="resource-grid"><a href="https://www.un.org/development/desa/disabilities/convention-on-the-rights-of-persons-with-disabilities.html" target="_blank" rel="noreferrer"><span>{isKu ? "ماف" : "Rights"}</span><h3>{isKu ? "ڕێککەوتننامەی نەتەوە یەکگرتووەکان بۆ مافی کەسانی کەمئەندام" : "UN Convention on the Rights of Persons with Disabilities"}</h3><p>{isKu ? "بنەمای نێودەوڵەتی بۆ شکۆ، بەشداری، گشتگیری و دەستگەیشتن." : "The international rights framework for dignity, participation, inclusion and access."}</p><b>↗</b></a><a href="https://www.unicef.org/unicef-disability-inclusion-policy-and-strategy-dipas-2022-2030" target="_blank" rel="noreferrer"><span>{isKu ? "گشتگیری" : "Inclusion"}</span><h3>{isKu ? "سیاسەت و ستراتیژی گشتگیری کەمئەندامی یونیسێف" : "UNICEF Disability Inclusion Policy and Strategy"}</h3><p>{isKu ? "دیدگایەک بۆ کۆمەڵگای بێ کۆسپ و گشتگیر بۆ هەموو منداڵان." : "A framework for barrier-free, inclusive communities for every child."}</p><b>↗</b></a><a href="https://www.unicef.org/documents/global-report-children-developmental-disabilities" target="_blank" rel="noreferrer"><span>{isKu ? "توێژینەوە" : "Evidence"}</span><h3>{isKu ? "ڕاپۆرتی جیهانی منداڵانی خاوەن کەمئەندامی گەشەیی" : "Global report on children with developmental disabilities"}</h3><p>{isKu ? "ڕاپۆرتێکی هاوبەشی WHO و یونیسێف بۆ گشتگیری و یەکسانی تەندروستی." : "A joint WHO–UNICEF call for inclusion and health equity."}</p><b>↗</b></a></div></div></section>
+    <section className="resource-roadmap section-pad section-sand"><div className="shell"><SectionHeading eyebrow={isKu ? "لە ئامادەکردندان" : "In preparation"} title={isKu ? "سەرچاوە ناوخۆییەکان پێویستی بە پشکنینی مرۆیی هەیە." : "Local guidance deserves human verification."} /><div className="roadmap-list">{[
+      [isKu ? "ڕێبەری یەکەم هەنگاو" : "First-steps guide", isKu ? "ڕێبەرییەکی سادە بە کوردی و عەرەبی، پێداچوونەوە لەلایەن پسپۆڕی تەندروستی و گەشە." : "Plain-language Kurdish and Arabic guidance reviewed by health and development professionals."],
+      [isKu ? "دایرێکتۆری دابینکەر" : "Provider directory", isKu ? "تۆماری پسپۆڕانی پشکنراو، بەپێی شار، زمان، پسپۆڕی و دەستگەیشتن." : "A checked register by city, language, discipline and accessibility."],
+      [isKu ? "هێڵی سەرچاوەی خێزان" : "Family Resource Line", isKu ? "ڕێنمایی و ڕەوانەکردنی چەندزمانی، لەگەڵ پرۆتۆکۆلی پاراستن و نهێنی." : "Multilingual guidance and referral with safeguarding and privacy protocols."],
+      [isKu ? "ئامرازەکانی قوتابخانە" : "School tools", isKu ? "چێکلیست و ڕێنمایی بۆ مامۆستا و خێزان بۆ پلاندانانی گشتگیری." : "Checklists and guides for teachers and families planning inclusion."],
+    ].map(([h,p],i) => <article key={h}><span>0{i+1}</span><div><h3>{h}</h3><p>{p}</p></div></article>)}</div></div></section>
+    <section className="resource-disclaimer"><div className="shell"><strong>{isKu ? "تێبینی گرنگ" : "Important note"}</strong><p>{isKu ? "زانیاری ئەم ماڵپەڕە گشتییە و جێگرەوەی ڕاوێژی پزیشکی، یاسایی یان پەروەردەیی تاکەکەسی نییە. بۆ دۆخی فریاکەوتن پەیوەندی بە خزمەتگوزاری فریاکەوتنی ناوخۆ بکە." : "Information on this site is general and is not a substitute for individual medical, legal or educational advice. In an emergency, contact the appropriate local emergency service."}</p></div></section>
+  </>;
+}
+
