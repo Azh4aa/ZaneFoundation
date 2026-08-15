@@ -34,14 +34,19 @@ test("required brand and publishing guidance are present", async () => {
   ]);
 });
 
-test("public copy distinguishes proposed targets from achievements", async () => {
-  const [home, impact] = await Promise.all([
+test("public site contains no internal strategy targets, budgets or risk register", async () => {
+  const files = await Promise.all([
     readFile(new URL("app/[locale]/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/programs/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/impact/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/transparency/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/partner/page.tsx", root), "utf8"),
+    readFile(new URL("content/stories.json", root), "utf8"),
+    readFile(new URL("lib/site.ts", root), "utf8"),
   ]);
-  assert.match(home, /Year-one planning targets/);
-  assert.match(home, /proposed targets, not past achievements/);
-  assert.match(impact, /Proposed target/);
+  for (const copy of files) {
+    assert.doesNotMatch(copy, /year-one|year two|planning target|proposed target|planned budget|risk & mitigation|2,000|800K|65%|25%|10%/i);
+  }
 });
 
 test("public institutional copy contains no private daughter narrative", async () => {

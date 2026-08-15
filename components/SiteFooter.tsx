@@ -17,7 +17,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <nav className="footer-links" aria-label={isKu ? "ڕێنیشاندەری خوارەوە" : "Footer navigation"}>
             {navItems.slice(0, 2).map((item) => <Link key={item.href} href={`/${locale}${item.href}`}>{tx(item.label, locale)}</Link>)}
             <Link href={`/${locale}/impact`}>{isKu ? "چوارچێوەی کاریگەری" : "Impact framework"}</Link>
-            <Link href={`/${locale}/stories`}>{isKu ? "هەواڵ و تێڕوانین" : "News & insight"}</Link>
+            <Link href={`/${locale}/stories`}>{isKu ? "تێڕوانین و هەواڵ" : "Ideas & news"}</Link>
             <Link href={`/${locale}/resources`}>{isKu ? "سەرچاوەی خێزان" : "Family resources"}</Link>
           </nav>
         </div>

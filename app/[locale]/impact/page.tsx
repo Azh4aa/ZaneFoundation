@@ -4,31 +4,40 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { makePageMetadata } from "@/lib/metadata";
-import { isLocale, proposedTargets, tx } from "@/lib/site";
+import { isLocale } from "@/lib/site";
 
-const title = { en: "Impact framework", ku: "چوارچێوەی کاریگەری" };
-const description = { en: "How Zane Foundation will define, measure and report responsible progress.", ku: "چۆنیەتی پێناسەکردن، پێوانەکردن و ڕاگەیاندنی پێشکەوتنی بەرپرسانە لەلایەن زەنێ." };
+const title = { en: "Our approach to impact", ku: "ڕوانگەمان بۆ کاریگەری" };
+const description = { en: "How Zane Foundation understands meaningful change for people, families and communities.", ku: "چۆنیەتی تێگەیشتنی فاوندەیشنی زەنێ لە گۆڕانی بەواتا بۆ تاک، خێزان و کۆمەڵگا." };
 export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { return makePageMetadata(params, title, description, "/impact"); }
 
 export default async function ImpactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const locale = raw; const isKu = locale === "ku";
+  const meanings = [
+    [isKu ? "هەڵبژاردن" : "Choice", isKu ? "تاک لە بڕیارەکانی ژیانی خۆیدا دەنگ و ڕۆڵی هەبێت." : "People have a voice in decisions about their own lives."],
+    [isKu ? "دەستگەیشتن" : "Access", isKu ? "زانیاری، پشتگیری و شوێنەکان بۆ هەمووان گونجاو بن." : "Information, support and places are easier to reach and use."],
+    [isKu ? "بەشداری" : "Participation", isKu ? "خوێندن، کار، چالاکی و ژیانی کۆمەڵایەتی بەردەست بن." : "Education, work, activities and community life are open to everyone."],
+    [isKu ? "تێگەیشتن" : "Understanding", isKu ? "کۆمەڵگا تاکەکان بە تواناکان، ماف و کەسایەتییانەوە ببینێت." : "Communities see people through their abilities, rights and individuality."],
+  ];
+
   return <>
-    <PageHero eyebrow={isKu ? "چاودێری و هەڵسەنگاندن" : "Monitoring & evaluation"} title={isKu ? "پێوانەکردنی ئەو گۆڕانەی کە گرنگە." : <>Measure what changes.<br /><em>Report what is true.</em></>} intro={<p>{isKu ? "کاریگەری بە ژمارەی چالاکییەکان تەنها ناپێورێت. دەبێت کوالێتی، ئەزموونی خێزان و گۆڕانی دەرفەتەکانیش ببینرێت." : "Impact is not the number of activities completed. It also has to capture quality, family experience and whether opportunity genuinely expands."}</p>} aside={<p>{isKu ? "ئەم لاپەڕەیە چوارچێوەی پلانکراو نیشان دەدات. داتای دەستکەوت دوای دەستپێکردنی پرۆگرام بڵاودەکرێتەوە." : "This page presents the planned framework. Achievement data will appear after programs launch."}</p>} />
-    <section className="section-pad"><div className="shell"><SectionHeading eyebrow={isKu ? "تارگێتی ساڵی یەکەم" : "Year-one planning targets"} title={isKu ? "ئامانجی ڕوون، بەڵام بە ناوی دەستکەوتەوە نا." : "Clear ambition, never disguised as achievement."} /><div className="impact-target-grid">{proposedTargets.map((target) => <article key={target.value}><strong>{target.value}</strong><p>{tx(target.label, locale)}</p><span>{isKu ? "تارگێتی پێشنیازکراو" : "Proposed target"}</span></article>)}</div></div></section>
-    <section className="logic-section section-pad section-ink"><div className="shell"><SectionHeading inverse eyebrow={isKu ? "زنجیرەی گۆڕان" : "The results chain"} title={isKu ? "لە سەرچاوەوە بۆ گۆڕانی ژیان." : "From resources to changed lives."} /><div className="logic-flow">{[
-      [isKu ? "سەرچاوە" : "Inputs", isKu ? "فەند، پسپۆڕ، هاوبەش و سیستەمی پاراستن" : "Funding, expertise, partnerships and safeguarding systems"],
-      [isKu ? "چالاکی" : "Activities", isKu ? "چارەسەری، ڕێنمایی، ڕاهێنان و کەمپەین" : "Therapy, guidance, training and public campaigns"],
-      [isKu ? "دەرچوون" : "Outputs", isKu ? "کاتژمێر، خێزان، مامۆستا و دەستگەیشتن" : "Hours, families, teachers and public reach"],
-      [isKu ? "دەرئەنجام" : "Outcomes", isKu ? "گەشە، متمانە، گشتگیری و تێڕوانینی گۆڕاو" : "Development, confidence, inclusion and changed attitudes"],
-      [isKu ? "کاریگەری" : "Impact", isKu ? "ژیانێکی پڕ دەرفەت، هەڵبژاردن و شکۆ" : "Lives with greater opportunity, choice and dignity"],
-    ].map(([h,p], i) => <article key={h}><span>0{i+1}</span><h3>{h}</h3><p>{p}</p></article>)}</div></div></section>
-    <section className="section-pad"><div className="shell reporting-grid"><div><SectionHeading eyebrow={isKu ? "ڕاپۆرتدان" : "Reporting discipline"} title={isKu ? "هەر ئاستێک پرسیارێکی جیاواز وەڵام دەداتەوە." : "Each reporting layer answers a different question."} /></div><div className="reporting-list">{[
-      [isKu ? "دوو هەفتەجار و مانگانە" : "Fortnightly & monthly", isKu ? "ئایا کارەکان بە سەلامەتی و بەپێی پلان دەڕۆن؟" : "Is delivery safe, timely and on plan?"],
-      [isKu ? "چارەکی و شەش مانگە" : "Quarterly & six-month", isKu ? "ئایا بودجە و نیشانەکان پێشکەوتنی پێویست نیشان دەدەن؟" : "Do budgets and indicators show the expected progress?"],
-      [isKu ? "ساڵانە" : "Annual", isKu ? "چی گۆڕا، چی فێربووین و چی دەبێت بگۆڕین؟" : "What changed, what did we learn and what must change next?"],
-    ].map(([cadence, question]) => <article key={cadence}><p>{cadence}</p><h3>{question}</h3></article>)}</div></div></section>
-    <section className="budget-section section-pad section-sand"><div className="shell budget-grid"><div><p className="eyebrow">{isKu ? "پلانی تەرخانکردنی بودجە" : "Planned budget allocation"}</p><h2>{isKu ? "پارە دەبێت ڕێگای خۆی بۆ کاریگەری ڕوون بکات." : "Money should have a visible path to impact."}</h2><p>{isKu ? "ئەم ڕێژانە مۆدێلی پلانی ساڵی یەکەمن و دەبێت بە بودجە و ڕاپۆرتی دارایی پشتڕاست بکرێنەوە." : "These percentages are the year-one planning model and must later be reconciled against budgets and financial reports."}</p></div><div className="budget-visual"><div className="budget-donut" aria-label={isKu ? "٦٥ لە سەد پرۆگرام، ٢٥ لە سەد کارمەند و پسپۆڕ، ١٠ لە سەد کارگێڕی" : "65 percent programs, 25 percent people and expertise, 10 percent administration"}><span>65%</span><small>{isKu ? "پرۆگرام" : "programs"}</small></div><ul><li><span className="key key--program" />65% {isKu ? "خزمەتگوزاری پرۆگرام" : "Program services"}</li><li><span className="key key--people" />25% {isKu ? "کارمەند و پسپۆڕی" : "People & expertise"}</li><li><span className="key key--admin" />10% {isKu ? "کارگێڕی و جێبەجێکردن" : "Administration & operations"}</li></ul></div></div></section>
-    <section className="center-cta section-pad"><div className="shell"><h2>{isKu ? "کاریگەری بێ ڕوونکردنەوە، متمانە درووست ناکات." : "Impact without transparency does not build trust."}</h2><p>{isKu ? "ڕێگای بڵاوکردنەوەی بەڵگەنامە، پاراستن و ڕاپۆرتەکانمان ببینە." : "See how governance documents, safeguarding and reports will be published."}</p><Link className="button button--dark" href={`/${locale}/transparency`}>{isKu ? "ڕێگای ڕوونکردنەوە" : "Transparency roadmap"}</Link></div></section>
+    <PageHero eyebrow={isKu ? "کاریگەری" : "Our approach to impact"} title={isKu ? "گۆڕانی ڕاستەقینە لە ژیانی ڕۆژانەدا دیارە." : <>Meaningful change<br /><em>shows up in daily life.</em></>} intro={<p>{isKu ? "کاریگەری بۆ زەنێ تەنها ژمارەی چالاکی نییە؛ بریتییە لەوەی تاک چەند هەڵبژاردن، دەستگەیشتن و بەشداریی زیاتر هەیە." : "For Zane, impact is not simply activity. It is whether people experience more choice, better access and fuller participation."}</p>} aside={<p>{isKu ? "ئەزموونی تاک و خێزان، لەگەڵ بەڵگە و فیدباک، نیشانمان دەدات چی کار دەکات." : "The experience of people and families, together with evidence and feedback, tells us what is working."}</p>} />
+
+    <section className="section-pad"><div className="shell"><SectionHeading eyebrow={isKu ? "کاریگەری چییە" : "What progress means"} title={isKu ? "ژیانێک بە دەرفەت، پەیوەندی و شکۆی زیاتر." : "A life with more opportunity, connection and dignity."} /><div className="impact-meaning-grid">{meanings.map(([h,p],i) => <article key={h}><span>0{i+1}</span><h3>{h}</h3><p>{p}</p></article>)}</div></div></section>
+
+    <section className="impact-ecosystem section-pad section-ink"><div className="shell"><SectionHeading inverse eyebrow={isKu ? "گۆڕان بە هاوبەشی" : "Change is shared"} title={isKu ? "گشتگیری بە یەک کەس یان یەک دامەزراوە دروست نابێت." : "Inclusion is built across the whole community."} /><div className="ecosystem-grid">{[
+      [isKu ? "تاک" : "The person", isKu ? "ماف، ئارەزوو و تواناکانی تاک لە ناوەندی کارەکەدان." : "The person’s rights, preferences and strengths stay at the centre."],
+      [isKu ? "خێزان" : "Family", isKu ? "خێزان زانیاری، پشتگیری و دەرفەتی بڕیاردانی هەیە." : "Families have reliable information, support and room to decide."],
+      [isKu ? "خزمەتگوزاری و قوتابخانە" : "Services & schools", isKu ? "پسپۆڕ و مامۆستا پراکتیسی گشتگیر بەکار دەهێنن." : "Professionals and educators make inclusive practice real."],
+      [isKu ? "کۆمەڵگا" : "Community", isKu ? "یاسا، دامەزراوە و هەڵسوکەوت کۆسپەکان کەم دەکەنەوە." : "Institutions, policies and attitudes remove barriers."],
+    ].map(([h,p],i) => <article key={h}><span>0{i+1}</span><h3>{h}</h3><p>{p}</p></article>)}</div></div></section>
+
+    <section className="section-pad"><div className="shell impact-learning-grid"><div><p className="eyebrow">{isKu ? "فێربوون و لێپرسراوێتی" : "Learning and accountability"}</p><h2>{isKu ? "گوێ دەگرین، دەپارێزین، باشتر دەبین و ڕوون ڕادەگەیەنین." : "Listen. Protect. Improve. Report clearly."}</h2></div><div className="impact-learning-list">{[
+      [isKu ? "فیدباکی ڕاستەوخۆ" : "Direct feedback", isKu ? "تاک و خێزان دەبێت بتوانن بە ئاسانی بڵێن چی باشە و چی پێویستی بە گۆڕان هەیە." : "People and families need simple ways to say what works and what must change."],
+      [isKu ? "پاراستن و ڕەزامەندی" : "Safeguarding and consent", isKu ? "هیچ داتا یان چیرۆکێک لە سەلامەتی و شکۆ گرنگتر نییە." : "No data point or story is more important than safety and dignity."],
+      [isKu ? "بەڵگە لەگەڵ مرۆڤایەتی" : "Evidence with humanity", isKu ? "زانیاری یارمەتی بڕیار دەدات، بەڵام ئەزموونی مرۆڤەکانیش دەبێت ببیسترێت." : "Data should inform decisions without replacing human experience."],
+      [isKu ? "ڕاپۆرتی گشتی" : "Public reporting", isKu ? "ئەنجام و وانە فێربووەکان بە زمانێکی ڕوون بڵاودەکەینەوە." : "Results and lessons will be shared in clear public language."],
+    ].map(([h,p],i) => <article key={h}><span>0{i+1}</span><div><h3>{h}</h3><p>{p}</p></div></article>)}</div></div></section>
+
+    <section className="center-cta section-pad section-sand"><div className="shell"><h2>{isKu ? "کاریگەری بە متمانە بەردەوام دەبێت." : "Lasting impact depends on trust."}</h2><p>{isKu ? "بزانە زەنێ چۆن بەڕێوەبردن، پاراستن و لێپرسراوێتی بەڕێوە دەبات." : "See how Zane approaches governance, safeguarding and public accountability."}</p><Link className="button button--dark" href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و متمانە" : "Governance and trust"}</Link></div></section>
   </>;
 }
-

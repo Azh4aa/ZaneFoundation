@@ -19,10 +19,6 @@ export const site = {
   complaintsEmail: "feedback@zanefoundation.org",
   url: "https://zanefoundation.org",
   registrationNumber: "REGISTRATION PENDING",
-  registrationStatus: {
-    en: "Legal registration in progress",
-    ku: "کارەکانی تۆمارکردنی یاسایی بەردەوامە",
-  },
   location: {
     en: "Sulaymaniyah, Kurdistan Region of Iraq",
     ku: "سلێمانی، هەرێمی کوردستانی عێراق",
@@ -33,7 +29,7 @@ export const navItems: Array<{ href: string; label: LocalizedText }> = [
   { href: "/about", label: { en: "About", ku: "دەربارە" } },
   { href: "/programs", label: { en: "Programs", ku: "پرۆگرامەکان" } },
   { href: "/get-involved", label: { en: "Get involved", ku: "بەشداربە" } },
-  { href: "/stories", label: { en: "News & insight", ku: "هەواڵ و تێڕوانین" } },
+  { href: "/stories", label: { en: "Ideas & news", ku: "تێڕوانین و هەواڵ" } },
   { href: "/careers", label: { en: "Careers", ku: "هەلی کار" } },
 ];
 
@@ -41,11 +37,11 @@ export const programData = [
   {
     id: "early-steps",
     number: "01",
-    title: { en: "Early Steps Fund", ku: "فەندی هەنگاوەکانی سەرەتا" },
-    stage: { en: "Founding-year priority", ku: "پێشینەی ساڵی دامەزراندن" },
+    title: { en: "Early Steps", ku: "هەنگاوەکانی سەرەتا" },
+    stage: { en: "Early support", ku: "پشتگیریی زوو" },
     summary: {
-      en: "Fund access to qualified speech, occupational and physical therapy so a family’s income does not decide a child’s beginning.",
-      ku: "دابینکردنی دەستگەیشتن بە چارەسەری ئاخاوتن، پیشەیی و جەستەیی لەلایەن پسپۆڕانەوە، بۆ ئەوەی داهاتی خێزان چارەنووسی دەستپێکی منداڵ دیاری نەکات.",
+      en: "Expanding access to qualified speech, occupational and physical support during the years when timely help matters most.",
+      ku: "فراوانکردنی دەستگەیشتن بە پشتگیریی پسپۆڕانەی ئاخاوتن، پیشەیی و جەستەیی لەو قۆناغەی کە یارمەتیی بەوەخت زۆرترین گرنگی هەیە.",
     },
     outcome: {
       en: "Children receive timely, individualized support and families can see and understand progress.",
@@ -55,11 +51,11 @@ export const programData = [
   {
     id: "family-line",
     number: "02",
-    title: { en: "Family Resource Line", ku: "هێڵی سەرچاوەی خێزان" },
-    stage: { en: "Founding-year priority", ku: "پێشینەی ساڵی دامەزراندن" },
+    title: { en: "Family Guidance", ku: "ڕێنماییی خێزان" },
+    stage: { en: "Family guidance", ku: "ڕێنماییی خێزان" },
     summary: {
-      en: "A multilingual, trusted point of contact connecting families to verified information, qualified providers and practical next steps.",
-      ku: "خاڵێکی پەیوەندی چەندزمانی و متمانەپێکراو کە خێزانەکان بە زانیاریی پشتڕاستکراو، پسپۆڕی شیاو و هەنگاوی کرداری دەگەیەنێت.",
+      en: "Clear, multilingual guidance that helps families understand options, find reliable information and choose practical next steps.",
+      ku: "ڕێنماییی ڕوون و چەندزمانی بۆ تێگەیشتن لە هەڵبژاردەکان، دۆزینەوەی زانیاریی باوەڕپێکراو و دیاریکردنی هەنگاوی داهاتوو.",
     },
     outcome: {
       en: "Families feel less isolated and make informed decisions without navigating the system alone.",
@@ -70,7 +66,7 @@ export const programData = [
     id: "my-classroom",
     number: "03",
     title: { en: "My Classroom", ku: "پۆلەکەم" },
-    stage: { en: "Planned for year two", ku: "پلانی ساڵی دووەم" },
+    stage: { en: "Inclusive education", ku: "پەروەردەی گشتگیر" },
     summary: {
       en: "Practical teacher training and school support designed to turn inclusion from a promise into an everyday classroom practice.",
       ku: "ڕاهێنانی کرداری مامۆستایان و پشتگیری قوتابخانەکان بۆ ئەوەی گشتگیری لە بەڵێنێکەوە ببێتە پراکتیسی ڕۆژانەی ناو پۆل.",
@@ -84,7 +80,7 @@ export const programData = [
     id: "more-alike",
     number: "04",
     title: { en: "More Alike Than Different", ku: "لێکچوونمان زیاترە لە جیاوازیمان" },
-    stage: { en: "Annual public campaign", ku: "کەمپەینی گشتیی ساڵانە" },
+    stage: { en: "Public understanding", ku: "تێگەیشتنی کۆمەڵگا" },
     summary: {
       en: "A rights-led public campaign that replaces pity and stigma with accurate representation, expectation and belonging.",
       ku: "کەمپەینێکی گشتی لەسەر بنەمای ماف کە بەزەیی و نیشاندانی هەڵە بە نوێنەرایەتی دروست، چاوەڕوانی و سەربەخۆیی دەگۆڕێت.",
@@ -94,13 +90,6 @@ export const programData = [
       ku: "زمان و تێڕوانینی گشتی لە سنووردانانەوە بەرەو توانا، ماف و بەشداری تەواو دەگۆڕێت.",
     },
   },
-] as const;
-
-export const proposedTargets = [
-  { value: "2,000", label: { en: "therapy hours funded", ku: "کاتژمێر چارەسەری فەندکراو" } },
-  { value: "50+", label: { en: "children and families reached", ku: "منداڵ و خێزانی بەشدار" } },
-  { value: "500+", label: { en: "family enquiries answered", ku: "پرسیاری خێزان وەڵامدراوە" } },
-  { value: "800K+", label: { en: "campaign impressions", ku: "بینینی کەمپەینی هۆشیاری" } },
 ] as const;
 
 export const values = [

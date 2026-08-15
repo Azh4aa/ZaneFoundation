@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import storiesJson from "@/content/stories.json";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StoryCard, type Story } from "@/components/StoryCard";
-import { isLocale, programData, proposedTargets, site, tx } from "@/lib/site";
+import { isLocale, programData, site, tx } from "@/lib/site";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;
@@ -37,8 +37,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <Link className="button button--ghost-light" href={`/${locale}/get-involved`}>{isKu ? "بەشداربە" : "Get involved"}</Link>
             </div>
             <div className="hero-registration">
-              <span>{site.registrationNumber}</span>
-              <p>{tx(site.registrationStatus, locale)}<br />{tx(site.location, locale)}</p>
+              <span>{isKu ? "کوردستان · عێراق" : "KURDISTAN · IRAQ"}</span>
+              <p>{isKu ? "پشتگیریی تاک · بەهێزکردنی خێزان · گۆڕینی کۆمەڵگا" : "Individual support · stronger families · inclusive communities"}</p>
             </div>
           </div>
 
@@ -61,14 +61,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <h2>{isKu ? "بۆشاییەکە گەورەیە. وەڵامەکە دەبێت پسپۆڕانە بێت." : "The gap is serious. The response must be specialist."}</h2>
           </div>
           <div className="institution-intro__body">
-            <p>{isKu ? "خێزانەکان لە کوردستان ڕووبەڕووی تێچووی بەرز، زانیاریی پەرش، قوتابخانەی نائامادە و تێڕوانینی هەڵەی کۆمەڵگا دەبنەوە. زەنێ بۆ وەڵامدانەوە بەو بۆشاییانە دادەمەزرێت." : "Families across Kurdistan face high costs, fragmented information, underprepared schools and persistent social stigma. Zane is being established to address those gaps through focused, accountable programs."}</p>
-            <p>{isKu ? "ئەمە ماڵپەڕی چالاکییەکی کاتی نییە؛ ناسنامەی دامەزراوەیەکە کە بەڕێوەبردن، پاراستن، داتا و هاوبەشی لە بناغەوە تێیدا دادەنرێت." : "This is not a campaign assembled around a moment. It is an institution being built with governance, safeguarding, data and partnership designed in from the beginning."}</p>
+            <p>{isKu ? "خێزانەکان لە کوردستان ڕووبەڕووی تێچووی بەرز، زانیاریی پەرش، قوتابخانەی نائامادە و تێڕوانینی هەڵەی کۆمەڵگا دەبنەوە. زەنێ بە بەرنامەی تایبەتمەند و هاوبەشیی بەهێز وەڵامی ئەو بۆشاییانە دەداتەوە." : "Families across Kurdistan face high costs, fragmented information, underprepared schools and persistent social stigma. Zane responds with focused programs, reliable guidance and strong partnerships."}</p>
+            <p>{isKu ? "کارەکانمان ماف‌تەوەر، خێزان‌تەوەر و پابەند بە پاراستن و کوالێتین. ئامانجمان ئەوەیە بەشداری و دەرفەت ببنە بەشێکی ئاسایی ژیانی ڕۆژانە." : "Our work is rights-led, family-informed and grounded in safeguarding and quality. The goal is to make participation and opportunity part of everyday life."}</p>
             <Link className="text-link" href={`/${locale}/about`}>{isKu ? "ناسنامە و بەڕێوەبردن" : "Read our institutional profile"}<span>↗</span></Link>
           </div>
-          <div className="institution-stamp" aria-label={tx(site.registrationStatus, locale)}>
+          <div className="institution-stamp" aria-label={isKu ? "بۆ ماف و بەشداری" : "For rights and participation"}>
             <Image src="/brand/zane-mark.png" alt="" width={100} height={120} />
-            <strong>{isKu ? "لە قۆناغی تۆمارکردندان" : "IN FORMATION"}</strong>
-            <span>SULAYMANIYAH · 2026</span>
+            <strong>{isKu ? "بۆ ماف و بەشداری" : "FOR RIGHTS & PARTICIPATION"}</strong>
+            <span>SULAYMANIYAH · KURDISTAN</span>
           </div>
         </div>
         <div className="shell principle-rail">
@@ -78,7 +78,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className="programs-showcase section-pad">
         <div className="shell">
-          <SectionHeading inverse eyebrow={isKu ? "چوار بەرنامەی سەرەکی" : "Four program platforms"} title={isKu ? "لە پشتگیریی زووەوە تا گۆڕینی کۆمەڵگا." : <>From early support<br />to public change.</>} text={isKu ? "هەر بەرنامەیەک وەڵامی بۆشاییەکی دیاریکراوە و بە قۆناغ جێبەجێ دەکرێت." : "Each platform addresses a defined gap and moves from careful design to measured delivery."} />
+          <SectionHeading inverse eyebrow={isKu ? "چوار بواری کار" : "Four areas of work"} title={isKu ? "لە پشتگیریی زووەوە تا گۆڕینی کۆمەڵگا." : <>From early support<br />to public change.</>} text={isKu ? "کارەکانمان تاک، خێزان، قوتابخانە و کۆمەڵگا بەیەکەوە دەبەستنەوە." : "Our work connects individuals, families, schools and communities around practical inclusion."} />
           <div className="program-bento">
             {programData.map((program, index) => (
               <article className={`program-tile program-tile--${index + 1}`} key={program.id}>
@@ -106,32 +106,30 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="targets-section section-pad">
-        <div className="shell targets-grid">
-          <div>
-            <p className="eyebrow eyebrow--gold">{isKu ? "تارگێتی پلانی ساڵی یەکەم" : "Year-one planning targets"}</p>
-            <h2>{isKu ? "ئامانجەکان بڵاودەکەینەوە. ئەنجامەکان پشتڕاست دەکەینەوە." : "Publish the ambition. Verify the result."}</h2>
-            <p>{isKu ? "ئەم ژمارانە تارگێتی پلانن، نەک دەستکەوتی ڕابردوو. دوای دەستپێکردنی بەرنامەکان، داتای ڕاستەقینە بە ڕوونی بڵاودەکرێتەوە." : "These are proposed targets, not past achievements. Once programs launch, verified delivery data will replace projection."}</p>
-            <Link className="button button--ghost-light" href={`/${locale}/impact`}>{isKu ? "چۆنیەتی پێوانەکردن" : "How impact will be measured"}</Link>
-          </div>
-          <div className="target-list">
-            {proposedTargets.map((target) => <div className="target-item" key={target.value}><strong>{target.value}</strong><span>{tx(target.label, locale)}</span><small>{isKu ? "تارگێت" : "TARGET"}</small></div>)}
-          </div>
+      <section className="people-section section-pad">
+        <div className="shell people-section__grid">
+          <div><p className="eyebrow eyebrow--gold">{isKu ? "گشتگیری لە ژیانی ڕۆژانەدا" : "Inclusion in everyday life"}</p><h2>{isKu ? "دەرفەت دەبێت لە هەر قۆناغێکی ژیاندا هەبێت." : "Opportunity should be present at every stage of life."}</h2></div>
+          <div className="people-list">{[
+            [isKu ? "منداڵ و گەنج" : "Children & young people", isKu ? "گەشەکردن، فێربوون و بەشداری لەگەڵ هاوتەمەنەکان." : "Development, learning and participation alongside peers."],
+            [isKu ? "خێزان" : "Families", isKu ? "زانیاریی ڕوون، ڕێنماییی بەڕێز و تۆڕی پشتگیری." : "Clear information, respectful guidance and a network of support."],
+            [isKu ? "قوتابخانە و پسپۆڕ" : "Schools & professionals", isKu ? "ئامراز و هاوکاری بۆ پراکتیسی گشتگیر." : "Practical tools and collaboration for inclusive practice."],
+            [isKu ? "کۆمەڵگا" : "Communities", isKu ? "زمان و هەڵسوکەوتێک کە ماف، توانا و بەشداری دەبینێت." : "Language and attitudes that recognize rights, ability and belonging."],
+          ].map(([h,p],i) => <article key={h}><span>0{i+1}</span><div><h3>{h}</h3><p>{p}</p></div></article>)}</div>
         </div>
       </section>
 
       <section className="trust-section section-pad">
         <div className="shell trust-grid">
           <div className="trust-copy">
-            <p className="eyebrow">{isKu ? "ئامادە بۆ پشکنین" : "Built for due diligence"}</p>
-            <h2>{isKu ? "متمانە بە دیزاین دروست دەکرێت؛ نەک بە دروشم." : "Authority comes from what an institution is willing to make clear."}</h2>
-            <p>{isKu ? "هاوبەشە نێودەوڵەتییەکان پێویستیان بە بەڵگەی ڕێکخراوی هەیە. زەنێ تۆماری بەڕێوەبردن، بودجە، مەترسی، پاراستن و کاریگەری بە قۆناغ بڵاودەکاتەوە." : "International partners need evidence, not performance. Zane’s transparency register tracks governance, registration, budgets, safeguarding, risk and impact reporting as each item is completed."}</p>
+            <p className="eyebrow">{isKu ? "لێپرسراوێتی" : "Accountability"}</p>
+            <h2>{isKu ? "متمانە بە کار و هەڵسوکەوت دروست دەبێت." : "Trust is earned in the way an organization works."}</h2>
+            <p>{isKu ? "زەنێ پابەندە بە بەڕێوەبردنی بەرپرسانە، پاراستنی کەسان، پاراستنی زانیاری، گوێگرتن لە فیدباک و ڕاپۆرتدانی ڕوون." : "Zane is committed to responsible governance, safeguarding, privacy, listening to feedback and clear public reporting."}</p>
             <Link className="button button--dark button--arrow" href={`/${locale}/transparency`}>{isKu ? "تۆماری بەڵگەنامە" : "Open the transparency register"}<span>↗</span></Link>
           </div>
           <div className="trust-matrix">
             {[
               [isKu ? "بەڕێوەبردن" : "Governance", isKu ? "دەستەی گشتی، بۆرد و بەڕێوەبردن" : "Assembly, board and management roles"],
-              [isKu ? "دارایی" : "Finance", isKu ? "بودجە، ڕاپۆرت و وردبینی" : "Budgets, reporting and audit pathway"],
+              [isKu ? "بەڕێوەبردن" : "Stewardship", isKu ? "بڕیاردان و چاودێریی بەرپرسانە" : "Responsible decisions and oversight"],
               [isKu ? "پاراستن" : "Safeguarding", isKu ? "ڕەزامەندی، سکاڵا و پاراستنی داتا" : "Consent, complaints and data protection"],
               [isKu ? "کاریگەری" : "Impact", isKu ? "دەرچوون، دەرئەنجام و فێربوون" : "Outputs, outcomes and learning"],
             ].map(([h, p], i) => <article key={h}><span>0{i + 1}</span><h3>{h}</h3><p>{p}</p><b>✓</b></article>)}
@@ -142,8 +140,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="stories-home section-pad section-sand">
         <div className="shell">
           <div className="section-title-row">
-            <SectionHeading eyebrow={isKu ? "هەواڵ و تێڕوانین" : "News & insight"} title={isKu ? "بڵاوکردنەوەی کار، فێربوون و پێشکەوتن." : "A public record of work, learning and progress."} />
-            <Link className="text-link" href={`/${locale}/stories`}>{isKu ? "هەموو بابەتەکان" : "View all updates"}<span aria-hidden="true">↗</span></Link>
+            <SectionHeading eyebrow={isKu ? "تێڕوانین و ڕێنمایی" : "Ideas & guidance"} title={isKu ? "بابەتی بەسوود بۆ خێزان و کۆمەڵگا." : "Useful perspectives for families and communities."} />
+            <Link className="text-link" href={`/${locale}/stories`}>{isKu ? "هەموو بابەتەکان" : "View all articles"}<span aria-hidden="true">↗</span></Link>
           </div>
           <div className="story-grid">{stories.map((story) => <StoryCard key={story.slug} story={story} locale={locale} />)}</div>
         </div>
@@ -152,7 +150,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="partner-cta">
         <div className="shell partner-cta__grid">
           <div><p className="eyebrow eyebrow--gold">{isKu ? "بۆ دامەزراوە و فەندەرەکان" : "For institutions and funders"}</p><h2>{isKu ? "لەگەڵمان بناغەیەک بنیاد بنێ کە متمانەی لێ بکرێت." : "Help build an institution worth trusting."}</h2></div>
-          <div><p>{isKu ? "زەنێ لە قۆناغی دامەزراندندایە و بۆ هاوبەشیی دارایی، تەکنیکی و ستراتیژیی درێژخایەن ئامادەیە." : "Zane is in formation and ready for serious conversations about long-term financial, technical and strategic partnership."}</p><div className="hero-actions"><Link className="button button--gold" href={`/${locale}/partner`}>{isKu ? "ڕێگاکانی هاوبەشی" : "Partnership pathways"}</Link><a className="button button--ghost-light" href={`mailto:${site.partnershipsEmail}`}>{site.partnershipsEmail}</a></div></div>
+          <div><p>{isKu ? "بەخێرهاتنی هاوبەشیی دارایی، تەکنیکی و ستراتیژیی درێژخایەن دەکەین کە لەگەڵ بەها و ستانداردەکانمان یەکدەگرێتەوە." : "We welcome long-term financial, technical and strategic partnerships aligned with our values and standards."}</p><div className="hero-actions"><Link className="button button--gold" href={`/${locale}/partner`}>{isKu ? "ڕێگاکانی هاوبەشی" : "Partnership pathways"}</Link><a className="button button--ghost-light" href={`mailto:${site.partnershipsEmail}`}>{site.partnershipsEmail}</a></div></div>
         </div>
       </section>
     </>

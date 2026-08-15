@@ -21,5 +21,5 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
     { title: "Delivery and access", paragraphs: ["Form submissions are sent through a secure email delivery service to designated Zane team members. Information is not sold or shared for third-party marketing. Access should be limited to people who need it for the stated purpose."] },
     { title: "Retention and your rights", paragraphs: ["Expressions of interest are normally retained for up to 12 months unless law or a safeguarding need requires a different period. You may ask to access, correct or delete the personal information Zane holds about you."] },
   ];
-  return <PolicyPage locale={raw} eyebrow={isKu ? "پاراستنی زانیاری" : "Privacy"} title={title[raw]} intro={description[raw]} status={isKu ? "ئاگادارکردنەوەی کاتیی ماڵپەڕ · پێداچوونەوە پێش دەستپێکی فەرمی" : "Interim website notice · to be reviewed before formal launch"} sections={sections} email={site.privacyEmail} />;
+  return <PolicyPage locale={raw} eyebrow={isKu ? "پاراستنی زانیاری" : "Privacy"} title={title[raw]} intro={description[raw]} status={isKu ? "ئاگادارکردنەوەی ماڵپەڕ · نوێکراوەی ئاب ٢٠٢٦" : "Website privacy notice · updated August 2026"} sections={sections} email={site.privacyEmail} />;
 }

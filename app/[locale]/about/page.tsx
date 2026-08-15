@@ -24,7 +24,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <PageHero
         eyebrow={isKu ? "دەربارەی زەنێ" : "About Zane"}
         title={isKu ? "دامەزراوەیەکی تایبەتمەند بۆ ماف و بەشداری." : <>A specialist institution.<br /><em>Built for full participation.</em></>}
-        intro={<p>{isKu ? "زەنێ ڕێکخراوێکی قازانجنەویستە کە بۆ داکۆکیکردن لە ماف و فراوانکردنی دەرفەتی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە کوردستان دادەمەزرێت." : "Zane is a not-for-profit organization being established to advance the rights and opportunities of people with Down syndrome and intellectual disabilities in Kurdistan."}</p>}
+        intro={<p>{isKu ? "زەنێ ڕێکخراوێکی قازانجنەویستە بۆ داکۆکیکردن لە ماف و فراوانکردنی دەرفەتی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە کوردستان." : "Zane is a not-for-profit organization advancing the rights and opportunities of people with Down syndrome and intellectual disabilities in Kurdistan."}</p>}
         aside={<p>{isKu ? "ناوەندی سەرەکی: " : "Based in "}<strong>{tx(site.location, locale)}</strong></p>}
       />
 
@@ -55,15 +55,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <section className="governance-section section-pad section-sand">
         <div className="shell">
-          <SectionHeading eyebrow={isKu ? "بەڕێوەبردن" : "Governance"} title={isKu ? "چاودێری ستراتیژی. جێبەجێکردنی پیشەیی. لێپرسراوێتی ڕوون." : "Strategic oversight. Professional execution. Clear accountability."} text={isKu ? "پەیرەوی ناوخۆ پەیکەرێکی سێ ئاستی دادەنێت بۆ جیاکردنەوەی چاودێری، بڕیاردان و جێبەجێکردنی ڕۆژانە." : "The internal bylaws define a three-level structure that separates oversight, decision-making and daily delivery."} />
+          <SectionHeading eyebrow={isKu ? "بەڕێوەبردن" : "Governance"} title={isKu ? "دەنگی کۆمەڵگا. چاودێریی بەرپرسانە. کاری پیشەیی." : "Community voice. Responsible oversight. Professional practice."} text={isKu ? "بەڕێوەبردنی باش بڕیارەکان ڕوون دەکاتەوە، بەرپرسیارێتی جیادەکاتەوە و مافی ئەو کەسانەی خزمەتیان دەکرێت دەپارێزێت." : "Good governance makes decisions clear, separates responsibilities and protects the rights of the people an organization serves."} />
           <div className="governance-flow">
             {[
-              [isKu ? "دەستەی گشتی" : "General Assembly", isKu ? "بەرزترین دەسەڵات؛ پەسەندکردنی پلان، بودجە، ڕاپۆرت و هەڵبژاردنی سەرکردایەتی." : "Highest authority; approves plans, budgets and reports, and elects leadership."],
-              [isKu ? "دەستەی باوەڕپێکراوان" : "Board of Trustees", isKu ? "چاودێری کار، دارایی و پابەندی بە پەیرەوی ناوخۆ؛ پێشکەشکردنی ڕاوێژ و پێشنیار." : "Oversees performance, finance and bylaw compliance; provides advice and proposals."],
-              [isKu ? "دەستەی بەڕێوەبردن" : "Management Board", isKu ? "بەڕێوەبردنی پرۆژە، کارگێڕی، پەیوەندی، دارایی، یاسا و ڕاهێنان." : "Manages programs, operations, communications, finance, legal affairs and training."],
+              [isKu ? "دەنگی کۆمەڵگا" : "Community voice", isKu ? "ئەزموونی تاک و خێزان ئاراستەی کار و پێشینەکان ڕوون دەکاتەوە." : "The experience of people and families informs priorities and practice."],
+              [isKu ? "چاودێری" : "Oversight", isKu ? "چاودێریی سەربەخۆ بەرپرسیارێتی، پاراستن و پابەندبوون بە بەهاکان بەهێز دەکات." : "Independent oversight strengthens accountability, safeguarding and adherence to values."],
+              [isKu ? "تیمی پیشەیی" : "Professional team", isKu ? "تیمێکی شیاو بەرنامە، پەیوەندی و کارە ڕۆژانەکان بەڕێوە دەبات." : "A qualified team manages programs, partnerships and daily operations."],
             ].map(([heading, body], index) => <article key={heading}><span>0{index + 1}</span><h3>{heading}</h3><p>{body}</p></article>)}
           </div>
-          <div className="governance-note"><p>{isKu ? "پەیرەوی ناوخۆی کوردی بەردەستە. وەشانی ئینگلیزی و پڕۆفایلی بۆرد پێش هاوبەشی دامەزراوەیی بۆ پشکنین ئامادە دەکرێن." : "The Kurdish bylaws are available. An English translation and confirmed board profiles will be prepared for institutional due diligence."}</p><Link className="text-link" href={`/${locale}/transparency`}>{isKu ? "ڕێگای ڕوونکردنەوە ببینە" : "View the transparency roadmap"}<span aria-hidden="true">↗</span></Link></div>
+          <div className="governance-note"><p>{isKu ? "زانیاریی ناسنامەی یاسایی، ڕێگاکانی پاراستن، تایبەتمەندی و سکاڵا لە بەشی بەڕێوەبردن و متمانەدا بەردەستن." : "Public legal information and routes for safeguarding, privacy and complaints are available in Governance & Trust."}</p><Link className="text-link" href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و متمانە" : "Governance and trust"}<span aria-hidden="true">↗</span></Link></div>
         </div>
       </section>
     </>

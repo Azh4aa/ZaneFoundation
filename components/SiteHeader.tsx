@@ -8,7 +8,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     <header className="site-header">
       <div className="utility-bar">
         <div className="shell utility-bar__inner">
-          <p><span className="status-dot" />{tx(site.registrationStatus, locale)}</p>
+          <p><span className="status-dot" />{isKuLabel(locale)}</p>
           <div><span>{tx(site.location, locale)}</span><LanguageSwitch locale={locale} /></div>
         </div>
       </div>
@@ -41,4 +41,8 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       </div>
     </header>
   );
+}
+
+function isKuLabel(locale: Locale) {
+  return locale === "ku" ? "ماف · شکۆ · بەشداری" : "Rights · dignity · participation";
 }

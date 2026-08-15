@@ -1,116 +1,116 @@
 [
   {
-    "slug": "why-kurdistan-needs-specialist-support",
+    "slug": "what-inclusion-looks-like-every-day",
     "date": "2026-08-15",
-    "kind": { "en": "Institutional brief", "ku": "پوختەی دامەزراوەیی" },
-    "title": { "en": "Why specialist support matters in Kurdistan", "ku": "بۆچی پشتگیریی تایبەتمەند لە کوردستان گرنگە" },
+    "kind": { "en": "Perspective", "ku": "تێڕوانین" },
+    "title": { "en": "What inclusion looks like in everyday life", "ku": "گشتگیری لە ژیانی ڕۆژانەدا چۆنە" },
     "excerpt": {
-      "en": "The case for an accountable organization focused on access, education, public understanding and rights.",
-      "ku": "هۆکارەکانی پێویستی بە ڕێکخراوێکی بەرپرس بۆ دەستگەیشتن، پەروەردە، هۆشیاری و ماف."
+      "en": "Inclusion is more than being present. It means having a voice, meaningful choices and a real place in community life.",
+      "ku": "گشتگیری تەنها ئامادەبوون نییە؛ واتە دەنگ، هەڵبژاردن و شوێنێکی ڕاستەقینە لە ژیانی کۆمەڵگادا."
     },
     "readTime": { "en": "4 minute read", "ku": "خوێندنەوەی ٤ خولەک" },
     "sections": [
       {
-        "heading": { "en": "The gap is structural", "ku": "بۆشاییەکە پەیوەندی بە سیستەمەوە هەیە" },
+        "heading": { "en": "Presence is only the beginning", "ku": "ئامادەبوون تەنها دەستپێکە" },
         "body": {
           "en": [
-            "Families need qualified developmental support, reliable information, prepared schools and communities that understand disability through rights rather than pity. Today, access to those things is inconsistent and often depends on income, location or personal networks.",
-            "A specialist foundation can make the gap visible, test practical responses and bring families, professionals, schools, public institutions and funders into one accountable framework."
+            "A child can sit in a classroom and still be excluded from learning, friendship and decision-making. An adult can be present at an event and still have no meaningful role. Inclusion asks a deeper question: can the person participate, contribute and belong?",
+            "That requires attention to communication, physical access, attitudes and the way choices are offered. Small changes in daily practice can remove barriers that once seemed permanent."
           ],
           "ku": [
-            "خێزان پێویستیان بە پشتگیریی پسپۆڕانە، زانیاریی باوەڕپێکراو، قوتابخانەی ئامادە و کۆمەڵگایەک هەیە کە کەمتوانایی لە ڕوانگەی مافەوە ببینێت، نەک بەزەیی. ئێستا دەستگەیشتن بەمانە یەکسان نییە و زۆرجار بە داهات، شوێنی ژیان یان پەیوەندیی کەسییەوە بەستراوەتەوە.",
-            "فاوندەیشنێکی تایبەتمەند دەتوانێت بۆشاییەکان ڕوون بکاتەوە، وەڵامی کرداری تاقی بکاتەوە و خێزان، پسپۆڕ، قوتابخانە، دامەزراوەی گشتی و فەندەر لە چوارچێوەیەکی بەرپرسانەدا کۆبکاتەوە."
+            "منداڵێک دەتوانێت لە پۆلدا دابنیشێت، بەڵام لە فێربوون، هاوڕێیەتی و بڕیاردان بەشدار نەبێت. گەورەیەک دەتوانێت لە چالاکییەکدا ئامادە بێت، بەڵام هیچ ڕۆڵێکی بەواتای نەبێت. گشتگیری پرسیارێکی قووڵتر دەکات: ئایا تاک دەتوانێت بەشداربێت، بەرهەم بهێنێت و هەست بە خۆماڵی بکات؟",
+            "ئەمە پێویستی بە سەرنج لە پەیوەندی، دەستگەیشتن، هەڵسوکەوت و شێوازی پێشکەشکردنی هەڵبژاردن هەیە. گۆڕانی بچووک لە پراکتیسی ڕۆژانەدا دەتوانێت کۆسپێک لاببات کە پێشتر هەمیشەیی دیار بوو."
           ]
         }
       },
       {
-        "heading": { "en": "What Zane will contribute", "ku": "زەنێ چی زیاد دەکات" },
+        "heading": { "en": "Belonging is shared work", "ku": "هەست بە خۆماڵی کارێکی هاوبەشە" },
         "body": {
           "en": [
-            "Zane’s first program architecture connects early developmental support with trusted family guidance, inclusive education and public advocacy. Each platform has a defined purpose, delivery standard and measurement plan.",
-            "The organization is being registered and its programs are still in preparation. That status matters: proposed targets must never be presented as completed impact, and services must never be advertised before safeguarding, funding and qualified delivery are in place."
+            "Families should not have to carry inclusion alone. Schools, health professionals, employers, media, public institutions and neighbours all influence whether a person is welcomed and respected.",
+            "The most useful starting point is simple: listen to the person, ask what support helps and make room for contribution—not only care."
           ],
           "ku": [
-            "بەرنامە سەرەتاییەکانی زەنێ پشتگیریی گەشەپێدانی زوو بە ڕێنماییی باوەڕپێکراوی خێزان، پەروەردەی گشتگیر و داکۆکیی گشتی پەیوەست دەکەن. هەر بەرنامەیەک ئامانج، پێوەری جێبەجێکردن و پلانی پێوانەکردنی تایبەتی هەیە.",
-            "ڕێکخراوەکە لە قۆناغی تۆمارکردندایە و بەرنامەکان هێشتا لە ئامادەکردندان. ئەم دۆخە گرنگە: تارگێتی پێشنیازکراو نابێت وەک کاریگەریی بەدیهاتوو پیشان بدرێت و هیچ خزمەتگوزارییەک نابێت پێش ئامادەبوونی پاراستن، بودجە و تیمی شیاو ڕابگەیەنرێت."
+            "خێزان نابێت بە تەنها بەرپرسیاریی گشتگیری هەڵبگرێت. قوتابخانە، پسپۆڕی تەندروستی، خاوەنکار، میدیا، دامەزراوەی گشتی و دراوسێ هەموویان کاریگەرییان هەیە لەسەر ئەوەی تاک چۆن پێشوازی و ڕێزی لێ بگیرێت.",
+            "باشترین دەستپێک سادەیە: گوێ لە تاک بگرە، بپرسە چ پشتگیرییەک یارمەتیدەرە و تەنها شوێن بۆ چاودێری نەکە، بەڵکو شوێن بۆ بەشداری و بەرهەمهێنان دروست بکە."
           ]
         }
       }
     ]
   },
   {
-    "slug": "how-zane-will-measure-progress",
+    "slug": "early-support-begins-with-listening",
     "date": "2026-08-15",
-    "kind": { "en": "Learning brief", "ku": "پوختەی فێربوون" },
-    "title": { "en": "How Zane will measure progress", "ku": "زەنێ چۆن پێشکەوتن دەپێوێت" },
+    "kind": { "en": "Family guidance", "ku": "ڕێنماییی خێزان" },
+    "title": { "en": "Early support begins with listening", "ku": "پشتگیریی زوو لە گوێگرتنەوە دەست پێدەکات" },
     "excerpt": {
-      "en": "A credible foundation reports more than activity. Zane will distinguish reach, quality and meaningful change.",
-      "ku": "ڕێکخراوێکی باوەڕپێکراو تەنها چالاکی ناژمێرێت؛ دەستگەیشتن، کوالێتی و گۆڕانی ڕاستەقینە لێک جیادەکاتەوە."
+      "en": "Good support responds to the whole child and the priorities of the family—not to a diagnosis alone.",
+      "ku": "پشتگیریی باش وەڵامی تەواوی منداڵ و پێشینەکانی خێزان دەداتەوە؛ نەک تەنها دەستنیشانکردنێک."
     },
-    "readTime": { "en": "5 minute read", "ku": "خوێندنەوەی ٥ خولەک" },
+    "readTime": { "en": "4 minute read", "ku": "خوێندنەوەی ٤ خولەک" },
     "sections": [
       {
-        "heading": { "en": "Activity is not impact", "ku": "چالاکی هەمان کاریگەری نییە" },
+        "heading": { "en": "Start with the child in front of you", "ku": "لەو منداڵەوە دەست پێبکە کە لەبەردەمتە" },
         "body": {
           "en": [
-            "Therapy hours, enquiries and campaign reach show whether a program delivered activity. They do not, by themselves, show whether support was safe, whether families felt respected or whether a person’s opportunities expanded.",
-            "Zane will therefore report outputs and outcomes separately. Outputs show delivery. Outcomes show the quality and change experienced by people, families, schools and communities."
+            "Children with the same diagnosis can communicate, learn, move and respond in very different ways. A useful support plan starts with the individual child: what they enjoy, how they communicate and what helps them feel secure enough to try.",
+            "Families bring essential knowledge. Professionals bring specialist skills. The strongest relationship treats both forms of knowledge with respect."
           ],
           "ku": [
-            "کاتژمێری پشتگیری، ژمارەی پرسیار و دەستگەیشتنی کەمپەین نیشان دەدەن بەرنامەکە چالاکیی جێبەجێ کردووە. بەڵام بە تەنها نیشان نادەن پشتگیرییەکە پارێزراو بووە، خێزان بە ڕێزەوە مامەڵەی لەگەڵ کراوە یان دەرفەتی تاکێک فراوانتر بووە.",
-            "بۆیە زەنێ دەرچوون و دەرئەنجام بە جیا ڕادەگەیەنێت. دەرچوون جێبەجێکردن پیشان دەدات؛ دەرئەنجام کوالێتی و گۆڕانی ئەزموونکراو لەلایەن تاک، خێزان، قوتابخانە و کۆمەڵگاوە."
+            "منداڵانی خاوەن هەمان دەستنیشانکردن دەتوانن بە شێوازی زۆر جیاواز پەیوەندی بکەن، فێرببن، بجوڵێن و وەڵام بدەنەوە. پلانی پشتگیریی سوودبەخش لە منداڵەکە خۆیەوە دەست پێدەکات: چی خۆشدەوێت، چۆن پەیوەندی دەکات و چی یارمەتی دەدات هەست بە ئارامی بکات و هەوڵ بدات.",
+            "خێزان زانیاریی گرنگی هەیە؛ پسپۆڕیش شارەزاییی تایبەتی هەیە. باشترین پەیوەندی هەردوو جۆرە زانیارییەکە بە ڕێزەوە وەردەگرێت."
           ]
         }
       },
       {
-        "heading": { "en": "Evidence with context", "ku": "بەڵگە لەگەڵ بارودۆخ" },
+        "heading": { "en": "Questions families can ask", "ku": "ئەو پرسیارانەی خێزان دەتوانێت بیکات" },
         "body": {
           "en": [
-            "The founding plan sets proposed year-one targets. They are management ambitions, not achievements to advertise before delivery begins.",
-            "Future reporting will combine financial data, program indicators, safeguarding information, feedback and carefully consented accounts. If progress is slower than planned, the reason and corrective action belong in the report too."
+            "Ask a professional how goals are chosen, how progress is explained, how the family can take part and what happens if an approach does not feel right. Clear answers are part of respectful support.",
+            "A family should also feel able to ask for simpler language, more time, a second opinion or a different approach. Partnership includes room to question."
           ],
           "ku": [
-            "پلانی دامەزراندن تارگێتی پێشنیازکراوی ساڵی یەکەم دادەنێت. ئەمانە ئامانجی بەڕێوەبردنن، نەک دەستکەوت بۆ ڕاگەیاندن پێش دەستپێکردنی کار.",
-            "ڕاپۆرتی داهاتوو داتای دارایی، نیشانەکانی بەرنامە، زانیاریی پاراستن، فیدباک و چیرۆکی بە ڕەزامەندی پێکەوە دەبەستێتەوە. ئەگەر پێشکەوتن لە پلان هێواشتر بوو، هۆکار و هەنگاوی چاککردنەوەش دەبێت لە ڕاپۆرتدا بێت."
+            "لە پسپۆڕ بپرسە ئامانجەکان چۆن هەڵدەبژێردرێن، پێشکەوتن چۆن ڕووندەکرێتەوە، خێزان چۆن بەشدار دەبێت و ئەگەر شێوازێک گونجاو نەبوو چی دەکرێت. وەڵامی ڕوون بەشێکە لە پشتگیریی بەڕێز.",
+            "خێزان دەبێت بتوانێت داوای زمانی سادەتر، کاتی زیاتر، ڕای دووەم یان شێوازێکی تر بکات. هاوبەشی شوێن بۆ پرسیارکردنیش دەگرێتەوە."
           ]
         }
       }
     ]
   },
   {
-    "slug": "inside-zanes-first-program-platforms",
+    "slug": "language-can-open-or-close-doors",
     "date": "2026-08-15",
-    "kind": { "en": "Program brief", "ku": "پوختەی بەرنامە" },
-    "title": { "en": "Inside Zane’s first program platforms", "ku": "ناوەڕۆکی بەرنامە سەرەتاییەکانی زەنێ" },
+    "kind": { "en": "Public awareness", "ku": "هۆشیاریی گشتی" },
+    "title": { "en": "Language can open—or close—doors", "ku": "زمان دەتوانێت دەرگا بکاتەوە یان دایبخات" },
     "excerpt": {
-      "en": "Four connected responses: early support, family guidance, inclusive education and public advocacy.",
-      "ku": "چوار وەڵامی پەیوەست: پشتگیریی زوو، ڕێنماییی خێزان، پەروەردەی گشتگیر و داکۆکیی گشتی."
+      "en": "The words used about disability shape expectations, relationships and the opportunities people are offered.",
+      "ku": "ئەو وشانەی بۆ کەمتوانایی بەکاردێن کاریگەری لەسەر چاوەڕوانی، پەیوەندی و دەرفەتەکان هەیە."
     },
-    "readTime": { "en": "4 minute read", "ku": "خوێندنەوەی ٤ خولەک" },
+    "readTime": { "en": "3 minute read", "ku": "خوێندنەوەی ٣ خولەک" },
     "sections": [
       {
-        "heading": { "en": "Support across the system", "ku": "پشتگیری لە ئاستی سیستەمدا" },
+        "heading": { "en": "See the person first", "ku": "یەکەم کەسەکە ببینە" },
         "body": {
           "en": [
-            "Early Steps is designed to improve access to qualified speech, occupational and physical therapy. The Family Resource Line will give families one trusted point for verified information and responsible referral.",
-            "My Classroom will help teachers turn inclusion into everyday practice. More Alike Than Different will address public language, representation and expectations through a rights-led annual campaign."
+            "No person is fully described by a diagnosis. People have names, preferences, humour, relationships, skills and ambitions. Respectful language leaves room for that full identity.",
+            "Different people may prefer different words. When possible, ask the person or family what language they use and follow their preference."
           ],
           "ku": [
-            "هەنگاوەکانی سەرەتا بۆ باشترکردنی دەستگەیشتن بە پشتگیریی ئاخاوتن، پیشەیی و جەستەیی دیزاین کراوە. هێڵی سەرچاوەی خێزان خاڵێکی باوەڕپێکراو بۆ زانیاریی پشتڕاستکراو و ڕەوانەکردنی بەرپرسانە دابین دەکات.",
-            "پۆلەکەم یارمەتی مامۆستایان دەدات گشتگیری بکەنە پراکتیسی ڕۆژانە. «لێکچوونمان زیاترە لە جیاوازیمان» لە ڕێگەی کەمپەینێکی ساڵانەی مافەوە کار لەسەر زمان، نوێنەرایەتی و چاوەڕوانیی کۆمەڵگا دەکات."
+            "هیچ کەسێک تەنها بە دەستنیشانکردنێک تەواو وەسف ناکرێت. خەڵک ناو، ئارەزوو، تەنز، پەیوەندی، لێهاتوویی و ئاواتیان هەیە. زمانی بەڕێز شوێن بۆ ئەو ناسنامە تەواوە جێدەهێڵێت.",
+            "کەسانی جیاواز لەوانەیە وشەی جیاواز پەسەند بکەن. کاتێک دەکرێت، لە تاک یان خێزان بپرسە چ زمانێک بەکاردەهێنن و ڕێز لە هەڵبژاردنیان بگرە."
           ]
         }
       },
       {
-        "heading": { "en": "Launch only when ready", "ku": "دەستپێکردن تەنها دوای ئامادەبوون" },
+        "heading": { "en": "Move beyond pity", "ku": "لە بەزەیی تێپەڕە" },
         "body": {
           "en": [
-            "Every platform requires qualified leadership, a costed delivery model, safeguarding procedures, referral standards and an agreed way to collect feedback before it opens to the public.",
-            "Zane will publish launch notices, eligibility information and service limitations clearly. Until then, the website describes planned work rather than implying that a service is already available."
+            "Stories that show only suffering or inspiration can flatten a person into a message for someone else. Better representation includes ordinary life, real choices, contribution and complexity.",
+            "The aim is not to pretend barriers do not exist. It is to name the barrier accurately without turning the person into the problem."
           ],
           "ku": [
-            "هەر بەرنامەیەک پێش کردنەوە بۆ خەڵک پێویستی بە سەرکردایەتیی شیاو، مۆدێلی خەرجیی جێبەجێکردن، ڕێکاری پاراستن، پێوەری ڕەوانەکردن و شێوازی کۆکردنەوەی فیدباک هەیە.",
-            "زەنێ بەرواری دەستپێک، مەرجی بەشداری و سنووری خزمەتگوزاری بە ڕوونی بڵاودەکاتەوە. تا ئەو کاتە، ماڵپەڕەکە باسی کاری پلانکراو دەکات و وا پیشان نادات کە خزمەتگوزارییەک پێشتر بەردەستە."
+            "چیرۆکێک کە تەنها ئازار یان سەرسوڕمان پیشان دەدات دەتوانێت تاک بکاتە پەیامێک بۆ کەسانی تر. نوێنەرایەتیی باش ژیانی ئاسایی، هەڵبژاردنی ڕاستەقینە، بەشداری و ئاڵۆزییەکانیش پیشان دەدات.",
+            "ئامانج ئەوە نییە بڵێین کۆسپ نییە؛ ئامانج ئەوەیە کۆسپەکە بە دروستی ناوببرێت، بەبێ ئەوەی تاکەکە خۆی بکرێتە کێشە."
           ]
         }
       }

@@ -18,8 +18,8 @@ export default async function AccessibilityPage({ params }: { params: Promise<{ 
   ] : [
     { title: "Our aim", paragraphs: ["The site is designed to support keyboard navigation, screen readers and text enlargement, with visible focus, meaningful structure and sufficient color contrast."] },
     { title: "Measures included", items: ["Correct language and text direction for Kurdish and English", "Structured headings and labelled form controls", "A skip link to the main content", "Visible keyboard focus", "Reduced motion support for users who request it"] },
-    { title: "Known limitations", paragraphs: ["Future documents may be published as PDFs and will need an accessibility review. Kurdish copy should receive final review by a professional Kurdish-language editor before the formal public launch."] },
+    { title: "Known limitations", paragraphs: ["Some documents may be published as PDFs and need an accessibility review. Kurdish copy is reviewed and improved as language feedback is received."] },
     { title: "Report a barrier", paragraphs: ["Tell us the page, the task you could not complete and any assistive technology you use. We will aim to provide an alternative format and correct the underlying issue."] },
   ];
-  return <PolicyPage locale={raw} eyebrow={isKu ? "دەستگەیشتن" : "Accessibility"} title={title[raw]} intro={description[raw]} status={isKu ? "بەیاننامەی کاتی · پشکنینی فەرمی پێش دەستپێک" : "Interim statement · formal audit planned before launch"} sections={sections} email={site.email} />;
+  return <PolicyPage locale={raw} eyebrow={isKu ? "دەستگەیشتن" : "Accessibility"} title={title[raw]} intro={description[raw]} status={isKu ? "بەیاننامەی ماڵپەڕ · نوێکراوەی ئاب ٢٠٢٦" : "Website accessibility statement · updated August 2026"} sections={sections} email={site.email} />;
 }
