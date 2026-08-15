@@ -27,7 +27,7 @@ export function OpportunityForm({ locale, kind }: { locale: Locale; kind: FormKi
       if (!response.ok) throw new Error(result.message || "Submission failed");
       form.reset();
       setStatus("success");
-      setMessage(isKu ? "زانیارییەکانت گەیشت. سوپاس بۆ حەزت بە بەشداری." : "Your details have been received. Thank you for stepping forward.");
+      setMessage(isKu ? "زانیارییەکانت گەیشتن. سوپاس بۆ بەشدارییەکەت." : "Your details have been received. Thank you for stepping forward.");
     } catch {
       setStatus("error");
       setMessage(isKu ? "ناردن سەرکەوتوو نەبوو. تکایە دووبارە هەوڵ بدەوە یان ڕاستەوخۆ ئیمەیڵ بنێرە." : "The form could not be sent. Please try again or use the direct email shown below.");
@@ -56,8 +56,8 @@ export function OpportunityForm({ locale, kind }: { locale: Locale; kind: FormKi
     <form className="opportunity-form" onSubmit={submit}>
       <div className="form-heading">
         <span>{kind === "volunteer" ? "VOL–01" : "CAR–01"}</span>
-        <h2>{kind === "volunteer" ? (isKu ? "تۆماری حەزی خۆبەخشی" : "Volunteer expression of interest") : (isKu ? "تۆماری حەزی کارکردن" : "Career expression of interest")}</h2>
-        <p>{isKu ? "خانە نیشانکراوەکان پێویستن. زانیاریی تەندروستی یان هەستیاری کەسی مەنووسە." : "Marked fields are required. Do not include medical or other sensitive personal information."}</p>
+        <h2>{kind === "volunteer" ? (isKu ? "فۆڕمی بەشداری وەک خۆبەخش" : "Volunteer expression of interest") : (isKu ? "فۆڕمی حەزی کارکردن لە زەنێ" : "Career expression of interest")}</h2>
+        <p>{isKu ? "ئەو خانانەی نیشانەی * یان لەسەرە پێویستن. تکایە زانیاریی تەندروستی یان زانیاریی کەسیی هەستیار مەنووسە." : "Marked fields are required. Do not include medical or other sensitive personal information."}</p>
       </div>
 
       <div className="form-grid">
@@ -65,8 +65,8 @@ export function OpportunityForm({ locale, kind }: { locale: Locale; kind: FormKi
         <label><span>{isKu ? "ئیمەیڵ" : "Email"} *</span><input name="email" type="email" autoComplete="email" required maxLength={180} /></label>
         <label><span>{isKu ? "ژمارەی مۆبایل" : "Phone number"}</span><input name="phone" type="tel" autoComplete="tel" maxLength={40} /></label>
         <label><span>{isKu ? "شار / ناوچە" : "City / region"} *</span><input name="city" autoComplete="address-level2" required maxLength={100} /></label>
-        <label className="form-field--wide"><span>{kind === "volunteer" ? (isKu ? "بواری حەز" : "Area of interest") : (isKu ? "بواری پسپۆڕی" : "Professional area")} *</span><select name="area" required defaultValue=""><option value="" disabled>{isKu ? "هەڵبژێرە" : "Select one"}</option>{areas.map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
-        <label><span>{kind === "volunteer" ? (isKu ? "کاتی بەردەست" : "Availability") : (isKu ? "دۆخی کارکردن" : "Work preference")}</span><select name="availability" defaultValue=""><option value="">{isKu ? "هەڵبژێرە" : "Select one"}</option><option value="part-time">{isKu ? "بەشێک لە کات" : "Part-time"}</option><option value="full-time">{isKu ? "تەواوی کات" : "Full-time"}</option><option value="project">{isKu ? "بەپێی پرۆژە" : "Project-based"}</option><option value="flexible">{isKu ? "گونجاو" : "Flexible"}</option></select></label>
+        <label className="form-field--wide"><span>{kind === "volunteer" ? (isKu ? "بواری بەشداری" : "Area of interest") : (isKu ? "بواری پسپۆڕی" : "Professional area")} *</span><select name="area" required defaultValue=""><option value="" disabled>{isKu ? "یەکێک هەڵبژێرە" : "Select one"}</option>{areas.map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
+        <label><span>{kind === "volunteer" ? (isKu ? "کاتی بەردەست" : "Availability") : (isKu ? "شێوازی کارکردن" : "Work preference")}</span><select name="availability" defaultValue=""><option value="">{isKu ? "یەکێک هەڵبژێرە" : "Select one"}</option><option value="part-time">{isKu ? "نیوەکات" : "Part-time"}</option><option value="full-time">{isKu ? "تەواوکات" : "Full-time"}</option><option value="project">{isKu ? "بەپێی پرۆژە" : "Project-based"}</option><option value="flexible">{isKu ? "کاتی گونجاو" : "Flexible"}</option></select></label>
         <label><span>{isKu ? "لینکدئین / پۆرتفۆلیۆ" : "LinkedIn / portfolio"}</span><input name="website" type="url" inputMode="url" placeholder="https://" maxLength={300} /></label>
         <label className="form-field--wide"><span>{kind === "volunteer" ? (isKu ? "چۆن دەتوانیت بەشداربیت؟" : "How would you like to contribute?") : (isKu ? "کورتەیەک دەربارەی ئەزموونت" : "Briefly describe your relevant experience")} *</span><textarea name="message" rows={6} required minLength={40} maxLength={1600} /></label>
         <label className="honeypot" aria-hidden="true"><span>Company website</span><input name="company_website" tabIndex={-1} autoComplete="off" /></label>
@@ -75,7 +75,7 @@ export function OpportunityForm({ locale, kind }: { locale: Locale; kind: FormKi
       <label className="consent-row"><input name="consent" type="checkbox" required /><span>{isKu ? "ڕەزامەندم زەنێ ئەم زانیارییانە بۆ پێداچوونەوە و پەیوەندیکردن بەکاربهێنێت. سیاسەتی پاراستنی زانیاریم خوێندووەتەوە." : "I agree that Zane may use this information to review my interest and contact me. I have read the privacy notice."}</span></label>
 
       <div className="form-submit-row">
-        <button className="button button--gold button--arrow" disabled={status === "sending"} type="submit">{status === "sending" ? (isKu ? "دەنێردرێت..." : "Sending...") : (isKu ? "زانیارییەکان بنێرە" : "Submit expression of interest")}<span>↗</span></button>
+        <button className="button button--gold button--arrow" disabled={status === "sending"} type="submit">{status === "sending" ? (isKu ? "دەنێردرێت..." : "Sending...") : (isKu ? "فۆڕمەکە بنێرە" : "Submit expression of interest")}<span>↗</span></button>
         <p aria-live="polite" className={`form-status form-status--${status}`}>{message}</p>
       </div>
     </form>

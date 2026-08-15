@@ -56,7 +56,7 @@ export async function POST(request: Request) {
     ["Type", kind], ["Name", name], ["Email", email], ["Phone", phone || "—"], ["City / region", city], ["Area", area],
     ["Availability", availability || "—"], ["LinkedIn / portfolio", website || "—"], ["Language", locale || "—"], ["Message", note],
   ];
-  const html = `<div style="font-family:Arial,sans-serif;max-width:680px;color:#18342d"><h1 style="font-size:24px">New Zane ${escapeHtml(kind)} expression of interest</h1>${rows.map(([label, value]) => `<p style="border-top:1px solid #d8d4c7;padding:12px 0;margin:0"><strong>${escapeHtml(label)}</strong><br>${escapeHtml(value).replace(/\n/g, "<br>")}</p>`).join("")}</div>`;
+  const html = `<div style="font-family:Arial,sans-serif;max-width:680px;color:#0D1B3D"><div style="border-top:6px solid #D4A72C;background:#0D1B3D;color:#F6F3E7;padding:28px"><p style="margin:0 0 8px;color:#D4A72C;font-size:12px;letter-spacing:2px">ZANE FOUNDATION</p><h1 style="font-size:24px;margin:0">New ${escapeHtml(kind)} expression of interest</h1></div><div style="padding:4px 28px 28px;background:#F6F3E7">${rows.map(([label, value]) => `<p style="border-top:1px solid #C9D1DA;padding:12px 0;margin:0"><strong>${escapeHtml(label)}</strong><br>${escapeHtml(value).replace(/\n/g, "<br>")}</p>`).join("")}</div></div>`;
   const text = rows.map(([label, value]) => `${label}: ${value}`).join("\n\n");
 
   try {

@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) return {};
   return {
     description: locale === "en"
-      ? "A rights-led foundation advancing dignity, inclusion and opportunity for people with Down syndrome and intellectual disabilities in Kurdistan and Iraq."
-      : "فاوندەیشنێک لەسەر بنەمای ماف بۆ بەرەوپێشبردنی شکۆ، گشتگیری و دەرفەت بۆ کەسانی داون سیندرۆم و کەم توانایی ژیری لە کوردستان و عێراق.",
+      ? "A foundation advancing opportunity, dignity and lifelong support for people with Down syndrome in Kurdistan and Iraq."
+      : "فاوندەیشنی زەنێ بۆ پشتیوانی و داکۆکیکردن لە کەسانی خاوەن سندرۆمی داون کار دەکات، بۆ ئەوەی ببنە بەشێکی تەواو و بەهادار لە کۆمەڵگا.",
     alternates: {
       canonical: `${site.url}/${locale}`,
       languages: { en: `${site.url}/en`, ku: `${site.url}/ku` },
@@ -35,4 +35,3 @@ export default async function LocaleLayout({ children, params }: Readonly<{ chil
     </div>
   );
 }
-

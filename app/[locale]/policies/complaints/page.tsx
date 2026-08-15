@@ -4,8 +4,8 @@ import { PolicyPage } from "@/components/PolicyPage";
 import { makePageMetadata } from "@/lib/metadata";
 import { isLocale, site } from "@/lib/site";
 
-const title = { en: "Complaints & feedback", ku: "سکاڵا و فیدباک" };
-const description = { en: "How to raise a concern, make a complaint or provide feedback to Zane Foundation.", ku: "چۆنیەتی ناردنی نیگەرانی، سکاڵا یان فیدباک بۆ فاوندەیشنی زەنێ." };
+const title = { en: "Complaints & feedback", ku: "سکاڵا و تێبینی" };
+const description = { en: "How to raise a concern, make a complaint or provide feedback to Zane Foundation.", ku: "چۆنیەتی گەیاندنی نیگەرانی، سکاڵا یان تێبینی بە فاوندەیشنی زەنێ." };
 export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { return makePageMetadata(params, title, description, "/policies/complaints"); }
 
 export default async function ComplaintsPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -21,5 +21,5 @@ export default async function ComplaintsPage({ params }: { params: Promise<{ loc
     { title: "How Zane responds", paragraphs: ["Zane acknowledges complaints, assigns an appropriate reviewer and explains the review timeline. Findings and corrective actions are documented."] },
     { title: "Safeguarding concerns", paragraphs: ["If the matter concerns the safety of a child or adult at risk, use the dedicated safeguarding address. If someone is in immediate danger, contact the appropriate local emergency service."] },
   ];
-  return <PolicyPage locale={raw} eyebrow={isKu ? "گوێگرتن و لێپرسراوێتی" : "Listening and accountability"} title={title[raw]} intro={description[raw]} status={isKu ? "ڕێگای فیدباک · نوێکراوەی ئاب ٢٠٢٦" : "Public feedback route · updated August 2026"} sections={sections} email={site.complaintsEmail} />;
+  return <PolicyPage locale={raw} eyebrow={isKu ? "گوێگرتن و لێپرسراوێتی" : "Listening and accountability"} title={title[raw]} intro={description[raw]} status={isKu ? "ڕێگای تێبینی و سکاڵا · نوێکراوەی ئاب ٢٠٢٦" : "Public feedback route · updated August 2026"} sections={sections} email={site.complaintsEmail} />;
 }

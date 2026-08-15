@@ -13,7 +13,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const locale = raw; const isKu = locale === "ku";
   const contacts = [
     [isKu ? "پرسیاری گشتی و میدیا" : "General & media", site.email, isKu ? "بۆ پرسیاری گشتی، میدیا و زانیاریی ماڵپەڕ." : "General enquiries, media and website information."],
-    [isKu ? "هاوبەشی" : "Partnerships", site.partnershipsEmail, isKu ? "بۆ فەندەر، دامەزراوە، کۆمپانیا و هاوبەشیی تەکنیکی." : "For funders, institutions, companies and technical partners."],
+    [isKu ? "هاوبەشی" : "Partnerships", site.partnershipsEmail, isKu ? "بۆ پشتگیر، ڕێکخراو، کۆمپانیا و هاوبەشیی تەکنیکی." : "For funders, institutions, companies and technical partners."],
     [isKu ? "خۆبەخشی" : "Volunteering", site.volunteerEmail, isKu ? "بۆ پرسیار دەربارەی تۆڕی خۆبەخشان." : "Questions about the volunteer network."],
     [isKu ? "هەلی کار" : "Careers", site.careersEmail, isKu ? "بۆ ڕۆڵە بڵاوکراوەکان و هەلی داهاتوو." : "Published roles and future opportunities."],
   ];

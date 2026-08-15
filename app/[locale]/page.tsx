@@ -11,18 +11,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   const paths = [
     {
-      label: isKu ? "بۆ خێزان" : "For families",
-      title: isKu ? "زانیاری و ڕێنماییی ڕوون" : "Clear information and guidance",
+      label: isKu ? "بۆ خێزانەکان" : "For families",
+      title: isKu ? "زانیاریی ڕوون و ڕێنماییی کرداری" : "Clear information and guidance",
       href: `/${locale}/resources`,
     },
     {
       label: isKu ? "بۆ قوتابخانە و پسپۆڕان" : "For schools & professionals",
-      title: isKu ? "هاوکاری بۆ گشتگیری" : "Work together for inclusion",
+      title: isKu ? "پێکەوە کار بکەین بۆ گشتگیری" : "Work together for inclusion",
       href: `/${locale}/programs`,
     },
     {
       label: isKu ? "بۆ پشتیوانان" : "For supporters",
-      title: isKu ? "کات و شارەزاییت بەشدار بکە" : "Give time, expertise or support",
+      title: isKu ? "کات، شارەزایی یان پشتگیریت بەشدار بکە" : "Give time, expertise or support",
       href: `/${locale}/get-involved`,
     },
   ];
@@ -32,22 +32,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="clarity-hero">
         <div className="shell clarity-hero__grid">
           <div className="clarity-hero__copy">
-            <p className="eyebrow">{isKu ? "داون سیندرۆم · کوردستان" : "Down syndrome · Kurdistan"}</p>
+            <p className="eyebrow">{isKu ? "توانا · شکۆ · دەرفەت" : "Potential · Dignity · Possibility"}</p>
             <h1>
               {isKu ? (
-                <>هەر کەسێک شایەنی <em>دەرفەتی گەشەکردنە.</em></>
+                <>هەموو کەسێک شایەنی <em>دەرفەتی گەشە کردنە.</em></>
               ) : (
-                <>Every person deserves <em>room to grow.</em></>
+                <>Everyone deserves <em>the opportunity to grow.</em></>
               )}
             </h1>
             <p className="clarity-hero__intro">
               {isKu
-                ? "زەنێ لەگەڵ کەسانی خاوەن داون سیندرۆم، خێزان، قوتابخانە و کۆمەڵگا کار دەکات؛ بۆ ئەوەی پشتگیری بە ئاسانی بگات و بەشداری ببێتە بەشێکی ئاسایی ژیان."
-                : "Zane works with people with Down syndrome, their families, schools and communities—so support is easier to find and belonging becomes part of everyday life."}
+                ? "فاوندەیشنی زەنێ کار دەکات بۆ ئەوەی کەسانی خاوەن سندرۆمی داون پشتگیری بکرێن، بەشدار بن و بڕیار لەسەر ژیانی خۆیان بدەن؛ لە ماڵەوە تا قوتابخانە و کار و کۆمەڵگا."
+                : "Zane Foundation works so people with Down syndrome are supported, included and able to shape their own lives—at home, at school, at work and in the community."}
             </p>
             <div className="clarity-hero__actions">
               <Link className="button button--dark" href={`/${locale}/programs`}>
-                {isKu ? "کارەکانمان ببینە" : "See what we do"}<span aria-hidden="true">↗</span>
+                {isKu ? "بزانە چۆن کار دەکەین" : "See what we do"}<span aria-hidden="true">↗</span>
               </Link>
               <Link className="quiet-link" href={`/${locale}/resources`}>
                 {isKu ? "سەرچاوەی خێزان" : "Family resources"}<span aria-hidden="true">→</span>
@@ -56,9 +56,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <aside className="clarity-hero__field" aria-label={isKu ? "بەهاکانی زەنێ" : "Zane values"}>
-            <Image src="/brand/zane-mark.png" alt="" width={280} height={330} priority />
-            <blockquote>{isKu ? "بەشداری زیادە نییە؛ مافە." : "Belonging is not an extra. It is a right."}</blockquote>
-            <p>{isKu ? "ماف · دەرفەت · بەشداری" : "RIGHTS · OPPORTUNITY · BELONGING"}</p>
+            <Image src="/brand/zane-mark-v2.png" alt="" width={360} height={380} priority />
+            <blockquote>{isKu ? "گشتگیری خەڵات نییە؛ مافە." : "Inclusion is not a gift. It is a right."}</blockquote>
+            <p>{isKu ? "لە عێراق ڕەگمان داکوتاوە · بەڕووی هەموو دەرفەتێکدا کراوەین" : "ROOTED IN IRAQ · OPEN TO EVERY POSSIBILITY"}</p>
           </aside>
         </div>
       </section>
@@ -79,11 +79,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="shell home-work__intro">
           <div>
             <p className="eyebrow">{isKu ? "کارەکانمان" : "Our work"}</p>
-            <h2>{isKu ? "پشتگیری لە چوار شوێنی گرنگی ژیاندا." : "Support where life happens."}</h2>
+            <h2>{isKu ? "پشتگیری لەو شوێنانەی ژیان تێیاندا بەڕێوەدەچێت." : "Support where life happens."}</h2>
           </div>
           <p>
             {isKu
-              ? "لە یەکەم هەنگاوەکانی گەشەوە تا پۆل و کۆمەڵگا، کارەکانمان لەسەر نیاز و توانای تاک دادەمەزرێن."
+              ? "لە یەکەم ساڵەکانی گەشەکردنەوە تا قوتابخانە و کۆمەڵگا، لە توانا، پێداویستی و هەڵبژاردنی هەموو کەسێک دەست پێدەکەین."
               : "From early development to the classroom and the wider community, our work begins with each person’s strengths, needs and choices."}
           </p>
         </div>
@@ -105,7 +105,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <p className="eyebrow eyebrow--gold">{isKu ? "باوەڕمان" : "What we believe"}</p>
           <blockquote>
             {isKu
-              ? "ژیانێکی باش بەوە ناپێورێت کە کەسێک تا چەند لەگەڵ پێوەرێک دەگونجێت؛ بە هەڵبژاردن، پشتگیری، پەیوەندی و دەرفەتی بەشداری دروست دەبێت."
+              ? "ژیانێکی باش بەوە ناپێورێت کە کەسێک چەند لە پێوەرە باوەکان دەچێت؛ بە هەڵبژاردن، پشتگیری، پەیوەندی و دەرفەتی بەشداری پێکدێت."
               : "A good life is not measured by how closely someone fits a standard. It is shaped by choice, support, relationships and the chance to take part."}
           </blockquote>
           <Link className="quiet-link quiet-link--light" href={`/${locale}/about`}>
@@ -118,12 +118,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="shell home-standard__grid">
           <div>
             <p className="eyebrow">{isKu ? "بەڵێنمان" : "Our standard"}</p>
-            <h2>{isKu ? "ڕێز لە هەر بڕیارێکدا." : "Respect in every decision."}</h2>
+            <h2>{isKu ? "ڕێز لە هەموو بڕیارێکدا." : "Respect in every decision."}</h2>
           </div>
           <div className="standard-list">
-            <p>{isKu ? "سەلامەتی و پاراستن پێش هەموو شتێک" : "Safety and safeguarding come first"}</p>
-            <p>{isKu ? "زمان و نوێنەرایەتی بە ڕەزامەندی" : "Language and representation require consent"}</p>
-            <p>{isKu ? "بەڵێن و ئەنجام بە ڕوونی جیادەکرێنەوە" : "Promises and verified results stay distinct"}</p>
+            <p>{isKu ? "سەلامەتی و پاراستن هەمیشە لە پێشەوەن" : "Safety and safeguarding come first"}</p>
+            <p>{isKu ? "چیرۆک و وێنە تەنها بە ڕەزامەندی بڵاودەکرێنەوە" : "Stories and images are shared only with consent"}</p>
+            <p>{isKu ? "تەنها ئەنجامی پشتڕاستکراو بڵاودەکەینەوە" : "We publish only what can be verified"}</p>
           </div>
           <Link className="quiet-link" href={`/${locale}/transparency`}>
             {isKu ? "بەڕێوەبردن و متمانە" : "Governance and trust"}<span aria-hidden="true">→</span>
@@ -134,8 +134,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="home-invitation">
         <div className="shell home-invitation__grid">
           <div>
-            <p className="eyebrow eyebrow--gold">{isKu ? "بەشداربە" : "Take part"}</p>
-            <h2>{isKu ? "لەو کارەدا شوێنێک بۆ تۆ هەیە." : "There is a place for you in this work."}</h2>
+            <p className="eyebrow eyebrow--gold">{isKu ? "بەشدار بە" : "Take part"}</p>
+            <h2>{isKu ? "تۆش دەتوانیت بەشێک بیت لەم کارە." : "There is a place for you in this work."}</h2>
           </div>
           <div className="invitation-links">
             <Link href={`/${locale}/get-involved#volunteer`}>{isKu ? "خۆبەخش بە" : "Volunteer"}<span>↗</span></Link>

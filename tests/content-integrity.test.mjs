@@ -27,11 +27,28 @@ test("every story has complete bilingual content and a unique safe slug", async 
 
 test("required brand and publishing guidance are present", async () => {
   await Promise.all([
-    access(new URL("public/brand/zane-mark.png", root)),
-    access(new URL("public/brand/zane-brand-kit.png", root)),
+    access(new URL("public/brand/zane-mark-v2.png", root)),
+    access(new URL("public/brand/zane-brand-kit-v2.png", root)),
+    access(new URL("public/og.png", root)),
     access(new URL("public/fonts/README.md", root)),
     access(new URL("content/README.md", root)),
   ]);
+});
+
+test("active brand system uses the approved navy, gold, mark and typography", async () => {
+  const [brand, logo, globals] = await Promise.all([
+    readFile(new URL("app/brand-v2.css", root), "utf8"),
+    readFile(new URL("components/Logo.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(brand, /#0d1b3d/i);
+  assert.match(brand, /#d4a72c/i);
+  assert.match(brand, /#f6f3e7/i);
+  assert.match(brand, /Montserrat Variable/);
+  assert.match(brand, /Noto Kufi Arabic Variable/);
+  assert.match(logo, /zane-mark-v2\.png/);
+  assert.match(globals, /@fontsource-variable\/montserrat/);
+  assert.match(globals, /@fontsource-variable\/noto-kufi-arabic/);
 });
 
 test("public site contains no internal strategy targets, budgets or risk register", async () => {
@@ -66,6 +83,9 @@ test("homepage keeps a single calm reading path", async () => {
   assert.match(home, /clarity-hero/);
   assert.match(home, /audience-paths/);
   assert.match(home, /work-index/);
+  assert.match(home, /هەموو کەسێک شایەنی/);
+  assert.match(home, /دەرفەتی گەشە کردنە/);
+  assert.doesNotMatch(home, /هەر ?کەسێک/);
 });
 
 test("volunteer and careers publishing files are present", async () => {

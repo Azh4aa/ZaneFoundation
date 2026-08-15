@@ -16,7 +16,7 @@ export default async function TransparencyPage({ params }: { params: Promise<{ l
     [isKu ? "چاودێریی سەربەخۆ" : "Independent oversight", isKu ? "چاودێریی ڕێکخراوەکە لە جێبەجێکردنی ڕۆژانە جیادەکرێتەوە." : "Organizational oversight is kept distinct from day-to-day delivery."],
     [isKu ? "پاراستنی کەسان" : "Safeguarding", isKu ? "سەلامەتی، شکۆ و ڕەزامەندی لە هەر بڕیارێکدا پێشینەن." : "Safety, dignity and consent come before publicity or convenience."],
     [isKu ? "بەرپرسیاریی دارایی" : "Financial responsibility", isKu ? "سەرچاوەکان بە مەبەستی دیاریکراو و بە چاودێری بەکار دەهێنرێن." : "Resources are used for their stated purpose with appropriate oversight."],
-    [isKu ? "گوێگرتن و وەڵامدانەوە" : "Listening and response", isKu ? "فیدباک و سکاڵا بە ڕێز، نهێنی و ڕێکاری ڕوون مامەڵەیان لەگەڵ دەکرێت." : "Feedback and complaints are handled respectfully, confidentially and through a clear route."],
+    [isKu ? "گوێگرتن و وەڵامدانەوە" : "Listening and response", isKu ? "تێبینی و سکاڵا بە ڕێز، بە نهێنی و لە ڕێگەی ڕێکارێکی ڕوونەوە بەدواداچوونیان بۆ دەکرێت." : "Feedback and complaints are handled respectfully, confidentially and through a clear route."],
   ];
 
   return <>
@@ -34,7 +34,7 @@ export default async function TransparencyPage({ params }: { params: Promise<{ l
     <section className="section-pad section-sand"><div className="shell"><SectionHeading eyebrow={isKu ? "سیاسەت و ڕێگای پەیوەندی" : "Policies and reporting routes"} title={isKu ? "زانیاریی ڕوون بۆ ماف و بەرپرسیارێتی." : "Clear routes for rights and responsibility."} /><div className="policy-link-grid">{[
       ["/policies/safeguarding", isKu ? "پاراستن" : "Safeguarding", isKu ? "پابەندبوون بە پاراستنی منداڵ و گەورەی لە مەترسیدا." : "Protecting children and adults at risk."],
       ["/policies/privacy", isKu ? "پاراستنی زانیاری" : "Privacy", isKu ? "چۆنیەتی کۆکردنەوە و بەکارهێنانی زانیاری." : "How information submitted through the site is handled."],
-      ["/policies/complaints", isKu ? "سکاڵا و فیدباک" : "Complaints & feedback", isKu ? "ڕێگای ناردنی نیگەرانی یان فیدباک." : "How to raise a concern or share feedback."],
+      ["/policies/complaints", isKu ? "سکاڵا و تێبینی" : "Complaints & feedback", isKu ? "ڕێگای گەیاندنی نیگەرانی یان تێبینی." : "How to raise a concern or share feedback."],
       ["/policies/accessibility", isKu ? "دەستگەیشتن" : "Accessibility", isKu ? "پابەندبوون بە ماڵپەڕ و زانیاریی دەستپێگەیشتوو." : "Our commitment to accessible information."],
     ].map(([href,h,p],i) => <Link href={`/${locale}${href}`} key={href}><span>0{i+1}</span><h3>{h}</h3><p>{p}</p><b>↗</b></Link>)}</div></div></section>
 

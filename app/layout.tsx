@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./brand-v2.css";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Zane Foundation — Every person deserves room to grow",
+    default: "Zane Foundation — Potential. Dignity. Possibility.",
     template: "%s — Zane Foundation",
   },
-  description: "Zane Foundation works with people with Down syndrome, their families, schools and communities across Kurdistan.",
+  description: "Zane Foundation advances opportunity, dignity and lifelong support for people with Down syndrome in Kurdistan and Iraq.",
   applicationName: "Zane Foundation",
   category: "nonprofit",
   openGraph: {
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
     siteName: "Zane Foundation",
     locale: "en_US",
     alternateLocale: ["ku_IQ"],
-    images: [{ url: "/og-v3.png", width: 1200, height: 630, alt: "Zane Foundation — Every person deserves room to grow." }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Zane Foundation — Potential. Dignity. Possibility." }],
   },
-  twitter: { card: "summary_large_image", images: ["/og-v3.png"] },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#062d24",
+  themeColor: "#0D1B3D",
   colorScheme: "light",
 };
 

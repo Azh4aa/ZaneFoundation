@@ -8,7 +8,7 @@ export const site = {
   name: "Zane Foundation",
   legalName: {
     en: "Zane Organization for the Advocacy of People with Down Syndrome and Intellectual Disabilities",
-    ku: "ڕێکخراوی زەنێ بۆ بەرگری لە کەسانی داون سیندرۆم و کەم توانایی ژیری",
+    ku: "ڕێکخراوی زەنێ بۆ داکۆکیکردن لە مافی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری",
   },
   email: "hello@zanefoundation.org",
   partnershipsEmail: "partnerships@zanefoundation.org",
@@ -29,7 +29,7 @@ export const navItems: Array<{ href: string; label: LocalizedText }> = [
   { href: "/about", label: { en: "About", ku: "دەربارە" } },
   { href: "/programs", label: { en: "Our work", ku: "کارەکانمان" } },
   { href: "/resources", label: { en: "Resources", ku: "سەرچاوەکان" } },
-  { href: "/get-involved", label: { en: "Get involved", ku: "بەشداربە" } },
+  { href: "/get-involved", label: { en: "Get involved", ku: "بەشدار بە" } },
 ];
 
 export const programData = [
@@ -40,11 +40,11 @@ export const programData = [
     stage: { en: "Early support", ku: "پشتگیریی زوو" },
     summary: {
       en: "Expanding access to qualified speech, occupational and physical support during the years when timely help matters most.",
-      ku: "فراوانکردنی دەستگەیشتن بە پشتگیریی پسپۆڕانەی ئاخاوتن، پیشەیی و جەستەیی لەو قۆناغەی کە یارمەتیی بەوەخت زۆرترین گرنگی هەیە.",
+      ku: "یارمەتیدانی منداڵان لە ساڵانی سەرەتای ژیاندا، بۆ دەستگەیشتن بە پشتگیریی ئاخاوتن، پیشەیی و جەستەیی لە کاتی گونجاودا.",
     },
     outcome: {
       en: "Children receive timely, individualized support and families can see and understand progress.",
-      ku: "منداڵان لە کاتی گونجاودا پشتگیری تاکەکەسی وەردەگرن و خێزانەکان دەتوانن پێشکەوتن ببینن و تێی بگەن.",
+      ku: "منداڵەکە پشتگیریی گونجاوی خۆی وەردەگرێت و خێزانەکەش لە پێشکەوتنەکانی تێدەگات.",
     },
   },
   {
@@ -54,11 +54,11 @@ export const programData = [
     stage: { en: "Family guidance", ku: "ڕێنماییی خێزان" },
     summary: {
       en: "Clear, multilingual guidance that helps families understand options, find reliable information and choose practical next steps.",
-      ku: "ڕێنماییی ڕوون و چەندزمانی بۆ تێگەیشتن لە هەڵبژاردەکان، دۆزینەوەی زانیاریی باوەڕپێکراو و دیاریکردنی هەنگاوی داهاتوو.",
+      ku: "ڕێنماییی ڕوون و بە زمانێکی ئاسان، بۆ ئەوەی خێزانەکان زانیاریی دروست بدۆزنەوە و بزانن هەنگاوی داهاتوو چییە.",
     },
     outcome: {
       en: "Families feel less isolated and make informed decisions without navigating the system alone.",
-      ku: "خێزانەکان کەمتر هەست بە دابڕان دەکەن و بە زانیارییەوە بڕیار دەدەن، بەبێ ئەوەی بە تەنها لە سیستەمەکەدا بگەڕێن.",
+      ku: "خێزانەکان هەست ناکەن بە تەنها ماونەتەوە و بە زانیاریی دروستەوە بڕیار دەدەن.",
     },
   },
   {
@@ -68,56 +68,63 @@ export const programData = [
     stage: { en: "Inclusive education", ku: "پەروەردەی گشتگیر" },
     summary: {
       en: "Practical teacher training and school support designed to turn inclusion from a promise into an everyday classroom practice.",
-      ku: "ڕاهێنانی کرداری مامۆستایان و پشتگیری قوتابخانەکان بۆ ئەوەی گشتگیری لە بەڵێنێکەوە ببێتە پراکتیسی ڕۆژانەی ناو پۆل.",
+      ku: "ڕاهێنان و پشتگیریی کرداری بۆ مامۆستا و قوتابخانە، تا هەموو منداڵێک بتوانێت لە پۆلدا فێربێت و بەشدار بێت.",
     },
     outcome: {
       en: "More schools are prepared to welcome, teach and support learners with different needs.",
-      ku: "قوتابخانەی زیاتر ئامادە دەبن بۆ پێشوازی، فێرکردن و پشتگیری فێرخوازانی خاوەن پێداویستی جیاواز.",
+      ku: "قوتابخانەکان باشتر ئامادە دەبن بۆ پێشوازی و فێرکردنی منداڵانی خاوەن پێداویستیی جیاواز.",
     },
   },
   {
     id: "more-alike",
     number: "04",
-    title: { en: "More Alike Than Different", ku: "لێکچوونمان زیاترە لە جیاوازیمان" },
+    title: { en: "More Alike Than Different", ku: "لێکچوونمان لە جیاوازیمان زیاترە" },
     stage: { en: "Public understanding", ku: "تێگەیشتنی کۆمەڵگا" },
     summary: {
       en: "A rights-led public campaign that replaces pity and stigma with accurate representation, expectation and belonging.",
-      ku: "کەمپەینێکی گشتی لەسەر بنەمای ماف کە بەزەیی و نیشاندانی هەڵە بە نوێنەرایەتی دروست، چاوەڕوانی و سەربەخۆیی دەگۆڕێت.",
+      ku: "کەمپەینێک بۆ گۆڕینی تێڕوانینی کۆمەڵگا؛ لە بەزەیی و پێشداوەریی هەڵەوە بۆ ڕێزگرتن لە ماف، توانا و کەسایەتیی تاک.",
     },
     outcome: {
       en: "Public language and attitudes move from limitation toward potential, rights and full participation.",
-      ku: "زمان و تێڕوانینی گشتی لە سنووردانانەوە بەرەو توانا، ماف و بەشداری تەواو دەگۆڕێت.",
+      ku: "زمان و تێڕوانینی کۆمەڵگا دەگۆڕێت، تا کەسان بە تواناکان و مافەکانیان بناسرێن.",
     },
   },
 ] as const;
 
 export const values = [
   {
-    title: { en: "Dignity, individually", ku: "شکۆی تاکەکەسی" },
+    title: { en: "Dignity", ku: "شکۆ" },
     text: {
-      en: "We work with the whole person—not a diagnosis, a stereotype or a generic service pathway.",
-      ku: "لەگەڵ مرۆڤەکە بە تەواوی کار دەکەین؛ نەک تەنها دەستنیشانکردن، وێنەی هەڵە یان ڕێڕەوێکی گشتی خزمەتگوزاری.",
+      en: "Every person deserves respect, choice and the opportunity to take part.",
+      ku: "هەموو کەسێک شایەنی ڕێز، هەڵبژاردن و دەرفەتی بەشدارییە.",
     },
   },
   {
-    title: { en: "Excellence as a duty", ku: "نایابی وەک ئەرک" },
+    title: { en: "Empowerment", ku: "بەهێزکردن" },
     text: {
-      en: "Quality, evidence and qualified practice are obligations when families place their trust in us.",
-      ku: "کوالێتی، بەڵگە و پراکتیسی پسپۆڕانە ئەرکن کاتێک خێزانەکان متمانەمان پێ دەکەن.",
+      en: "We begin with strengths and help people build confidence, choice and independence.",
+      ku: "لە تواناکانی تاک دەست پێدەکەین و یارمەتی دەدەین متمانە بە خۆ، هەڵبژاردن و سەربەخۆیی بەهێز بکرێت.",
     },
   },
   {
-    title: { en: "Partnership from the ground up", ku: "هاوبەشی لە بناغەوە" },
+    title: { en: "Compassion", ku: "هاوسۆزی" },
     text: {
-      en: "Families, people with disabilities, schools, providers and public institutions shape the response together.",
-      ku: "خێزان، کەسانی خاوەن کەمئەندامی، قوتابخانە، دابینکەر و دامەزراوە گشتییەکان پێکەوە وەڵامەکە درووست دەکەن.",
+      en: "We listen with kindness and take time to understand each person and family.",
+      ku: "بە میهرەبانی گوێ دەگرین و کات دەدەین بۆ تێگەیشتن لە هەلومەرجی هەموو تاک و خێزانێک.",
     },
   },
   {
-    title: { en: "Detailed accountability", ku: "لێپرسراوێتی ورد" },
+    title: { en: "Excellence", ku: "کوالێتیی بەرز" },
     text: {
-      en: "We distinguish ambition from evidence, publish what we can verify and report both progress and difficulty.",
-      ku: "جیاوازی لەنێوان ئامانج و بەڵگەدا دەکەین، ئەوەی پشتڕاستە بڵاودەکەینەوە و پێشکەوتن و ئاستەنگ هەردووکیان ڕادەگەیەنین.",
+      en: "We hold our work to high standards and keep learning how to do it better.",
+      ku: "کارەکانمان بە پێوەری بەرز ئەنجام دەدەین و بەردەوام فێردەبین چۆن باشتر بین.",
+    },
+  },
+  {
+    title: { en: "Inclusion", ku: "گشتگیری" },
+    text: {
+      en: "We work so every person has a place, a voice and a genuine chance to belong.",
+      ku: "کار دەکەین بۆ ئەوەی هەموو کەسێک شوێن، دەنگ و دەرفەتی ڕاستەقینەی بەشداریی هەبێت.",
     },
   },
 ] as const;

@@ -1,6 +1,6 @@
 # Zane Foundation website
 
-A bilingual English/Kurdish institutional website for Zane Foundation, based on the foundation strategy, internal bylaws and supplied brand system.
+A bilingual English/Kurdish institutional website for Zane Foundation, built around its public mission and supplied navy-and-gold brand system.
 
 ## Included
 
@@ -81,7 +81,7 @@ Add objects using this structure:
 
 ## Kurdish font
 
-The site already self-hosts **Noto Sans Arabic Variable**, so Kurdish renders consistently without contacting Google or depending on a visitor’s device.
+The site already self-hosts **Noto Kufi Arabic Variable**, so Kurdish has a more geometric, institutional character and renders consistently without contacting an external font service.
 
 To replace it with an approved Kurdish brand font:
 
@@ -92,7 +92,7 @@ The `--font-ku` variable already checks for `Zane Kurdish` first. No component c
 
 ## Logo
 
-Replace `public/brand/zane-mark.png` with the approved transparent logo export while keeping the filename. The brand board is preserved at `public/brand/zane-brand-kit.png`. See `public/brand/README.md`.
+The active mark is `public/brand/zane-mark-v2.png`. The supplied board is preserved at `public/brand/zane-brand-kit-v2.png`. If a final vector master becomes available, export it transparently over the active mark while keeping the same filename. See `public/brand/README.md`.
 
 ## Donation decision
 
@@ -107,7 +107,7 @@ There is no donation checkout in this release. During registration, institutiona
 
 - Replace registration placeholders with the certificate number, date and issuing authority
 - Confirm board and leadership profiles
-- Complete human Kurdish editing on every public page
+- Give the finished Kurdish copy a final sign-off by the foundation’s preferred Kurdish editor before formal launch
 - Approve full safeguarding, privacy, complaints, conflict-of-interest and whistleblowing policies
 - Confirm a public visit address or explicitly remain appointment-only
 - Verify all published health, development and family resources with qualified local experts
