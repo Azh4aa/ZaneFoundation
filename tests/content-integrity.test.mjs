@@ -39,8 +39,28 @@ test("public copy distinguishes proposed targets from achievements", async () =>
     readFile(new URL("app/[locale]/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/impact/page.tsx", root), "utf8"),
   ]);
-  assert.match(home, /Proposed year-one targets/);
-  assert.match(home, /planning targets—not past achievements/);
+  assert.match(home, /Year-one planning targets/);
+  assert.match(home, /proposed targets, not past achievements/);
   assert.match(impact, /Proposed target/);
 });
 
+test("public institutional copy contains no private daughter narrative", async () => {
+  const files = await Promise.all([
+    readFile(new URL("app/[locale]/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/about/page.tsx", root), "utf8"),
+    readFile(new URL("content/stories.json", root), "utf8"),
+  ]);
+  for (const copy of files) {
+    assert.doesNotMatch(copy, /my daughter|founder.s daughter|کچەکەم/i);
+  }
+});
+
+test("volunteer and careers publishing files are present", async () => {
+  await Promise.all([
+    access(new URL("app/[locale]/get-involved/page.tsx", root)),
+    access(new URL("app/[locale]/careers/page.tsx", root)),
+    access(new URL("app/api/applications/route.ts", root)),
+    access(new URL("content/opportunities.json", root)),
+    access(new URL(".env.example", root)),
+  ]);
+});

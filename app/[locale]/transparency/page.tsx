@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { makePageMetadata } from "@/lib/metadata";
-import { isLocale } from "@/lib/site";
+import { isLocale, site, tx } from "@/lib/site";
 
 const title = { en: "Transparency", ku: "ڕوونکردنەوە" };
 const description = { en: "Zane Foundation’s governance, reporting, safeguarding and due-diligence publication roadmap.", ku: "نەخشەڕێگای زەنێ بۆ بەڕێوەبردن، ڕاپۆرتدان، پاراستن و بڵاوکردنەوەی بەڵگەنامە." };
@@ -14,7 +14,7 @@ export default async function TransparencyPage({ params }: { params: Promise<{ l
   const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const locale = raw; const isKu = locale === "ku";
   const documents = [
     [isKu ? "پەیرەوی ناوخۆ" : "Internal bylaws", isKu ? "بەردەست بە کوردی" : "Available in Kurdish", isKu ? "وەشانی ئینگلیزی بۆ پشکنینی دامەزراوەیی ئامادە دەکرێت." : "English translation to be prepared for institutional review."],
-    [isKu ? "بڕوانامە و زانیاری تۆمار" : "Registration details", isKu ? "پێش بڵاوکردنەوە پشتڕاست دەکرێتەوە" : "To verify before publication", isKu ? "ناوی یاسایی، ژمارە، بەروار و دەسەڵاتی تۆمارکردن دوای پشتڕاستکردنەوە بڵاودەکرێنەوە." : "Legal name, number, date and authority will be published after verification."],
+    [isKu ? "بڕوانامە و زانیاری تۆمار" : "Registration details", isKu ? "لە قۆناغی تۆمارکردندان" : site.registrationNumber, isKu ? `${tx(site.legalName, locale)}. ژمارە، بەروار و دەسەڵاتی تۆمارکردن دوای دەرچوونی بڕوانامە جێگیر دەکرێن.` : `${tx(site.legalName, locale)}. The final number, date and issuing authority will replace this placeholder when the certificate is issued.`],
     [isKu ? "بۆرد و سەرکردایەتی" : "Board & leadership", isKu ? "پڕۆفایلەکان لە ئامادەکردندان" : "Profiles in preparation", isKu ? "ناو، ڕۆڵ، شارەزایی، ماوە و بەرژەوەندییە پەیوەندیدارەکان دەبێت ئاشکرا بن." : "Names, roles, expertise, terms and relevant interests will be disclosed."],
     [isKu ? "سیاسەتی پاراستن" : "Safeguarding policy", isKu ? "پێش دەستپێکی خزمەتگوزاری پێویستە" : "Required before service launch", isKu ? "پاراستنی منداڵ و گەورەی لاواز، ڕەزامەندی، وێنە و ڕێگای سکاڵا لەخۆدەگرێت." : "Will cover child and vulnerable-adult protection, consent, imagery and complaints."],
     [isKu ? "ڕاپۆرتی دارایی" : "Financial reporting", isKu ? "دوای یەکەم ساڵی دارایی" : "After the first financial year", isKu ? "بودجە، خەرجی ڕاستەقینە، سەرچاوەی داهات و وردبینی بڵاودەکرێنەوە." : "Budget, actual spend, income sources and audit status will be published."],
@@ -32,4 +32,3 @@ export default async function TransparencyPage({ params }: { params: Promise<{ l
     <section className="center-cta section-pad"><div className="shell"><h2>{isKu ? "پشکنینی هاوبەشی؟" : "Preparing a due-diligence review?"}</h2><p>{isKu ? "دەتوانین پاکێجی بەڵگەنامەی بەردەست و لیستی ئەو شتانەی لە ئامادەکردندان بنێرین." : "We can share the available document pack and a clear list of items still in preparation."}</p><Link className="button button--dark" href={`/${locale}/contact`}>{isKu ? "داوای پاکێجی پشکنین بکە" : "Request the partner pack"}</Link></div></section>
   </>;
 }
-

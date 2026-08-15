@@ -10,9 +10,10 @@ export function LanguageSwitch({ locale }: { locale: Locale }) {
   const targetPath = pathname.replace(/^\/(en|ku)(?=\/|$)/, `/${target}`);
 
   return (
-    <Link className="language-switch" href={targetPath || `/${target}`} lang={target} dir={target === "ku" ? "rtl" : "ltr"}>
-      {locale === "en" ? "کوردی" : "English"}
-    </Link>
+    <div className="language-switch" aria-label={locale === "en" ? "Choose language" : "زمان هەڵبژێرە"}>
+      {locale === "en" ? <span aria-current="page">EN</span> : <Link href={targetPath || "/en"} lang="en" dir="ltr">EN</Link>}
+      <i aria-hidden="true" />
+      {locale === "ku" ? <span aria-current="page">کوردی</span> : <Link href={targetPath || "/ku"} lang="ku" dir="rtl">کوردی</Link>}
+    </div>
   );
 }
-

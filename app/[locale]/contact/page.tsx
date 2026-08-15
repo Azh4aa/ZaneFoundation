@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { makePageMetadata } from "@/lib/metadata";
@@ -10,6 +11,16 @@ export function generateMetadata({ params }: { params: Promise<{ locale: string 
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const locale = raw; const isKu = locale === "ku";
-  return <><PageHero eyebrow={isKu ? "پەیوەندی" : "Contact"} title={isKu ? "گفتوگۆی دروست لێرەوە دەست پێدەکات." : <>The right conversation<br /><em>starts here.</em></>} intro={<p>{isKu ? "بۆ هاوبەشی، پسپۆڕی، ڕاگەیاندن یان پرسیاری گشتی ڕاستەوخۆ ئیمەیڵمان بۆ بنێرە." : "For partnerships, technical expertise, media or general enquiries, email us directly."}</p>} aside={<p>{isKu ? "هێڵی خێزان هێشتا دەستی بە کار نەکردووە؛ تکایە زانیاری تەندروستی یان کەسیی هەستیار بە ئیمەیڵ مەبنێرە." : "The family line has not launched; please do not email sensitive health or personal information."}</p>} /><section className="contact-section section-pad"><div className="shell contact-grid"><div className="contact-card"><p className="eyebrow">{isKu ? "ئیمەیڵ" : "Email"}</p><a href={`mailto:${site.email}`}>{site.email}</a><p>{isKu ? "لە ٣ ڕۆژی کاری دا وەڵامدانەوە ئامانجە، کاتێک تیمەکە بە تەواوی کار دەکات." : "A three-business-day response target will apply once the core team is fully operational."}</p></div><div className="contact-card"><p className="eyebrow">{isKu ? "شوێن" : "Location"}</p><h2>{tx(site.location, locale)}</h2><p>{isKu ? "ناونیشانی سەردان دوای پشتڕاستکردنەوە و دانانی سیاسەتی پاراستن بڵاودەکرێتەوە." : "A visit address will be published after verification and safeguarding arrangements are in place."}</p></div><div className="contact-brief"><p className="eyebrow eyebrow--gold">{isKu ? "بۆ وەڵامێکی خێراتر" : "For a useful first reply"}</p><h2>{isKu ? "ئیمەیڵەکەت ئەمانە لەخۆ بگرێت" : "Include these details in your note"}</h2><ol><li>{isKu ? "ناو و دامەزراوە" : "Your name and organization"}</li><li>{isKu ? "جۆری پەیوەندی یان هاوبەشی" : "The enquiry or partnership type"}</li><li>{isKu ? "بوار یان پرۆگرامی جێی سەرنج" : "Area or program of interest"}</li><li>{isKu ? "خشتەی کات و هەنگاوی داهاتووی پێشنیازکراو" : "Timeline and your suggested next step"}</li></ol><a className="button button--gold" href={`mailto:${site.email}?subject=Zane%20Foundation%20inquiry`}>{isKu ? "ئیمەیڵ بنێرە" : "Write to Zane"}</a></div></div></section></>;
-}
+  const contacts = [
+    [isKu ? "پرسیاری گشتی و میدیا" : "General & media", site.email, isKu ? "بۆ پرسیاری گشتی، میدیا و زانیاریی ماڵپەڕ." : "General enquiries, media and website information."],
+    [isKu ? "هاوبەشی" : "Partnerships", site.partnershipsEmail, isKu ? "بۆ فەندەر، دامەزراوە، کۆمپانیا و هاوبەشیی تەکنیکی." : "For funders, institutions, companies and technical partners."],
+    [isKu ? "خۆبەخشی" : "Volunteering", site.volunteerEmail, isKu ? "بۆ پرسیار دەربارەی تۆڕی خۆبەخشان." : "Questions about the volunteer network."],
+    [isKu ? "هەلی کار" : "Careers", site.careersEmail, isKu ? "بۆ ڕۆڵە بڵاوکراوەکان و هەلی داهاتوو." : "Published roles and future opportunities."],
+  ];
 
+  return <>
+    <PageHero eyebrow={isKu ? "پەیوەندی" : "Contact"} title={isKu ? "پەیوەندیی دروست، بە ناونیشانی دروست." : <>One organization.<br /><em>The right point of contact.</em></>} intro={<p>{isKu ? "بەپێی جۆری پرسیار، ناونیشانی پەیوەندیدار هەڵبژێرە تا پەیامەکەت بگاتە تیمی دروست." : "Choose the address that matches your enquiry so it reaches the right part of the team."}</p>} aside={<p>{isKu ? "هێڵی سەرچاوەی خێزان هێشتا دەستی بە کار نەکردووە. زانیاریی تەندروستی یان کەسیی هەستیار بە ئیمەیڵ مەبنێرە." : "The Family Resource Line has not launched. Do not send medical or sensitive personal information by email."}</p>} />
+    <section className="section-pad contact-directory-section"><div className="shell contact-directory">{contacts.map(([label,email,note], index) => <article key={email}><span>0{index+1}</span><p>{label}</p><a href={`mailto:${email}`}>{email}</a><small>{note}</small></article>)}</div></section>
+    <section className="contact-location"><div className="shell contact-location__grid"><div><p className="eyebrow eyebrow--gold">{isKu ? "شوێن" : "Location"}</p><h2>{tx(site.location, locale)}</h2></div><div><p>{isKu ? "ناونیشانی سەردان دوای تەواوبوونی تۆمارکردن و ئامادەکردنی ڕێکاری پاراستن بڵاودەکرێتەوە. تا ئەو کاتە، سەردانی بێ کاتی پێشوو وەرناگیرێت." : "A public visit address will be published after registration and safeguarding arrangements are complete. Unscheduled visits cannot be received until then."}</p><Link className="button button--gold" href={`/${locale}/transparency`}>{isKu ? "دۆخی تۆمارکردن" : "Registration and transparency"}</Link></div></div></section>
+  </>;
+}

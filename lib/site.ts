@@ -10,8 +10,19 @@ export const site = {
     en: "Zane Organization for the Advocacy of People with Down Syndrome and Intellectual Disabilities",
     ku: "ڕێکخراوی زەنێ بۆ بەرگری لە کەسانی داون سیندرۆم و کەم توانایی ژیری",
   },
-  email: "info@zanefoundation.iq",
-  url: "https://www.zanefoundation.iq",
+  email: "hello@zanefoundation.org",
+  partnershipsEmail: "partnerships@zanefoundation.org",
+  volunteerEmail: "volunteer@zanefoundation.org",
+  careersEmail: "careers@zanefoundation.org",
+  privacyEmail: "privacy@zanefoundation.org",
+  safeguardingEmail: "safeguarding@zanefoundation.org",
+  complaintsEmail: "feedback@zanefoundation.org",
+  url: "https://zanefoundation.org",
+  registrationNumber: "REGISTRATION PENDING",
+  registrationStatus: {
+    en: "Legal registration in progress",
+    ku: "کارەکانی تۆمارکردنی یاسایی بەردەوامە",
+  },
   location: {
     en: "Sulaymaniyah, Kurdistan Region of Iraq",
     ku: "سلێمانی، هەرێمی کوردستانی عێراق",
@@ -21,9 +32,9 @@ export const site = {
 export const navItems: Array<{ href: string; label: LocalizedText }> = [
   { href: "/about", label: { en: "About", ku: "دەربارە" } },
   { href: "/programs", label: { en: "Programs", ku: "پرۆگرامەکان" } },
-  { href: "/impact", label: { en: "Impact", ku: "کاریگەری" } },
-  { href: "/stories", label: { en: "Stories & learning", ku: "چیرۆک و فێربوون" } },
-  { href: "/transparency", label: { en: "Transparency", ku: "ڕوونکردنەوە" } },
+  { href: "/get-involved", label: { en: "Get involved", ku: "بەشداربە" } },
+  { href: "/stories", label: { en: "News & insight", ku: "هەواڵ و تێڕوانین" } },
+  { href: "/careers", label: { en: "Careers", ku: "هەلی کار" } },
 ];
 
 export const programData = [
@@ -130,4 +141,3 @@ export function isLocale(value: string): value is Locale {
 export function tx(text: LocalizedText, locale: Locale): string {
   return text[locale];
 }
-

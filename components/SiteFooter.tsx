@@ -9,31 +9,43 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       <div className="shell footer-grid">
         <div className="footer-intro">
           <Logo locale={locale} inverse />
-          <p>{isKu ? "شکۆ زمانمانە. گشتگیری کردارمانە." : "Dignity is our language. Inclusion is our action."}</p>
+          <p>{isKu ? "بۆ ماف، دەرفەت و بەشداریی تەواوی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری." : "For the rights, opportunity and full participation of people with Down syndrome and intellectual disabilities."}</p>
           <p className="footer-location">{tx(site.location, locale)}</p>
         </div>
         <div>
-          <p className="footer-label">{isKu ? "بگەڕێ" : "Explore"}</p>
+          <p className="footer-label">{isKu ? "زەنێ" : "Zane"}</p>
           <nav className="footer-links" aria-label={isKu ? "ڕێنیشاندەری خوارەوە" : "Footer navigation"}>
-            {navItems.slice(0, 4).map((item) => <Link key={item.href} href={`/${locale}${item.href}`}>{tx(item.label, locale)}</Link>)}
+            {navItems.slice(0, 2).map((item) => <Link key={item.href} href={`/${locale}${item.href}`}>{tx(item.label, locale)}</Link>)}
+            <Link href={`/${locale}/impact`}>{isKu ? "چوارچێوەی کاریگەری" : "Impact framework"}</Link>
+            <Link href={`/${locale}/stories`}>{isKu ? "هەواڵ و تێڕوانین" : "News & insight"}</Link>
             <Link href={`/${locale}/resources`}>{isKu ? "سەرچاوەی خێزان" : "Family resources"}</Link>
           </nav>
         </div>
         <div>
-          <p className="footer-label">{isKu ? "متمانە و هاوبەشی" : "Trust & partnership"}</p>
+          <p className="footer-label">{isKu ? "بەشداربە" : "Take part"}</p>
+          <nav className="footer-links">
+            <Link href={`/${locale}/get-involved#volunteer`}>{isKu ? "خۆبەخش بە" : "Volunteer"}</Link>
+            <Link href={`/${locale}/careers`}>{isKu ? "هەلی کار" : "Careers"}</Link>
+            <Link href={`/${locale}/partner`}>{isKu ? "هاوبەشی دامەزراوەیی" : "Institutional partnership"}</Link>
+            <Link href={`/${locale}/contact`}>{isKu ? "پەیوەندی" : "Contact"}</Link>
+          </nav>
+        </div>
+        <div>
+          <p className="footer-label">{isKu ? "متمانە و زانیاری" : "Trust & information"}</p>
           <nav className="footer-links">
             <Link href={`/${locale}/transparency`}>{isKu ? "ڕوونکردنەوە" : "Transparency"}</Link>
-            <Link href={`/${locale}/partner`}>{isKu ? "ببە بە هاوبەش" : "Partner with us"}</Link>
-            <Link href={`/${locale}/contact`}>{isKu ? "پەیوەندی" : "Contact"}</Link>
+            <Link href={`/${locale}/policies/safeguarding`}>{isKu ? "پاراستن" : "Safeguarding"}</Link>
+            <Link href={`/${locale}/policies/complaints`}>{isKu ? "سکاڵا و فیدباک" : "Complaints & feedback"}</Link>
+            <Link href={`/${locale}/policies/privacy`}>{isKu ? "پاراستنی زانیاری" : "Privacy"}</Link>
+            <Link href={`/${locale}/policies/accessibility`}>{isKu ? "دەستگەیشتن" : "Accessibility"}</Link>
             <a href={`mailto:${site.email}`}>{site.email}</a>
           </nav>
         </div>
       </div>
       <div className="shell footer-bottom">
         <p>© {new Date().getFullYear()} Zane Foundation</p>
-        <p>{isKu ? "ڕێکخراوێکی مەدەنی، سەربەخۆ، ناحیزبی و نائایینی" : "Independent · non-partisan · non-religious · not-for-profit"}</p>
+        <p>{isKu ? `${site.registrationNumber} · ڕێکخراوێکی سەربەخۆ و قازانجنەویست` : `${site.registrationNumber} · Independent and not-for-profit`}</p>
       </div>
     </footer>
   );
 }
-

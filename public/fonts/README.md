@@ -1,11 +1,15 @@
 # Kurdish font replacement
 
-The site currently uses a safe Kurdish/Arabic fallback stack. For a consistent
-brand rendering on every device, add your licensed webfont here as:
+The production site currently self-hosts **Noto Sans Arabic Variable** through the `@fontsource-variable/noto-sans-arabic` package. It is open-source, supports Sorani Kurdish characters and does not call an external font service.
 
-`ZaneKurdish.woff2`
+To replace it with the final brand typeface:
 
-Then uncomment the `@font-face` block at the top of `app/globals.css`. A strong
-open-source starting point is **Noto Kufi Arabic**; a licensed Rabar family is
-also a good Kurdish editorial choice. Use WOFF2 for performance.
+1. Export the licensed font as `ZaneKurdish.woff2` into this folder.
+2. Uncomment the `@font-face` block at the top of `app/globals.css`.
+3. Run `npm run build` and review Kurdish headings, form fields, numbers and punctuation on mobile and desktop.
 
+The CSS variable is already ordered as:
+
+`"Zane Kurdish", "Noto Sans Arabic Variable", Tahoma, Arial, sans-serif`
+
+Only use a font whose license permits web embedding.

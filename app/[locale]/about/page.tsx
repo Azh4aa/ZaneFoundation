@@ -7,7 +7,7 @@ import { makePageMetadata } from "@/lib/metadata";
 import { isLocale, site, tx, values } from "@/lib/site";
 
 const title = { en: "About", ku: "دەربارە" };
-const description = { en: "The lived experience, mission, values and governance model behind Zane Foundation.", ku: "ئەزموونی ژیاو، پەیام، بەها و مۆدێلی بەڕێوەبردنی فاوندەیشنی زەنێ." };
+const description = { en: "The institutional purpose, mission, values and governance model of Zane Foundation.", ku: "ئامانج، پەیام، بەها و شێوازی بەڕێوەبردنی فاوندەیشنی زەنێ." };
 
 export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   return makePageMetadata(params, title, description, "/about");
@@ -23,18 +23,18 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     <>
       <PageHero
         eyebrow={isKu ? "دەربارەی زەنێ" : "About Zane"}
-        title={isKu ? "لە ئەزموونەوە. بە ستانداردێکی بەرز." : <>Born from experience.<br /><em>Built to a higher standard.</em></>}
-        intro={<p>{isKu ? "فاوندەیشنی زەنێ وەڵامێکی ڕێکخراوە بە کۆسپەکانێک کە خێزانێک بۆ ماوەی دە ساڵ بە چاوی خۆی بینیویەتی—و هەزاران خێزانی تر هەموو ڕۆژێک ڕووبەڕووی دەبنەوە." : "Zane Foundation is a disciplined response to barriers one family has witnessed for a decade—and thousands of other families face every day."}</p>}
+        title={isKu ? "دامەزراوەیەکی تایبەتمەند بۆ ماف و بەشداری." : <>A specialist institution.<br /><em>Built for full participation.</em></>}
+        intro={<p>{isKu ? "زەنێ ڕێکخراوێکی قازانجنەویستە کە بۆ داکۆکیکردن لە ماف و فراوانکردنی دەرفەتی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە کوردستان دادەمەزرێت." : "Zane is a not-for-profit organization being established to advance the rights and opportunities of people with Down syndrome and intellectual disabilities in Kurdistan."}</p>}
         aside={<p>{isKu ? "ناوەندی سەرەکی: " : "Based in "}<strong>{tx(site.location, locale)}</strong></p>}
       />
 
       <section className="section-pad">
         <div className="shell narrative-grid">
-          <div className="narrative-sticky"><p className="eyebrow">{isKu ? "لە دایکێکەوە" : "From a mother"}</p><h2>{isKu ? "خۆشەویستی کە بوو بە سیستەم." : "Love, made systematic."}</h2></div>
+          <div className="narrative-sticky"><p className="eyebrow">{isKu ? "هۆکاری دامەزراندن" : "The institutional case"}</p><h2>{isKu ? "پێویستی ڕوونە. کاری ڕێکخراو پێویستە." : "A clear need deserves an organized response."}</h2></div>
           <div className="prose-large">
-            <p>{isKu ? "ماوەی دە ساڵە ژیان لەگەڵ زەنێ، کچەکەی دامەزرێنەرەکەمان، خێزانەکەی فێری کردووە کە خۆشەویستی زۆر پێویستە—بەڵام بە تەنها بەس نییە. خێزان پێویستی بە پسپۆڕی شیاو، زانیاریی ڕاست، قوتابخانەی ئامادە و کۆمەڵگایەک هەیە کە چاوەڕوانی گەورەی هەبێت." : "Ten years of life with Zane, our founder’s daughter, taught her family that love is essential—but love should not have to do the work of a system. Families also need qualified professionals, reliable information, prepared schools and a society willing to expect more."}</p>
-            <p>{isKu ? "ئەم فاوندەیشنە ئەو ئەزموونە کەسییە وەک بنچینە بەکاردەهێنێت، نەک وەک جێگرەوەی بەڵگە. کارەکان بە دەنگی خێزان ڕێنمایی دەکرێن، بە پسپۆڕی دیزاین دەکرێن و بە داتا هەڵدەسەنگێندرێن." : "The foundation treats that lived experience as a starting point, not a substitute for evidence. Work will be guided by families, designed with qualified expertise and evaluated with data."}</p>
-            <blockquote>{isKu ? "سەپاندنی «بەڵێ»ە—بەڵێ بۆ پشتگیری، بەڵێ بۆ بەشداری، بەڵێ بۆ داهاتوویەکی سەربەخۆ." : "It is the insistence of yes: yes to support, yes to participation, yes to a future with agency."}</blockquote>
+            <p>{isKu ? "لە کوردستاندا دەستگەیشتن بە خزمەتگوزاریی گەشەپێدان و ڕاهێنان سنووردار و تێچووبەرزە. زانیاریی پشتڕاستکراو پەرشە، قوتابخانەکان بە شێوەی یەکسان ئامادە نین و زۆر کەس هێشتا بەهۆی تێڕوانینی هەڵەوە لە بەشداریی کۆمەڵایەتی دوور دەخرێنەوە." : "Across Kurdistan, access to developmental services and qualified support is limited and expensive. Reliable guidance is fragmented, schools are unevenly prepared, and social stigma continues to restrict participation."}</p>
+            <p>{isKu ? "زەنێ بۆ چارەسەرکردنی هەموو ئەو کێشانە بە تەنها نییە. ڕۆڵی ئێمە دروستکردنی بەرنامەی تایبەتمەند، پەیوەستکردنی خێزان بە سەرچاوەی باوەڕپێکراو، ڕاهێنانی دامەزراوەکان و کۆکردنەوەی هاوبەشەکانە بۆ گۆڕانێکی بەردەوام." : "Zane will not claim to solve those systems alone. Its role is to develop focused programs, connect families with trusted resources, strengthen institutions and convene partners around durable change."}</p>
+            <blockquote>{isKu ? "کەسانی خاوەن سندرۆمی داون بەشێکن لە کۆمەڵگا؛ ماف و دەرفەتەکانیان بابەتی خێرخوازی نییە." : "People with Down syndrome are part of society. Their rights and opportunities are not an act of charity."}</blockquote>
           </div>
         </div>
       </section>
@@ -69,4 +69,3 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     </>
   );
 }
-

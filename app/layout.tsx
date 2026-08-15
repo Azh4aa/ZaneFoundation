@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     siteName: "Zane Foundation",
     locale: "en_US",
     alternateLocale: ["ku_IQ"],
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Zane Foundation — Potential is the starting point." }],
+    images: [{ url: "/og-v2.png", width: 1200, height: 630, alt: "Zane Foundation — A full life is everyone's right." }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", images: ["/og-v2.png"] },
 };
 
 export const viewport: Viewport = {
