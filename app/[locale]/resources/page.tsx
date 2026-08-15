@@ -6,7 +6,7 @@ import { makePageMetadata } from "@/lib/metadata";
 import { isLocale } from "@/lib/site";
 
 const title = { en: "Family resources", ku: "سەرچاوەی خێزان" };
-const description = { en: "A carefully staged resource hub for families of people with Down syndrome and intellectual disabilities.", ku: "ناوەندێکی سەرچاوەی بە وریایی ئامادەکراو بۆ خێزانەکانی کەسانی داون سیندرۆم و کەم توانایی ژیری." };
+const description = { en: "Trusted information and practical guidance for families of people with Down syndrome and intellectual disabilities.", ku: "زانیاریی باوەڕپێکراو و ڕێنماییی کرداری بۆ خێزانەکانی کەسانی خاوەن داون سیندرۆم و کەمتواناییی هزری." };
 export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { return makePageMetadata(params, title, description, "/resources"); }
 
 export default async function ResourcesPage({ params }: { params: Promise<{ locale: string }> }) {

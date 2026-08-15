@@ -1,39 +1,37 @@
 import Link from "next/link";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { Logo } from "@/components/Logo";
-import { navItems, site, tx, type Locale } from "@/lib/site";
+import { navItems, tx, type Locale } from "@/lib/site";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
+  const isKu = locale === "ku";
+
   return (
     <header className="site-header">
-      <div className="utility-bar">
-        <div className="shell utility-bar__inner">
-          <p><span className="status-dot" />{isKuLabel(locale)}</p>
-          <div><span>{tx(site.location, locale)}</span><LanguageSwitch locale={locale} /></div>
-        </div>
-      </div>
       <div className="site-header__inner shell">
         <Logo locale={locale} />
-        <nav className="desktop-nav" aria-label={locale === "en" ? "Primary navigation" : "ڕێنیشاندەری سەرەکی"}>
+        <nav className="desktop-nav" aria-label={isKu ? "ڕێنیشاندەری سەرەکی" : "Primary navigation"}>
           {navItems.map((item) => (
             <Link key={item.href} href={`/${locale}${item.href}`}>{tx(item.label, locale)}</Link>
           ))}
         </nav>
         <div className="header-actions">
-          <Link className="button button--small button--dark" href={`/${locale}/partner`}>
-            {locale === "en" ? "For partners" : "بۆ هاوبەشان"}<span aria-hidden="true">↗</span>
+          <LanguageSwitch locale={locale} />
+          <Link className="header-contact" href={`/${locale}/contact`}>
+            {isKu ? "پەیوەندی" : "Contact"}<span aria-hidden="true">↗</span>
           </Link>
           <details className="mobile-menu">
-            <summary aria-label={locale === "en" ? "Open menu" : "کردنەوەی لیست"}><span /><span /></summary>
+            <summary aria-label={isKu ? "کردنەوەی لیست" : "Open menu"}><span /><span /></summary>
             <div className="mobile-menu__panel">
-              <nav aria-label={locale === "en" ? "Mobile navigation" : "ڕێنیشاندەری مۆبایل"}>
+              <nav aria-label={isKu ? "ڕێنیشاندەری مۆبایل" : "Mobile navigation"}>
                 {navItems.map((item) => (
                   <Link key={item.href} href={`/${locale}${item.href}`}>{tx(item.label, locale)}</Link>
                 ))}
-                <Link href={`/${locale}/resources`}>{locale === "en" ? "Family resources" : "سەرچاوەی خێزان"}</Link>
-                <Link href={`/${locale}/impact`}>{locale === "en" ? "Impact framework" : "چوارچێوەی کاریگەری"}</Link>
-                <Link href={`/${locale}/transparency`}>{locale === "en" ? "Transparency" : "ڕوونکردنەوە"}</Link>
-                <Link href={`/${locale}/contact`}>{locale === "en" ? "Contact" : "پەیوەندی"}</Link>
+                <Link href={`/${locale}/stories`}>{isKu ? "تێڕوانین و هەواڵ" : "Ideas & news"}</Link>
+                <Link href={`/${locale}/careers`}>{isKu ? "هەلی کار" : "Careers"}</Link>
+                <Link href={`/${locale}/partner`}>{isKu ? "هاوبەشی" : "Partnerships"}</Link>
+                <Link href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و متمانە" : "Governance & trust"}</Link>
+                <Link href={`/${locale}/contact`}>{isKu ? "پەیوەندی" : "Contact"}</Link>
               </nav>
             </div>
           </details>
@@ -41,8 +39,4 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       </div>
     </header>
   );
-}
-
-function isKuLabel(locale: Locale) {
-  return locale === "ku" ? "ماف · شکۆ · بەشداری" : "Rights · dignity · participation";
 }

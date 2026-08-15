@@ -8,7 +8,7 @@ import { makePageMetadata } from "@/lib/metadata";
 import { isLocale, site } from "@/lib/site";
 
 const title = { en: "Get involved", ku: "بەشداربە" };
-const description = { en: "Volunteer, contribute professional expertise or build an institutional partnership with Zane Foundation.", ku: "وەک خۆبەخش، پسپۆڕ یان هاوبەشی دامەزراوەیی لەگەڵ فاوندەیشنی زەنێ بەشداربە." };
+const description = { en: "Volunteer, share professional expertise or support Zane Foundation through a partnership.", ku: "وەک خۆبەخش، پسپۆڕ یان هاوبەش لەگەڵ فاوندەیشنی زەنێ بەشداربە." };
 export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { return makePageMetadata(params, title, description, "/get-involved"); }
 
 export default async function GetInvolvedPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -20,12 +20,12 @@ export default async function GetInvolvedPage({ params }: { params: Promise<{ lo
   return <>
     <PageHero
       eyebrow={isKu ? "بەشداربە" : "Get involved"}
-      title={isKu ? "کات، شارەزایی و دەنگت گرنگە." : <>Your time. Your expertise.<br /><em>A stronger institution.</em></>}
+      title={isKu ? "ئەوەی دەتوانیت، بەشداری بکە." : <>Bring what<br /><em>you can.</em></>}
       intro={<p>{isKu ? "زەنێ تۆڕێک لە خۆبەخش، پسپۆڕ، دامەزراوە و کۆمپانیا دروست دەکات کە بە ماف و بەشداریی تەواو پابەندن." : "Zane is building a network of volunteers, professionals, institutions and companies committed to rights and full participation."}</p>}
       aside={<p>{isKu ? "هەموو ڕۆڵە پەیوەندیدارەکان بە پشکنینی پاراستن و ڕێنماییی ڕوون دەست پێدەکەن." : "Every role involving people or sensitive information begins with appropriate safeguarding checks and clear supervision."}</p>}
     />
 
-    <section className="section-pad involvement-paths-section"><div className="shell"><SectionHeading eyebrow={isKu ? "ڕێگاکانی بەشداری" : "Ways to contribute"} title={isKu ? "ڕۆڵێک هەڵبژێرە کە لەگەڵ تواناکانت دەگونجێت." : "Choose the contribution that fits your capacity."} /><div className="involvement-paths">
+    <section className="section-pad involvement-paths-section"><div className="shell"><SectionHeading eyebrow={isKu ? "ڕێگاکانی بەشداری" : "Ways to contribute"} title={isKu ? "ڕێگایەک هەڵبژێرە کە لەگەڵ کات و شارەزاییت دەگونجێت." : "Choose what fits your time and skills."} /><div className="involvement-paths">
       {[
         ["01", isKu ? "خۆبەخشی گشتی" : "Community volunteering", isKu ? "پشتگیریی چالاکی، ڕووداو، کارگێڕی، ناوەڕۆک و پەیوەندی لەژێر سەرپەرشتیی تیمدا." : "Support activities, events, administration, content and outreach under team supervision."],
         ["02", isKu ? "تۆڕی پسپۆڕان" : "Professional network", isKu ? "شارەزایی لە تەندروستی، پەروەردە، یاسا، دارایی، داتا، پاراستن یان ڕاگەیاندن بەشدار بکە." : "Contribute expertise in health, education, law, finance, data, safeguarding or communications."],
@@ -41,7 +41,7 @@ export default async function GetInvolvedPage({ params }: { params: Promise<{ lo
       <li><span>04</span><p>{isKu ? "ڕاهێنان، فیدباک و کۆتاییی ڕوون" : "Induction, feedback and a clear close-out"}</p></li>
     </ol></div></section>
 
-    <section className="form-section section-pad" id="volunteer"><div className="shell form-section__grid"><div className="form-section__intro"><p className="eyebrow">{isKu ? "تۆماری حەز" : "Expression of interest"}</p><h2>{isKu ? "ئامادەیت بەشداربیت؟" : "Ready to step forward?"}</h2><p>{isKu ? "ئەم تۆمارە داواکاریی ڕۆڵێکی دیاریکراو نییە. زانیارییەکانت لە تۆڕی خۆبەخشاندا تۆمار دەکرێت و کاتێک دەرفەتێکی گونجاو هەبوو پەیوەندیت پێوە دەکرێت." : "This is not an application for a guaranteed placement. It adds your details to the volunteer network so the team can contact you when a suitable role is available."}</p><a className="text-link" href={`mailto:${site.volunteerEmail}`}>{site.volunteerEmail}<span>↗</span></a></div><OpportunityForm locale={locale} kind="volunteer" /></div></section>
+    <section className="form-section section-pad" id="volunteer"><div className="shell form-section__grid"><div className="form-section__intro"><p className="eyebrow">{isKu ? "خۆبەخشی" : "Volunteer interest"}</p><h2>{isKu ? "دەتەوێت یارمەتی بدەیت؟" : "Want to help?"}</h2><p>{isKu ? "زانیارییەکانت بنێرە. کاتێک ڕۆڵێک لەگەڵ کات و تواناکانت گونجا، تیمەکەمان پەیوەندیت پێوە دەکات." : "Tell us a little about yourself. When a role matches your time and skills, the team can get in touch."}</p><a className="text-link" href={`mailto:${site.volunteerEmail}`}>{site.volunteerEmail}<span>↗</span></a></div><OpportunityForm locale={locale} kind="volunteer" /></div></section>
 
     <section className="career-crosslink"><div className="shell career-crosslink__inner"><div><p>{isKu ? "بەدوای ڕۆڵێکی پیشەیی بە مووچەیت؟" : "Looking for a professional paid role?"}</p><h2>{isKu ? "هەلی کار و تۆماری حەز ببینە." : "Visit careers and register your interest."}</h2></div><Link className="button button--gold" href={`/${locale}/careers`}>{isKu ? "هەلی کار" : "Explore careers"}</Link></div></section>
   </>;

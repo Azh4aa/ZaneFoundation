@@ -1,156 +1,147 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import storiesJson from "@/content/stories.json";
-import { SectionHeading } from "@/components/SectionHeading";
-import { StoryCard, type Story } from "@/components/StoryCard";
-import { isLocale, programData, site, tx } from "@/lib/site";
+import { isLocale, programData, tx } from "@/lib/site";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale;
   const isKu = locale === "ku";
-  const stories = (storiesJson as Story[]).slice(0, 3);
 
-  const principles = [
-    [isKu ? "ماف" : "Rights", isKu ? "هەر تاکێک مافی بەشداریی تەواوی هەیە." : "Every person has the right to participate fully."],
-    [isKu ? "کوالێتی" : "Quality", isKu ? "خزمەتگوزاری دەبێت پسپۆڕانە و پێوانەکراو بێت." : "Support must be qualified, safe and measurable."],
-    [isKu ? "لێپرسراوێتی" : "Accountability", isKu ? "بەڵێن و ئەنجام بە ڕوونی لێک جیادەکەینەوە." : "We separate public ambition from verified results."],
+  const paths = [
+    {
+      label: isKu ? "بۆ خێزان" : "For families",
+      title: isKu ? "زانیاری و ڕێنماییی ڕوون" : "Clear information and guidance",
+      href: `/${locale}/resources`,
+    },
+    {
+      label: isKu ? "بۆ قوتابخانە و پسپۆڕان" : "For schools & professionals",
+      title: isKu ? "هاوکاری بۆ گشتگیری" : "Work together for inclusion",
+      href: `/${locale}/programs`,
+    },
+    {
+      label: isKu ? "بۆ پشتیوانان" : "For supporters",
+      title: isKu ? "کات و شارەزاییت بەشدار بکە" : "Give time, expertise or support",
+      href: `/${locale}/get-involved`,
+    },
   ];
 
   return (
     <>
-      <section className="manifesto-hero">
-        <div className="manifesto-hero__grain" aria-hidden="true" />
-        <div className="shell manifesto-hero__grid">
-          <div className="manifesto-hero__copy">
-            <p className="hero-kicker"><span />{isKu ? "فاوندەیشنی زەنێ · کوردستان" : "Zane Foundation · Kurdistan"}</p>
-            <h1>{isKu ? <>ژیانێکی پڕبەها،<br /><em>مافێکی هەمووانە.</em></> : <>A full life is<br /><em>everyone’s right.</em></>}</h1>
-            <p className="manifesto-hero__intro">
+      <section className="clarity-hero">
+        <div className="shell clarity-hero__grid">
+          <div className="clarity-hero__copy">
+            <p className="eyebrow">{isKu ? "داون سیندرۆم · کوردستان" : "Down syndrome · Kurdistan"}</p>
+            <h1>
+              {isKu ? (
+                <>هەر کەسێک شایەنی <em>دەرفەتی گەشەکردنە.</em></>
+              ) : (
+                <>Every person deserves <em>room to grow.</em></>
+              )}
+            </h1>
+            <p className="clarity-hero__intro">
               {isKu
-                ? "کار دەکەین بۆ ئەوەی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە خوێندن، تەندروستی، کار و ژیانی کۆمەڵایەتیدا بەشداریی تەواویان هەبێت."
-                : "We are building the specialist support, public understanding and institutional partnerships people with Down syndrome and intellectual disabilities need to participate fully in society."}
+                ? "زەنێ لەگەڵ کەسانی خاوەن داون سیندرۆم، خێزان، قوتابخانە و کۆمەڵگا کار دەکات؛ بۆ ئەوەی پشتگیری بە ئاسانی بگات و بەشداری ببێتە بەشێکی ئاسایی ژیان."
+                : "Zane works with people with Down syndrome, their families, schools and communities—so support is easier to find and belonging becomes part of everyday life."}
             </p>
-            <div className="hero-actions">
-              <Link className="button button--gold button--arrow" href={`/${locale}/programs`}>{isKu ? "پرۆگرامەکان" : "Explore the programs"}<span>↗</span></Link>
-              <Link className="button button--ghost-light" href={`/${locale}/get-involved`}>{isKu ? "بەشداربە" : "Get involved"}</Link>
-            </div>
-            <div className="hero-registration">
-              <span>{isKu ? "کوردستان · عێراق" : "KURDISTAN · IRAQ"}</span>
-              <p>{isKu ? "پشتگیریی تاک · بەهێزکردنی خێزان · گۆڕینی کۆمەڵگا" : "Individual support · stronger families · inclusive communities"}</p>
+            <div className="clarity-hero__actions">
+              <Link className="button button--dark" href={`/${locale}/programs`}>
+                {isKu ? "کارەکانمان ببینە" : "See what we do"}<span aria-hidden="true">↗</span>
+              </Link>
+              <Link className="quiet-link" href={`/${locale}/resources`}>
+                {isKu ? "سەرچاوەی خێزان" : "Family resources"}<span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
 
-          <div className="manifesto-hero__symbol" aria-label={isKu ? "نیشانی فاوندەیشنی زەنێ" : "Zane Foundation mark"}>
-            <div className="symbol-orbit symbol-orbit--outer"><span>{isKu ? "ماف" : "RIGHTS"}</span><span>{isKu ? "دەرفەت" : "OPPORTUNITY"}</span></div>
-            <div className="symbol-orbit symbol-orbit--inner" />
-            <div className="symbol-core"><Image src="/brand/zane-mark.png" alt="" width={420} height={500} priority /></div>
-            <p>{isKu ? "شکۆ · بەشداری · داهاتوو" : "DIGNITY · PARTICIPATION · FUTURE"}</p>
-          </div>
-        </div>
-        <div className="manifesto-marquee" aria-hidden="true">
-          <div>{isKu ? "توانا ببینە · گشتگیری بنیاد بنێ · داهاتوو دروست بکە ·" : "SEE POTENTIAL · BUILD INCLUSION · CREATE FUTURES ·"}</div>
+          <aside className="clarity-hero__field" aria-label={isKu ? "بەهاکانی زەنێ" : "Zane values"}>
+            <Image src="/brand/zane-mark.png" alt="" width={280} height={330} priority />
+            <blockquote>{isKu ? "بەشداری زیادە نییە؛ مافە." : "Belonging is not an extra. It is a right."}</blockquote>
+            <p>{isKu ? "ماف · دەرفەت · بەشداری" : "RIGHTS · OPPORTUNITY · BELONGING"}</p>
+          </aside>
         </div>
       </section>
 
-      <section className="institution-intro section-pad">
-        <div className="shell institution-intro__grid">
+      <nav className="audience-paths" aria-label={isKu ? "ڕێگای دەستپێکردن" : "Choose where to begin"}>
+        <div className="shell audience-paths__grid">
+          {paths.map((path, index) => (
+            <Link href={path.href} key={path.href}>
+              <span>0{index + 1}</span>
+              <div><small>{path.label}</small><strong>{path.title}</strong></div>
+              <b aria-hidden="true">↗</b>
+            </Link>
+          ))}
+        </div>
+      </nav>
+
+      <section className="home-work section-pad">
+        <div className="shell home-work__intro">
           <div>
-            <p className="eyebrow">{isKu ? "بۆچی زەنێ" : "Why Zane"}</p>
-            <h2>{isKu ? "بۆشاییەکە گەورەیە. وەڵامەکە دەبێت پسپۆڕانە بێت." : "The gap is serious. The response must be specialist."}</h2>
+            <p className="eyebrow">{isKu ? "کارەکانمان" : "Our work"}</p>
+            <h2>{isKu ? "پشتگیری لە چوار شوێنی گرنگی ژیاندا." : "Support where life happens."}</h2>
           </div>
-          <div className="institution-intro__body">
-            <p>{isKu ? "خێزانەکان لە کوردستان ڕووبەڕووی تێچووی بەرز، زانیاریی پەرش، قوتابخانەی نائامادە و تێڕوانینی هەڵەی کۆمەڵگا دەبنەوە. زەنێ بە بەرنامەی تایبەتمەند و هاوبەشیی بەهێز وەڵامی ئەو بۆشاییانە دەداتەوە." : "Families across Kurdistan face high costs, fragmented information, underprepared schools and persistent social stigma. Zane responds with focused programs, reliable guidance and strong partnerships."}</p>
-            <p>{isKu ? "کارەکانمان ماف‌تەوەر، خێزان‌تەوەر و پابەند بە پاراستن و کوالێتین. ئامانجمان ئەوەیە بەشداری و دەرفەت ببنە بەشێکی ئاسایی ژیانی ڕۆژانە." : "Our work is rights-led, family-informed and grounded in safeguarding and quality. The goal is to make participation and opportunity part of everyday life."}</p>
-            <Link className="text-link" href={`/${locale}/about`}>{isKu ? "ناسنامە و بەڕێوەبردن" : "Read our institutional profile"}<span>↗</span></Link>
-          </div>
-          <div className="institution-stamp" aria-label={isKu ? "بۆ ماف و بەشداری" : "For rights and participation"}>
-            <Image src="/brand/zane-mark.png" alt="" width={100} height={120} />
-            <strong>{isKu ? "بۆ ماف و بەشداری" : "FOR RIGHTS & PARTICIPATION"}</strong>
-            <span>SULAYMANIYAH · KURDISTAN</span>
-          </div>
+          <p>
+            {isKu
+              ? "لە یەکەم هەنگاوەکانی گەشەوە تا پۆل و کۆمەڵگا، کارەکانمان لەسەر نیاز و توانای تاک دادەمەزرێن."
+              : "From early development to the classroom and the wider community, our work begins with each person’s strengths, needs and choices."}
+          </p>
         </div>
-        <div className="shell principle-rail">
-          {principles.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
+
+        <div className="work-index">
+          {programData.map((program) => (
+            <Link href={`/${locale}/programs#${program.id}`} key={program.id}>
+              <span>{program.number}</span>
+              <h3>{tx(program.title, locale)}</h3>
+              <p>{tx(program.summary, locale)}</p>
+              <b aria-hidden="true">↗</b>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="programs-showcase section-pad">
-        <div className="shell">
-          <SectionHeading inverse eyebrow={isKu ? "چوار بواری کار" : "Four areas of work"} title={isKu ? "لە پشتگیریی زووەوە تا گۆڕینی کۆمەڵگا." : <>From early support<br />to public change.</>} text={isKu ? "کارەکانمان تاک، خێزان، قوتابخانە و کۆمەڵگا بەیەکەوە دەبەستنەوە." : "Our work connects individuals, families, schools and communities around practical inclusion."} />
-          <div className="program-bento">
-            {programData.map((program, index) => (
-              <article className={`program-tile program-tile--${index + 1}`} key={program.id}>
-                <div className="program-tile__meta"><span>{program.number}</span><p>{tx(program.stage, locale)}</p></div>
-                <h3>{tx(program.title, locale)}</h3>
-                <p>{tx(program.summary, locale)}</p>
-                <Link href={`/${locale}/programs#${program.id}`} aria-label={`${isKu ? "زیاتر بخوێنەوە" : "Read more"}: ${tx(program.title, locale)}`}><span>{isKu ? "وردەکاری" : "View program"}</span><b>↗</b></Link>
-              </article>
-            ))}
-          </div>
+      <section className="home-belief">
+        <div className="shell home-belief__grid">
+          <p className="eyebrow eyebrow--gold">{isKu ? "باوەڕمان" : "What we believe"}</p>
+          <blockquote>
+            {isKu
+              ? "ژیانێکی باش بەوە ناپێورێت کە کەسێک تا چەند لەگەڵ پێوەرێک دەگونجێت؛ بە هەڵبژاردن، پشتگیری، پەیوەندی و دەرفەتی بەشداری دروست دەبێت."
+              : "A good life is not measured by how closely someone fits a standard. It is shaped by choice, support, relationships and the chance to take part."}
+          </blockquote>
+          <Link className="quiet-link quiet-link--light" href={`/${locale}/about`}>
+            {isKu ? "دەربارەی زەنێ" : "About Zane"}<span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
-      <section className="participation-section section-pad">
-        <div className="shell">
-          <div className="section-title-row section-title-row--participation">
-            <SectionHeading eyebrow={isKu ? "بەشداربە" : "Take part"} title={isKu ? "دامەزراوەی بەهێز بە خەڵکی بەهێز دروست دەبێت." : "Serious institutions are built by people who step forward."} />
-            <p>{isKu ? "زانیاریی خۆت تۆمار بکە؛ تیمەکەمان دوای پێداچوونەوە پەیوەندیت پێوە دەکات." : "Choose the path that fits your experience. Every expression of interest is reviewed by the team."}</p>
+      <section className="home-standard section-pad">
+        <div className="shell home-standard__grid">
+          <div>
+            <p className="eyebrow">{isKu ? "بەڵێنمان" : "Our standard"}</p>
+            <h2>{isKu ? "ڕێز لە هەر بڕیارێکدا." : "Respect in every decision."}</h2>
           </div>
-          <div className="participation-grid">
-            <Link href={`/${locale}/get-involved#volunteer`} className="participation-card participation-card--gold"><span>01</span><div><p>{isKu ? "بە کات و شارەزاییت" : "Give time and expertise"}</p><h3>{isKu ? "خۆبەخش بە" : "Volunteer"}</h3></div><b>↗</b></Link>
-            <Link href={`/${locale}/careers`} className="participation-card participation-card--sage"><span>02</span><div><p>{isKu ? "لەگەڵ تیمەکە گەشە بکە" : "Build the team"}</p><h3>{isKu ? "هەلی کار" : "Careers"}</h3></div><b>↗</b></Link>
-            <Link href={`/${locale}/partner`} className="participation-card participation-card--ink"><span>03</span><div><p>{isKu ? "کاریگەریی درێژخایەن دروست بکە" : "Create durable impact"}</p><h3>{isKu ? "هاوبەشی دامەزراوەیی" : "Partner with Zane"}</h3></div><b>↗</b></Link>
+          <div className="standard-list">
+            <p>{isKu ? "سەلامەتی و پاراستن پێش هەموو شتێک" : "Safety and safeguarding come first"}</p>
+            <p>{isKu ? "زمان و نوێنەرایەتی بە ڕەزامەندی" : "Language and representation require consent"}</p>
+            <p>{isKu ? "بەڵێن و ئەنجام بە ڕوونی جیادەکرێنەوە" : "Promises and verified results stay distinct"}</p>
           </div>
+          <Link className="quiet-link" href={`/${locale}/transparency`}>
+            {isKu ? "بەڕێوەبردن و متمانە" : "Governance and trust"}<span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
-      <section className="people-section section-pad">
-        <div className="shell people-section__grid">
-          <div><p className="eyebrow eyebrow--gold">{isKu ? "گشتگیری لە ژیانی ڕۆژانەدا" : "Inclusion in everyday life"}</p><h2>{isKu ? "دەرفەت دەبێت لە هەر قۆناغێکی ژیاندا هەبێت." : "Opportunity should be present at every stage of life."}</h2></div>
-          <div className="people-list">{[
-            [isKu ? "منداڵ و گەنج" : "Children & young people", isKu ? "گەشەکردن، فێربوون و بەشداری لەگەڵ هاوتەمەنەکان." : "Development, learning and participation alongside peers."],
-            [isKu ? "خێزان" : "Families", isKu ? "زانیاریی ڕوون، ڕێنماییی بەڕێز و تۆڕی پشتگیری." : "Clear information, respectful guidance and a network of support."],
-            [isKu ? "قوتابخانە و پسپۆڕ" : "Schools & professionals", isKu ? "ئامراز و هاوکاری بۆ پراکتیسی گشتگیر." : "Practical tools and collaboration for inclusive practice."],
-            [isKu ? "کۆمەڵگا" : "Communities", isKu ? "زمان و هەڵسوکەوتێک کە ماف، توانا و بەشداری دەبینێت." : "Language and attitudes that recognize rights, ability and belonging."],
-          ].map(([h,p],i) => <article key={h}><span>0{i+1}</span><div><h3>{h}</h3><p>{p}</p></div></article>)}</div>
-        </div>
-      </section>
-
-      <section className="trust-section section-pad">
-        <div className="shell trust-grid">
-          <div className="trust-copy">
-            <p className="eyebrow">{isKu ? "لێپرسراوێتی" : "Accountability"}</p>
-            <h2>{isKu ? "متمانە بە کار و هەڵسوکەوت دروست دەبێت." : "Trust is earned in the way an organization works."}</h2>
-            <p>{isKu ? "زەنێ پابەندە بە بەڕێوەبردنی بەرپرسانە، پاراستنی کەسان، پاراستنی زانیاری، گوێگرتن لە فیدباک و ڕاپۆرتدانی ڕوون." : "Zane is committed to responsible governance, safeguarding, privacy, listening to feedback and clear public reporting."}</p>
-            <Link className="button button--dark button--arrow" href={`/${locale}/transparency`}>{isKu ? "تۆماری بەڵگەنامە" : "Open the transparency register"}<span>↗</span></Link>
+      <section className="home-invitation">
+        <div className="shell home-invitation__grid">
+          <div>
+            <p className="eyebrow eyebrow--gold">{isKu ? "بەشداربە" : "Take part"}</p>
+            <h2>{isKu ? "لەو کارەدا شوێنێک بۆ تۆ هەیە." : "There is a place for you in this work."}</h2>
           </div>
-          <div className="trust-matrix">
-            {[
-              [isKu ? "بەڕێوەبردن" : "Governance", isKu ? "دەستەی گشتی، بۆرد و بەڕێوەبردن" : "Assembly, board and management roles"],
-              [isKu ? "بەڕێوەبردن" : "Stewardship", isKu ? "بڕیاردان و چاودێریی بەرپرسانە" : "Responsible decisions and oversight"],
-              [isKu ? "پاراستن" : "Safeguarding", isKu ? "ڕەزامەندی، سکاڵا و پاراستنی داتا" : "Consent, complaints and data protection"],
-              [isKu ? "کاریگەری" : "Impact", isKu ? "دەرچوون، دەرئەنجام و فێربوون" : "Outputs, outcomes and learning"],
-            ].map(([h, p], i) => <article key={h}><span>0{i + 1}</span><h3>{h}</h3><p>{p}</p><b>✓</b></article>)}
+          <div className="invitation-links">
+            <Link href={`/${locale}/get-involved#volunteer`}>{isKu ? "خۆبەخش بە" : "Volunteer"}<span>↗</span></Link>
+            <Link href={`/${locale}/careers`}>{isKu ? "هەلی کار" : "Careers"}<span>↗</span></Link>
+            <Link href={`/${locale}/partner`}>{isKu ? "ببە بە هاوبەش" : "Partner with Zane"}<span>↗</span></Link>
           </div>
-        </div>
-      </section>
-
-      <section className="stories-home section-pad section-sand">
-        <div className="shell">
-          <div className="section-title-row">
-            <SectionHeading eyebrow={isKu ? "تێڕوانین و ڕێنمایی" : "Ideas & guidance"} title={isKu ? "بابەتی بەسوود بۆ خێزان و کۆمەڵگا." : "Useful perspectives for families and communities."} />
-            <Link className="text-link" href={`/${locale}/stories`}>{isKu ? "هەموو بابەتەکان" : "View all articles"}<span aria-hidden="true">↗</span></Link>
-          </div>
-          <div className="story-grid">{stories.map((story) => <StoryCard key={story.slug} story={story} locale={locale} />)}</div>
-        </div>
-      </section>
-
-      <section className="partner-cta">
-        <div className="shell partner-cta__grid">
-          <div><p className="eyebrow eyebrow--gold">{isKu ? "بۆ دامەزراوە و فەندەرەکان" : "For institutions and funders"}</p><h2>{isKu ? "لەگەڵمان بناغەیەک بنیاد بنێ کە متمانەی لێ بکرێت." : "Help build an institution worth trusting."}</h2></div>
-          <div><p>{isKu ? "بەخێرهاتنی هاوبەشیی دارایی، تەکنیکی و ستراتیژیی درێژخایەن دەکەین کە لەگەڵ بەها و ستانداردەکانمان یەکدەگرێتەوە." : "We welcome long-term financial, technical and strategic partnerships aligned with our values and standards."}</p><div className="hero-actions"><Link className="button button--gold" href={`/${locale}/partner`}>{isKu ? "ڕێگاکانی هاوبەشی" : "Partnership pathways"}</Link><a className="button button--ghost-light" href={`mailto:${site.partnershipsEmail}`}>{site.partnershipsEmail}</a></div></div>
         </div>
       </section>
     </>

@@ -7,7 +7,7 @@ import { makePageMetadata } from "@/lib/metadata";
 import { isLocale, site, tx, values } from "@/lib/site";
 
 const title = { en: "About", ku: "دەربارە" };
-const description = { en: "The institutional purpose, mission, values and governance model of Zane Foundation.", ku: "ئامانج، پەیام، بەها و شێوازی بەڕێوەبردنی فاوندەیشنی زەنێ." };
+const description = { en: "Why Zane Foundation exists, what it believes and how it is governed.", ku: "بۆچی فاوندەیشنی زەنێ هەیە، باوەڕی بە چییە و چۆن بەڕێوەدەبرێت." };
 
 export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   return makePageMetadata(params, title, description, "/about");
@@ -23,17 +23,17 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     <>
       <PageHero
         eyebrow={isKu ? "دەربارەی زەنێ" : "About Zane"}
-        title={isKu ? "دامەزراوەیەکی تایبەتمەند بۆ ماف و بەشداری." : <>A specialist institution.<br /><em>Built for full participation.</em></>}
+        title={isKu ? "زەنێ بۆچی هەیە؟" : <>Why Zane<br /><em>exists.</em></>}
         intro={<p>{isKu ? "زەنێ ڕێکخراوێکی قازانجنەویستە بۆ داکۆکیکردن لە ماف و فراوانکردنی دەرفەتی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە کوردستان." : "Zane is a not-for-profit organization advancing the rights and opportunities of people with Down syndrome and intellectual disabilities in Kurdistan."}</p>}
         aside={<p>{isKu ? "ناوەندی سەرەکی: " : "Based in "}<strong>{tx(site.location, locale)}</strong></p>}
       />
 
       <section className="section-pad">
         <div className="shell narrative-grid">
-          <div className="narrative-sticky"><p className="eyebrow">{isKu ? "هۆکاری دامەزراندن" : "The institutional case"}</p><h2>{isKu ? "پێویستی ڕوونە. کاری ڕێکخراو پێویستە." : "A clear need deserves an organized response."}</h2></div>
+          <div className="narrative-sticky"><p className="eyebrow">{isKu ? "هۆکاری دامەزراندن" : "The need"}</p><h2>{isKu ? "خێزان نابێت بە تەنها ڕێگا بدۆزێتەوە." : "Families should not have to find their way alone."}</h2></div>
           <div className="prose-large">
             <p>{isKu ? "لە کوردستاندا دەستگەیشتن بە خزمەتگوزاریی گەشەپێدان و ڕاهێنان سنووردار و تێچووبەرزە. زانیاریی پشتڕاستکراو پەرشە، قوتابخانەکان بە شێوەی یەکسان ئامادە نین و زۆر کەس هێشتا بەهۆی تێڕوانینی هەڵەوە لە بەشداریی کۆمەڵایەتی دوور دەخرێنەوە." : "Across Kurdistan, access to developmental services and qualified support is limited and expensive. Reliable guidance is fragmented, schools are unevenly prepared, and social stigma continues to restrict participation."}</p>
-            <p>{isKu ? "زەنێ بۆ چارەسەرکردنی هەموو ئەو کێشانە بە تەنها نییە. ڕۆڵی ئێمە دروستکردنی بەرنامەی تایبەتمەند، پەیوەستکردنی خێزان بە سەرچاوەی باوەڕپێکراو، ڕاهێنانی دامەزراوەکان و کۆکردنەوەی هاوبەشەکانە بۆ گۆڕانێکی بەردەوام." : "Zane will not claim to solve those systems alone. Its role is to develop focused programs, connect families with trusted resources, strengthen institutions and convene partners around durable change."}</p>
+            <p>{isKu ? "زەنێ خێزان بە زانیاریی باوەڕپێکراو دەگەیەنێت، لەگەڵ قوتابخانە و پسپۆڕان کار دەکات و خەڵک بۆ گۆڕانی بەردەوام کۆدەکاتەوە." : "Zane connects families with reliable information, works alongside schools and professionals, and brings people together to make inclusion easier in everyday life."}</p>
             <blockquote>{isKu ? "کەسانی خاوەن سندرۆمی داون بەشێکن لە کۆمەڵگا؛ ماف و دەرفەتەکانیان بابەتی خێرخوازی نییە." : "People with Down syndrome are part of society. Their rights and opportunities are not an act of charity."}</blockquote>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <section className="values-section section-pad">
         <div className="shell">
-          <SectionHeading eyebrow={isKu ? "بەها ستراتیژییەکان" : "Strategic values"} title={isKu ? "بەڵێنەکانمان لە شێوازی کارکردنماندا دیارن." : "Our promises are visible in our practice."} />
+          <SectionHeading eyebrow={isKu ? "شێوازی کارمان" : "How we work"} title={isKu ? "بەهاکانمان دەبێت لە کرداردا دیار بن." : "Our values should be easy to see in practice."} />
           <div className="values-grid">{values.map((value, index) => <article className="value-card" key={value.title.en}><p>0{index + 1}</p><h3>{tx(value.title, locale)}</h3><span>{tx(value.text, locale)}</span></article>)}</div>
         </div>
       </section>

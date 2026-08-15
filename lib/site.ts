@@ -27,10 +27,9 @@ export const site = {
 
 export const navItems: Array<{ href: string; label: LocalizedText }> = [
   { href: "/about", label: { en: "About", ku: "دەربارە" } },
-  { href: "/programs", label: { en: "Programs", ku: "پرۆگرامەکان" } },
+  { href: "/programs", label: { en: "Our work", ku: "کارەکانمان" } },
+  { href: "/resources", label: { en: "Resources", ku: "سەرچاوەکان" } },
   { href: "/get-involved", label: { en: "Get involved", ku: "بەشداربە" } },
-  { href: "/stories", label: { en: "Ideas & news", ku: "تێڕوانین و هەواڵ" } },
-  { href: "/careers", label: { en: "Careers", ku: "هەلی کار" } },
 ];
 
 export const programData = [

@@ -5,10 +5,10 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Zane Foundation — Dignity, inclusion and opportunity",
+    default: "Zane Foundation — Every person deserves room to grow",
     template: "%s — Zane Foundation",
   },
-  description: "Zane Foundation advances dignity, inclusion and opportunity for people with Down syndrome and intellectual disabilities in Kurdistan and Iraq.",
+  description: "Zane Foundation works with people with Down syndrome, their families, schools and communities across Kurdistan.",
   applicationName: "Zane Foundation",
   category: "nonprofit",
   openGraph: {
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     siteName: "Zane Foundation",
     locale: "en_US",
     alternateLocale: ["ku_IQ"],
-    images: [{ url: "/og-v2.png", width: 1200, height: 630, alt: "Zane Foundation — A full life is everyone's right." }],
+    images: [{ url: "/og-v3.png", width: 1200, height: 630, alt: "Zane Foundation — Every person deserves room to grow." }],
   },
-  twitter: { card: "summary_large_image", images: ["/og-v2.png"] },
+  twitter: { card: "summary_large_image", images: ["/og-v3.png"] },
 };
 
 export const viewport: Viewport = {

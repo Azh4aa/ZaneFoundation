@@ -60,6 +60,14 @@ test("public institutional copy contains no private daughter narrative", async (
   }
 });
 
+test("homepage keeps a single calm reading path", async () => {
+  const home = await readFile(new URL("app/[locale]/page.tsx", root), "utf8");
+  assert.doesNotMatch(home, /manifesto-marquee|symbol-orbit|program-bento|participation-grid|trust-matrix/);
+  assert.match(home, /clarity-hero/);
+  assert.match(home, /audience-paths/);
+  assert.match(home, /work-index/);
+});
+
 test("volunteer and careers publishing files are present", async () => {
   await Promise.all([
     access(new URL("app/[locale]/get-involved/page.tsx", root)),
