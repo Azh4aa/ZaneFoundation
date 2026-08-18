@@ -2,6 +2,8 @@
 
 A bilingual English/Kurdish institutional website for Zane Foundation, built around its public mission and supplied navy-and-gold brand system.
 
+For routine editing, publishing, office setup, photography replacement and launch instructions, read **`WEBSITE-GUIDE.md`**.
+
 ## Included
 
 - English and Sorani Kurdish routes with correct text direction
@@ -39,9 +41,9 @@ All public placeholders are centralized in `lib/site.ts`:
 - General, partnership, volunteer, careers, privacy, safeguarding and feedback emails
 - Legal name
 - Registration status and number
-- Location
+- Location, office address, phone, working hours and map
 
-The current `zanefoundation.org` addresses and `REGISTRATION PENDING` status are deliberate placeholders. Replace them in that one file as soon as the domain and certificate are confirmed.
+The current `zanefoundation.org` addresses and registration-in-progress status are deliberate placeholders. Replace them in that one file as soon as the domain and certificate are confirmed.
 
 ## Volunteer and careers forms
 

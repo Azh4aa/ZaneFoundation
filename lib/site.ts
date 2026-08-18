@@ -18,17 +18,35 @@ export const site = {
   safeguardingEmail: "safeguarding@zanefoundation.org",
   complaintsEmail: "feedback@zanefoundation.org",
   url: "https://zanefoundation.org",
-  registrationNumber: "REGISTRATION PENDING",
+  registrationNumber: "",
+  registrationStatus: {
+    en: "Registration in progress",
+    ku: "پرۆسەی تۆمارکردن بەردەوامە",
+  },
   location: {
     en: "Sulaymaniyah, Kurdistan Region of Iraq",
     ku: "سلێمانی، هەرێمی کوردستانی عێراق",
   },
+  officeAddress: {
+    en: "",
+    ku: "",
+  },
+  officeNote: {
+    en: "The full visitor address will be published when the office opens.",
+    ku: "ناونیشانی تەواوی سەردان دوای کردنەوەی نووسینگە بڵاودەکرێتەوە.",
+  },
+  workingHours: {
+    en: "Meetings by prior appointment",
+    ku: "دیدار بە کاتی پێشوەختە",
+  },
+  phone: "",
+  mapUrl: "",
 };
 
 export const navItems: Array<{ href: string; label: LocalizedText }> = [
   { href: "/about", label: { en: "About", ku: "دەربارە" } },
   { href: "/programs", label: { en: "Our work", ku: "کارەکانمان" } },
-  { href: "/resources", label: { en: "Resources", ku: "سەرچاوەکان" } },
+  { href: "/resources", label: { en: "Resources", ku: "سەرچاوە" } },
   { href: "/get-involved", label: { en: "Get involved", ku: "بەشدار بە" } },
 ];
 

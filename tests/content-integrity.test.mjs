@@ -32,6 +32,16 @@ test("required brand and publishing guidance are present", async () => {
     access(new URL("public/og.png", root)),
     access(new URL("public/fonts/README.md", root)),
     access(new URL("content/README.md", root)),
+    access(new URL("WEBSITE-GUIDE.md", root)),
+  ]);
+});
+
+test("temporary editorial images are local and documented", async () => {
+  await Promise.all([
+    access(new URL("public/images/editorial/community-workshop.jpg", root)),
+    access(new URL("public/images/editorial/inclusive-classroom.jpg", root)),
+    access(new URL("public/images/editorial/community-employment.jpg", root)),
+    access(new URL("public/images/editorial/README.md", root)),
   ]);
 });
 
@@ -86,6 +96,28 @@ test("homepage keeps a single calm reading path", async () => {
   assert.match(home, /هەموو کەسێک شایەنی/);
   assert.match(home, /دەرفەتی گەشە کردنە/);
   assert.doesNotMatch(home, /هەر ?کەسێک/);
+});
+
+test("institutional copy states governance facts without trust-seeking language", async () => {
+  const files = await Promise.all([
+    readFile(new URL("app/[locale]/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/about/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/impact/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/transparency/page.tsx", root), "utf8"),
+    readFile(new URL("app/[locale]/partner/page.tsx", root), "utf8"),
+    readFile(new URL("components/SiteHeader.tsx", root), "utf8"),
+    readFile(new URL("components/SiteFooter.tsx", root), "utf8"),
+  ]);
+  for (const copy of files) {
+    assert.doesNotMatch(copy, /Governance & trust|Trust should be|depends on trust|بەڕێوەبردن و متمانە|متمانە دەبێت|متمانە بنەمای/i);
+  }
+});
+
+test("office and registration placeholders have dedicated editable fields", async () => {
+  const settings = await readFile(new URL("lib/site.ts", root), "utf8");
+  for (const field of ["registrationStatus", "officeAddress", "officeNote", "workingHours", "phone", "mapUrl"]) {
+    assert.match(settings, new RegExp(`${field}:`));
+  }
 });
 
 test("volunteer and careers publishing files are present", async () => {

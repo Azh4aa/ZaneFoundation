@@ -19,7 +19,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <nav className="footer-links" aria-label={isKu ? "ڕێنیشاندەری خوارەوە" : "Footer navigation"}>
             <Link href={`/${locale}/about`}>{isKu ? "دەربارە" : "About"}</Link>
             <Link href={`/${locale}/programs`}>{isKu ? "کارەکانمان" : "Our work"}</Link>
-            <Link href={`/${locale}/resources`}>{isKu ? "سەرچاوەکان" : "Resources"}</Link>
+            <Link href={`/${locale}/resources`}>{isKu ? "سەرچاوە" : "Resources"}</Link>
             <Link href={`/${locale}/stories`}>{isKu ? "تێڕوانین و هەواڵ" : "Ideas & news"}</Link>
             <Link href={`/${locale}/contact`}>{isKu ? "پەیوەندی" : "Contact"}</Link>
           </nav>
@@ -31,7 +31,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             <Link href={`/${locale}/get-involved#volunteer`}>{isKu ? "خۆبەخشی" : "Volunteer"}</Link>
             <Link href={`/${locale}/careers`}>{isKu ? "هەلی کار" : "Careers"}</Link>
             <Link href={`/${locale}/partner`}>{isKu ? "هاوبەشی" : "Partnerships"}</Link>
-            <Link href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و متمانە" : "Governance & trust"}</Link>
+            <Link href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و لێپرسراوێتی" : "Governance & accountability"}</Link>
           </nav>
         </div>
       </div>

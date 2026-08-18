@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
@@ -22,7 +23,7 @@ export default async function ProgramsPage({ params }: { params: Promise<{ local
     },
     {
       audience: isKu ? "دایک و باوک، خزمەکان و چاودێران" : "Parents, relatives and caregivers",
-      actions: isKu ? ["زانیاریی ڕوون و باوەڕپێکراو", "ڕێنمایی بۆ هەنگاوی داهاتوو", "پەیوەستکردنی خێزان بە سەرچاوە و کۆمەڵگا"] : ["Clear, reliable information", "Guidance on practical next steps", "Connections to resources and community"],
+      actions: isKu ? ["زانیاریی ڕوون و سەرچاوەدار", "ڕێنمایی بۆ هەنگاوی داهاتوو", "پەیوەستکردنی خێزان بە سەرچاوە و کۆمەڵگا"] : ["Clear, sourced information", "Guidance on practical next steps", "Connections to resources and community"],
     },
     {
       audience: isKu ? "قوتابخانە، مامۆستا و خێزان" : "Schools, teachers and families",
@@ -38,16 +39,18 @@ export default async function ProgramsPage({ params }: { params: Promise<{ local
     <PageHero
       eyebrow={isKu ? "کارەکانمان" : "Our work"}
       title={isKu ? "پشتگیریی دروست لە ژیانی ڕۆژانەدا." : <>Practical support.<br /><em>Everyday inclusion.</em></>}
-      intro={<p>{isKu ? "زەنێ لەگەڵ کەسان، خێزانەکانیان، قوتابخانە و کۆمەڵگا کار دەکات، تا دەرفەت و بەشداری زیاتر بێت." : "Zane works across individual, family, school and community life to expand opportunity and participation."}</p>}
-      aside={<p>{isKu ? "هەموو کەسێک بە شێوەی خۆی فێردەبێت، گەشە دەکات و بەشدار دەبێت. پشتگیریی باش لە گوێگرتن دەست پێدەکات." : "Every person learns, develops and participates differently. Good support begins by listening."}</p>}
+      intro={<p>{isKu ? "کارەکانی زەنێ تاک، خێزان، قوتابخانە و کۆمەڵگا دەگرێتەوە؛ بۆ فراوانکردنی دەرفەت و بەشداری." : "Zane’s work spans individual, family, school and community life to expand opportunity and participation."}</p>}
+      aside={<p>{isKu ? "هەموو کەسێک بە شێوەی خۆی فێردەبێت و گەشە دەکات. شێوازی پشتگیری دەبێت لەگەڵ کەسەکە بگونجێت." : "Every person learns and develops differently. Support must fit the person."}</p>}
     />
+
+    <section className="editorial-image-section"><div className="shell"><figure className="editorial-figure"><div className="editorial-figure__media"><Image src="/images/editorial/inclusive-classroom.jpg" alt={isKu ? "منداڵێکی کوردی خاوەن سندرۆمی داون لەگەڵ هاوپۆلەکانی لە چالاکییەکی فێربووندا بەشدارە." : "A Kurdish child with Down syndrome takes part in a classroom activity alongside classmates."} fill sizes="(max-width: 900px) 100vw, 1240px" /></div><figcaption><span>{isKu ? "پەروەردەی گشتگیر" : "Inclusive education"}</span><p>{isKu ? "بەشداریی ناو پۆل لە ئامادەبوون زیاترە؛ منداڵ دەبێت فێربێت، هەڵبژێرێت و لەگەڵ هاوپۆلەکانی کار بکات." : "Classroom inclusion is more than attendance: a child learns, makes choices and works alongside classmates."}</p></figcaption></figure></div></section>
 
     <section className="program-detail-section section-pad"><div className="shell program-detail-list">{programData.map((program, index) => <article className="program-detail" id={program.id} key={program.id}>
       <div className="program-detail__head"><p>{program.number}</p><div><span>{tx(program.stage, locale)}</span><h2>{tx(program.title, locale)}</h2></div></div>
-      <div className="program-detail__body"><div><h3>{isKu ? "ئەم بوارە چی دەکات" : "What this area does"}</h3><p>{tx(program.summary, locale)}</p><h3>{isKu ? "بۆچی گرنگە" : "Why it matters"}</h3><p>{tx(program.outcome, locale)}</p></div><div className="program-detail__deliverables"><h3>{isKu ? "بۆ کێیە" : "Who it is for"}</h3><p>{details[index].audience}</p><h3>{isKu ? "چی لەخۆدەگرێت" : "What it includes"}</h3><ul>{details[index].actions.map((item) => <li key={item}>{item}</li>)}</ul></div></div>
+      <div className="program-detail__body"><div><h3>{isKu ? "سەرنجی سەرەکی" : "Primary focus"}</h3><p>{tx(program.summary, locale)}</p><h3>{isKu ? "بۆچی گرنگە" : "Why it matters"}</h3><p>{tx(program.outcome, locale)}</p></div><div className="program-detail__deliverables"><h3>{isKu ? "بۆ کێیە" : "Who it is for"}</h3><p>{details[index].audience}</p><h3>{isKu ? "پێکهاتەی کار" : "What it includes"}</h3><ul>{details[index].actions.map((item) => <li key={item}>{item}</li>)}</ul></div></div>
     </article>)}</div></section>
 
-    <section className="delivery-section section-pad section-sand"><div className="shell"><SectionHeading eyebrow={isKu ? "شێوازی کارمان" : "How we work"} title={isKu ? "ڕێز، پاراستن و کوالێتی لە هەموو پەیوەندییەکدا." : "Respect, safeguarding and quality in every interaction."} /><div className="standards-grid">{[
+    <section className="delivery-section section-pad section-sand"><div className="shell"><SectionHeading eyebrow={isKu ? "پێوەری جێبەجێکردن" : "Delivery standards"} title={isKu ? "ڕێز، پاراستن و کوالێتی لە هەموو پەیوەندییەکدا." : "Respect, safeguarding and quality in every interaction."} /><div className="standards-grid">{[
       [isKu ? "سەرەتا گوێ دەگرین" : "Listen first", isKu ? "پێداویستی و هەڵبژاردنی کەسەکە و خێزانەکەی ئاراستەی کارەکە دیاری دەکات." : "The person’s and family’s priorities shape the relationship."],
       [isKu ? "پسپۆڕی" : "Qualified practice", isKu ? "ڕێنمایی و خزمەتگوزاری لەگەڵ کەسانی شیاو و بە پێوەری ڕوون ئەنجام دەدرێت." : "Guidance and support are connected to qualified people and clear standards."],
       [isKu ? "پاراستن" : "Safeguarding", isKu ? "سەلامەتی، ڕەزامەندی و نهێنی لە هەموو کارێکدا لە پێشەوەن." : "Safety, consent and privacy come before publicity or convenience."],

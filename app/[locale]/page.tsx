@@ -22,7 +22,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     },
     {
       label: isKu ? "بۆ پشتیوانان" : "For supporters",
-      title: isKu ? "کات، شارەزایی یان پشتگیریت بەشدار بکە" : "Give time, expertise or support",
+      title: isKu ? "بە کات و شارەزاییی خۆت بەشدار بە" : "Contribute time, expertise or support",
       href: `/${locale}/get-involved`,
     },
   ];
@@ -55,10 +55,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
 
-          <aside className="clarity-hero__field" aria-label={isKu ? "بەهاکانی زەنێ" : "Zane values"}>
-            <Image src="/brand/zane-mark-v2.png" alt="" width={360} height={380} priority />
-            <blockquote>{isKu ? "گشتگیری خەڵات نییە؛ مافە." : "Inclusion is not a gift. It is a right."}</blockquote>
-            <p>{isKu ? "لە عێراق ڕەگمان داکوتاوە · بەڕووی هەموو دەرفەتێکدا کراوەین" : "ROOTED IN IRAQ · OPEN TO EVERY POSSIBILITY"}</p>
+          <aside className="clarity-hero__field" aria-label={isKu ? "بەشداری لە ژیانی ڕۆژانەدا" : "Participation in everyday life"}>
+            <Image className="clarity-hero__photo" src="/images/editorial/community-workshop.jpg" alt={isKu ? "ژنێکی گەنجی کوردی خاوەن سندرۆمی داون لەگەڵ هاوڕێکانی لە کارگەیەکی هونەریدا کار دەکات." : "A Kurdish young woman with Down syndrome works alongside peers in a creative workshop."} fill sizes="(max-width: 820px) 100vw, 36vw" priority />
+            <div className="clarity-hero__caption"><blockquote>{isKu ? "گشتگیری خەڵات نییە؛ مافە." : "Inclusion is not a gift. It is a right."}</blockquote><p>{isKu ? "ژیان · فێربوون · کار · بەشداری" : "LIFE · LEARNING · WORK · PARTICIPATION"}</p></div>
           </aside>
         </div>
       </section>
@@ -79,7 +78,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="shell home-work__intro">
           <div>
             <p className="eyebrow">{isKu ? "کارەکانمان" : "Our work"}</p>
-            <h2>{isKu ? "پشتگیری لەو شوێنانەی ژیان تێیاندا بەڕێوەدەچێت." : "Support where life happens."}</h2>
+            <h2>{isKu ? "پشتگیری لە ماڵ، قوتابخانە، کار و کۆمەڵگا." : "Support where life happens."}</h2>
           </div>
           <p>
             {isKu
@@ -102,7 +101,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className="home-belief">
         <div className="shell home-belief__grid">
-          <p className="eyebrow eyebrow--gold">{isKu ? "باوەڕمان" : "What we believe"}</p>
+          <p className="eyebrow eyebrow--gold">{isKu ? "بنەمای کار" : "A rights-based starting point"}</p>
           <blockquote>
             {isKu
               ? "ژیانێکی باش بەوە ناپێورێت کە کەسێک چەند لە پێوەرە باوەکان دەچێت؛ بە هەڵبژاردن، پشتگیری، پەیوەندی و دەرفەتی بەشداری پێکدێت."
@@ -117,16 +116,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="home-standard section-pad">
         <div className="shell home-standard__grid">
           <div>
-            <p className="eyebrow">{isKu ? "بەڵێنمان" : "Our standard"}</p>
-            <h2>{isKu ? "ڕێز لە هەموو بڕیارێکدا." : "Respect in every decision."}</h2>
+            <p className="eyebrow">{isKu ? "پێوەری کار" : "Practice standards"}</p>
+            <h2>{isKu ? "پاراستن، ڕەزامەندی و بەرپرسیاریی دیاریکراو." : "Protection, consent and defined responsibility."}</h2>
           </div>
           <div className="standard-list">
             <p>{isKu ? "سەلامەتی و پاراستن هەمیشە لە پێشەوەن" : "Safety and safeguarding come first"}</p>
             <p>{isKu ? "چیرۆک و وێنە تەنها بە ڕەزامەندی بڵاودەکرێنەوە" : "Stories and images are shared only with consent"}</p>
-            <p>{isKu ? "تەنها ئەنجامی پشتڕاستکراو بڵاودەکەینەوە" : "We publish only what can be verified"}</p>
+            <p>{isKu ? "بڕیار و ئەنجام بە نووسین تۆمار دەکرێن" : "Decisions and results are documented"}</p>
           </div>
           <Link className="quiet-link" href={`/${locale}/transparency`}>
-            {isKu ? "بەڕێوەبردن و متمانە" : "Governance and trust"}<span aria-hidden="true">→</span>
+            {isKu ? "بەڕێوەبردن و لێپرسراوێتی" : "Governance and accountability"}<span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>

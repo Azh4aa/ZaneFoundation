@@ -18,9 +18,8 @@ export function StoryCard({ story, locale }: { story: Story; locale: Locale }) {
       <h3><Link href={`/${locale}/stories/${story.slug}`}>{story.title[locale]}</Link></h3>
       <p>{story.excerpt[locale]}</p>
       <Link className="text-link" href={`/${locale}/stories/${story.slug}`}>
-        {locale === "en" ? "Read the note" : "تێبینییەکە بخوێنەوە"}<span aria-hidden="true">↗</span>
+        {locale === "en" ? "Read the article" : "بابەتەکە بخوێنەوە"}<span aria-hidden="true">↗</span>
       </Link>
     </article>
   );
 }
-

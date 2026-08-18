@@ -30,7 +30,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
                 <Link href={`/${locale}/stories`}>{isKu ? "تێڕوانین و هەواڵ" : "Ideas & news"}</Link>
                 <Link href={`/${locale}/careers`}>{isKu ? "هەلی کار" : "Careers"}</Link>
                 <Link href={`/${locale}/partner`}>{isKu ? "هاوبەشی" : "Partnerships"}</Link>
-                <Link href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و متمانە" : "Governance & trust"}</Link>
+                <Link href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و لێپرسراوێتی" : "Governance & accountability"}</Link>
                 <Link href={`/${locale}/contact`}>{isKu ? "پەیوەندی" : "Contact"}</Link>
               </nav>
             </div>

@@ -22,8 +22,8 @@ export default async function CareersPage({ params }: { params: Promise<{ locale
   return <>
     <PageHero
       eyebrow={isKu ? "هەلی کار" : "Careers at Zane"}
-      title={isKu ? "کاری باش، بە وریایی." : <>Good work,<br /><em>done with care.</em></>}
-      intro={<p>{isKu ? "زەنێ بەدوای کەسانی شارەزادا دەگەڕێت؛ کە بە ڕێز کار بکەن و گوێ لە کۆمەڵگا بگرن." : "Zane looks for people who know their craft, treat others with respect and listen to the community around them."}</p>}
+      title={isKu ? "کاری پیشەیی، بە پێوەری بەرز." : <>Professional work.<br /><em>High standards.</em></>}
+      intro={<p>{isKu ? "زەنێ کەسانی شارەزا هەڵدەبژێرێت کە کارەکانیان بە وردی ئەنجام بدەن، سنووری پیشەیی بپارێزن و گوێ لە کۆمەڵگا بگرن." : "Zane recruits people who know their craft, work precisely, respect professional boundaries and listen to the community."}</p>}
       aside={<p>{isKu ? "هەموو پرۆسەیەکی دامەزراندن بە مەرجی ڕوون، هەڵبژاردنی دادپەروەرانە و پشکنینی گونجاوی پاراستن ئەنجام دەدرێت." : "All recruitment will use published criteria, a documented selection process and role-appropriate safeguarding checks."}</p>}
     />
 

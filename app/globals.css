@@ -28,9 +28,9 @@
   --charcoal: #202521;
   --line: rgba(6, 45, 36, 0.18);
   --line-light: rgba(242, 237, 225, 0.2);
-  --font-display: "Newsreader Variable", "Iowan Old Style", "Baskerville", Georgia, serif;
-  --font-body: "Manrope Variable", "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
-  --font-ku: "Zane Kurdish", "Noto Sans Arabic Variable", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+  --font-display: "Montserrat Variable", Montserrat, Arial, sans-serif;
+  --font-body: "Montserrat Variable", Montserrat, Arial, sans-serif;
+  --font-ku: "Zane Kurdish", "Noto Kufi Arabic Variable", "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
   --shell: min(1280px, 90vw);
   --radius: 2px;
 }
@@ -1780,9 +1780,9 @@ h3 {
   --rust: #b9663c;
   --blue: #8eb5b0;
   --line: rgba(7, 59, 49, 0.17);
-  --font-display: "Newsreader Variable", Georgia, serif;
-  --font-body: "Manrope Variable", "Helvetica Neue", Arial, sans-serif;
-  --font-ku: "Zane Kurdish", "Noto Sans Arabic Variable", Tahoma, Arial, sans-serif;
+  --font-display: "Montserrat Variable", Montserrat, Arial, sans-serif;
+  --font-body: "Montserrat Variable", Montserrat, Arial, sans-serif;
+  --font-ku: "Zane Kurdish", "Noto Kufi Arabic Variable", "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
   --shell: min(1380px, 92vw);
   --radius: 0;
 }

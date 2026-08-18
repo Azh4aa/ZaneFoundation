@@ -40,7 +40,7 @@ export function OpportunityForm({ locale, kind }: { locale: Locale; kind: FormKi
         ["professional", isKu ? "پسپۆڕیی پیشەیی" : "Professional expertise"],
         ["events", isKu ? "چالاکی و ڕووداو" : "Events and activities"],
         ["communications", isKu ? "ڕاگەیاندن و ناوەڕۆک" : "Communications and content"],
-        ["administration", isKu ? "کارگێڕی و ئۆفیس" : "Administration and office"],
+        ["administration", isKu ? "کارگێڕی و نووسینگە" : "Administration and office"],
         ["other", isKu ? "بوارێکی تر" : "Another area"],
       ]
     : [
@@ -56,8 +56,8 @@ export function OpportunityForm({ locale, kind }: { locale: Locale; kind: FormKi
     <form className="opportunity-form" onSubmit={submit}>
       <div className="form-heading">
         <span>{kind === "volunteer" ? "VOL–01" : "CAR–01"}</span>
-        <h2>{kind === "volunteer" ? (isKu ? "فۆڕمی بەشداری وەک خۆبەخش" : "Volunteer expression of interest") : (isKu ? "فۆڕمی حەزی کارکردن لە زەنێ" : "Career expression of interest")}</h2>
-        <p>{isKu ? "ئەو خانانەی نیشانەی * یان لەسەرە پێویستن. تکایە زانیاریی تەندروستی یان زانیاریی کەسیی هەستیار مەنووسە." : "Marked fields are required. Do not include medical or other sensitive personal information."}</p>
+        <h2>{kind === "volunteer" ? (isKu ? "تۆماری حەزی خۆبەخشی" : "Volunteer expression of interest") : (isKu ? "تۆماری حەزی کارکردن لە زەنێ" : "Career expression of interest")}</h2>
+        <p>{isKu ? "خانە نیشانکراوەکان بە * پێویستن. زانیاریی تەندروستی یان زانیاریی کەسیی هەستیار مەنووسە." : "Marked fields are required. Do not include medical or other sensitive personal information."}</p>
       </div>
 
       <div className="form-grid">
@@ -72,7 +72,7 @@ export function OpportunityForm({ locale, kind }: { locale: Locale; kind: FormKi
         <label className="honeypot" aria-hidden="true"><span>Company website</span><input name="company_website" tabIndex={-1} autoComplete="off" /></label>
       </div>
 
-      <label className="consent-row"><input name="consent" type="checkbox" required /><span>{isKu ? "ڕەزامەندم زەنێ ئەم زانیارییانە بۆ پێداچوونەوە و پەیوەندیکردن بەکاربهێنێت. سیاسەتی پاراستنی زانیاریم خوێندووەتەوە." : "I agree that Zane may use this information to review my interest and contact me. I have read the privacy notice."}</span></label>
+      <label className="consent-row"><input name="consent" type="checkbox" required /><span>{isKu ? "ڕەزامەندم کە زەنێ ئەم زانیارییانە بۆ پێداچوونەوە و پەیوەندیکردن بەکاربهێنێت. ئاگادارکردنەوەی پاراستنی زانیاریم خوێندووەتەوە." : "I agree that Zane may use this information to review my interest and contact me. I have read the privacy notice."}</span></label>
 
       <div className="form-submit-row">
         <button className="button button--gold button--arrow" disabled={status === "sending"} type="submit">{status === "sending" ? (isKu ? "دەنێردرێت..." : "Sending...") : (isKu ? "فۆڕمەکە بنێرە" : "Submit expression of interest")}<span>↗</span></button>

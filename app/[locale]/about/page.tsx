@@ -23,17 +23,17 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     <>
       <PageHero
         eyebrow={isKu ? "دەربارەی زەنێ" : "About Zane"}
-        title={isKu ? "زەنێ بۆچی هەیە؟" : <>Why Zane<br /><em>exists.</em></>}
-        intro={<p>{isKu ? "زەنێ ڕێکخراوێکی قازانجنەویستە بۆ داکۆکیکردن لە ماف و فراوانکردنی دەرفەتی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە کوردستان." : "Zane is a not-for-profit organization advancing the rights and opportunities of people with Down syndrome and intellectual disabilities in Kurdistan."}</p>}
+        title={isKu ? "زەنێ بۆ چی دامەزراوە؟" : <>Why Zane<br /><em>exists.</em></>}
+        intro={<p>{isKu ? "زەنێ ڕێکخراوێکی ناحکومی و ناقازانجییە؛ بۆ داکۆکیکردن لە ماف و فراوانکردنی دەرفەتی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە کوردستان." : "Zane is a non-governmental, not-for-profit organization advancing the rights and opportunities of people with Down syndrome and intellectual disabilities in Kurdistan."}</p>}
         aside={<p>{isKu ? "ناوەندی سەرەکی: " : "Based in "}<strong>{tx(site.location, locale)}</strong></p>}
       />
 
       <section className="section-pad">
         <div className="shell narrative-grid">
-          <div className="narrative-sticky"><p className="eyebrow">{isKu ? "هۆکاری دامەزراندن" : "The need"}</p><h2>{isKu ? "خێزان نابێت بە تەنها ڕێگا بدۆزێتەوە." : "Families should not have to find their way alone."}</h2></div>
+          <div className="narrative-sticky"><p className="eyebrow">{isKu ? "هۆکاری دامەزراندن" : "The need"}</p><h2>{isKu ? "خێزان نابێت بە تەنها بەدوای وەڵامدا بگەڕێت." : "Families should not have to search for answers alone."}</h2></div>
           <div className="prose-large">
             <p>{isKu ? "لە کوردستاندا دەستگەیشتن بە خزمەتگوزاریی گەشەپێدان و پشتگیریی پسپۆڕانە سنووردار و تێچووبەرزە. زانیاریی دروست لە یەک شوێن بەردەست نییە، قوتابخانەکان بە یەک ئاست ئامادە نین و تێڕوانینی هەڵە هێشتا زۆر کەس لە بەشداریی کۆمەڵایەتی دوور دەخاتەوە." : "Across Kurdistan, access to developmental services and qualified support is limited and expensive. Reliable guidance is fragmented, schools are unevenly prepared, and social stigma continues to restrict participation."}</p>
-            <p>{isKu ? "زەنێ خێزان بە زانیاریی باوەڕپێکراو دەگەیەنێت، لەگەڵ قوتابخانە و پسپۆڕان کار دەکات و خەڵک بۆ گۆڕانی بەردەوام کۆدەکاتەوە." : "Zane connects families with reliable information, works alongside schools and professionals, and brings people together to make inclusion easier in everyday life."}</p>
+            <p>{isKu ? "کارەکانی زەنێ لەسەر چوار بواری پەیوەست دادەمەزرێن: پشتگیریی زوو، ڕێنماییی خێزان، پەروەردەی گشتگیر و گۆڕینی تێڕوانینی کۆمەڵگا." : "Zane is organized around four connected areas: early support, family guidance, inclusive education and public understanding."}</p>
             <blockquote>{isKu ? "کەسانی خاوەن سندرۆمی داون بەشێکن لە کۆمەڵگا؛ ماف و دەرفەتەکانیان بابەتی خێرخوازی نییە." : "People with Down syndrome are part of society. Their rights and opportunities are not an act of charity."}</blockquote>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <section className="values-section section-pad">
         <div className="shell">
-          <SectionHeading eyebrow={isKu ? "شێوازی کارمان" : "How we work"} title={isKu ? "بەهاکانمان دەبێت لە کرداردا دیار بن." : "Our values should be easy to see in practice."} />
+          <SectionHeading eyebrow={isKu ? "شێوازی کارمان" : "How we work"} title={isKu ? "پێنج بەها؛ یەک پێوەری کار." : "Five values. One standard of practice."} />
           <div className="values-grid">{values.map((value, index) => <article className="value-card" key={value.title.en}><p>0{index + 1}</p><h3>{tx(value.title, locale)}</h3><span>{tx(value.text, locale)}</span></article>)}</div>
         </div>
       </section>
@@ -63,7 +63,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               [isKu ? "تیمی پیشەیی" : "Professional team", isKu ? "تیمێکی شیاو بەرنامە، پەیوەندی و کارە ڕۆژانەکان بەڕێوە دەبات." : "A qualified team manages programs, partnerships and daily operations."],
             ].map(([heading, body], index) => <article key={heading}><span>0{index + 1}</span><h3>{heading}</h3><p>{body}</p></article>)}
           </div>
-          <div className="governance-note"><p>{isKu ? "زانیاریی ناسنامەی یاسایی، ڕێگاکانی پاراستن، تایبەتمەندی و سکاڵا لە بەشی بەڕێوەبردن و متمانەدا بەردەستن." : "Public legal information and routes for safeguarding, privacy and complaints are available in Governance & Trust."}</p><Link className="text-link" href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و متمانە" : "Governance and trust"}<span aria-hidden="true">↗</span></Link></div>
+          <div className="governance-note"><p>{isKu ? "زانیاریی یاسایی و ڕێگاکانی پاراستن، پاراستنی زانیاری و سکاڵا لە بەشی بەڕێوەبردن و لێپرسراوێتیدا بەردەستن." : "Legal information and routes for safeguarding, privacy and complaints are published under Governance & Accountability."}</p><Link className="text-link" href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و لێپرسراوێتی" : "Governance and accountability"}<span aria-hidden="true">↗</span></Link></div>
         </div>
       </section>
     </>
