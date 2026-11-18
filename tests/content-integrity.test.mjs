@@ -28,7 +28,7 @@ test("every story has complete bilingual content and a unique safe slug", async 
 test("required brand and publishing guidance are present", async () => {
   await Promise.all([
     access(new URL("public/brand/zane-mark-v2.png", root)),
-    access(new URL("public/brand/zane-brand-kit-v2.png", root)),
+    access(new URL("public/brand/README.md", root)),
     access(new URL("public/og.png", root)),
     access(new URL("public/fonts/README.md", root)),
     access(new URL("content/README.md", root)),
@@ -36,13 +36,16 @@ test("required brand and publishing guidance are present", async () => {
   ]);
 });
 
-test("temporary editorial images are local and documented", async () => {
-  await Promise.all([
-    access(new URL("public/images/editorial/community-workshop.jpg", root)),
-    access(new URL("public/images/editorial/inclusive-classroom.jpg", root)),
-    access(new URL("public/images/editorial/community-employment.jpg", root)),
-    access(new URL("public/images/editorial/README.md", root)),
-  ]);
+test("the homepage film, art-directed photography and source credits are present", async () => {
+  for (const path of [
+    "film/workshop-wide.mp4", "film/workshop-mobile.mp4", "film/workshop.webm",
+    "images/workshop-poster.webp", "images/workshop-mobile-poster.webp", "images/classroom-painting.webp",
+    "images/family-painting.webp", "images/table-conversation.webp",
+  ]) await access(new URL(`public/${path}`, root));
+  const credits = await readFile(new URL("app/[locale]/about/page.tsx", root), "utf8");
+  assert.match(credits, /cottonbro studio/);
+  assert.match(credits, /Antoni Shkraba/);
+  assert.match(credits, /pexels\.com\/license/);
 });
 
 test("active brand system uses the approved navy, gold, mark and typography", async () => {
@@ -55,17 +58,21 @@ test("active brand system uses the approved navy, gold, mark and typography", as
   assert.match(brand, /#d4a72c/i);
   assert.match(brand, /#f6f3e7/i);
   assert.match(brand, /Montserrat Variable/);
-  assert.match(brand, /Noto Kufi Arabic Variable/);
+  assert.match(brand, /UniSIRWAN Montserrat/);
   assert.match(logo, /zane-mark-v2\.png/);
   assert.match(globals, /@fontsource-variable\/montserrat/);
-  assert.match(globals, /@fontsource-variable\/noto-kufi-arabic/);
+  for (const weight of ["regular", "medium", "semibold", "bold"]) {
+    const path = `fonts/unisirwan-montserrat-${weight}.woff2`;
+    assert.ok(globals.includes(path));
+    const font = await readFile(new URL(`public/${path}`, root));
+    assert.equal(font.toString("ascii", 0, 4), "wOF2");
+  }
 });
 
 test("public site contains no internal strategy targets, budgets or risk register", async () => {
   const files = await Promise.all([
     readFile(new URL("app/[locale]/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/programs/page.tsx", root), "utf8"),
-    readFile(new URL("app/[locale]/impact/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/transparency/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/partner/page.tsx", root), "utf8"),
     readFile(new URL("content/stories.json", root), "utf8"),
@@ -87,22 +94,22 @@ test("public institutional copy contains no private daughter narrative", async (
   }
 });
 
-test("homepage keeps a single calm reading path", async () => {
+test("the homepage opens with the organization and keeps article choices and film controls accessible", async () => {
   const home = await readFile(new URL("app/[locale]/page.tsx", root), "utf8");
-  assert.doesNotMatch(home, /manifesto-marquee|symbol-orbit|program-bento|participation-grid|trust-matrix/);
-  assert.match(home, /clarity-hero/);
-  assert.match(home, /audience-paths/);
-  assert.match(home, /work-index/);
-  assert.match(home, /هەموو کەسێک شایەنی/);
-  assert.match(home, /دەرفەتی گەشە کردنە/);
-  assert.doesNotMatch(home, /هەر ?کەسێک/);
+  const film = await readFile(new URL("components/HomeFilm.tsx", root), "utf8");
+  const reader = await readFile(new URL("components/GuideReader.tsx", root), "utf8");
+  assert.doesNotMatch(home + film, /images\/launch|launch campaign|location-dot|cover__location|images\/cafe/);
+  assert.match(film, /site\.localName\[locale\]/);
+  assert.match(film, /prefers-reduced-motion: reduce/);
+  assert.match(film, /aria-controls="homepage-film"/);
+  assert.match(reader, /type="radio"/);
+  assert.match(reader, /aria-controls=/);
 });
 
 test("institutional copy states governance facts without trust-seeking language", async () => {
   const files = await Promise.all([
     readFile(new URL("app/[locale]/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/about/page.tsx", root), "utf8"),
-    readFile(new URL("app/[locale]/impact/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/transparency/page.tsx", root), "utf8"),
     readFile(new URL("app/[locale]/partner/page.tsx", root), "utf8"),
     readFile(new URL("components/SiteHeader.tsx", root), "utf8"),
@@ -113,19 +120,17 @@ test("institutional copy states governance facts without trust-seeking language"
   }
 });
 
-test("office and registration placeholders have dedicated editable fields", async () => {
+test("the public contact links use the official profiles", async () => {
   const settings = await readFile(new URL("lib/site.ts", root), "utf8");
-  for (const field of ["registrationStatus", "officeAddress", "officeNote", "workingHours", "phone", "mapUrl"]) {
-    assert.match(settings, new RegExp(`${field}:`));
-  }
+  assert.ok(settings.includes("https://www.linkedin.com/company/zane-organization/"));
+  assert.ok(settings.includes("https://www.facebook.com/profile.php?id=61595047065509&sk=followers"));
+  assert.ok(settings.includes("https://www.instagram.com/zaneorg.krd/"));
+  assert.ok(settings.includes("info@zanefoundation.org"));
 });
 
-test("volunteer and careers publishing files are present", async () => {
-  await Promise.all([
-    access(new URL("app/[locale]/get-involved/page.tsx", root)),
-    access(new URL("app/[locale]/careers/page.tsx", root)),
-    access(new URL("app/api/applications/route.ts", root)),
-    access(new URL("content/opportunities.json", root)),
-    access(new URL(".env.example", root)),
-  ]);
+test("registration information uses the issuing authority and date", async () => {
+  const facts = await readFile(new URL("app/[locale]/transparency/page.tsx", root), "utf8");
+  assert.match(facts, /site\.registration\.authority/);
+  assert.match(facts, /site\.registration\.dateTime/);
+  assert.doesNotMatch(facts, /registrationNumber|certificateNumber/);
 });

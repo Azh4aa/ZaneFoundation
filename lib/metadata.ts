@@ -1,5 +1,26 @@
 import type { Metadata } from "next";
-import { isLocale, site, type LocalizedText } from "@/lib/site";
+import { isLocale, site, type Locale, type LocalizedText } from "@/lib/site";
+
+export function pageMetadata(locale: Locale, title: string, description: string, path = ""): Metadata {
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}${path}`,
+      languages: { en: `/en${path}`, ku: `/ku${path}` },
+    },
+    openGraph: {
+      title: path ? `${title} | ${site.localName[locale]}` : title,
+      description,
+      url: `/${locale}${path}`,
+      type: "website",
+      siteName: site.name,
+      locale: locale === "ku" ? "ckb_IQ" : "en_US",
+      alternateLocale: [locale === "ku" ? "en_US" : "ckb_IQ"],
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: site.localName[locale] }],
+    },
+  };
+}
 
 export async function makePageMetadata(
   params: Promise<{ locale: string }>,
@@ -9,19 +30,5 @@ export async function makePageMetadata(
 ): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  const canonical = `${site.url}/${locale}${path}`;
-  const other = locale === "en" ? "ku" : "en";
-  return {
-    title: title[locale],
-    description: description[locale],
-    alternates: {
-      canonical,
-      languages: {
-        [locale]: canonical,
-        [other]: `${site.url}/${other}${path}`,
-      },
-    },
-    openGraph: { title: title[locale], description: description[locale], url: canonical },
-  };
+  return pageMetadata(locale, title[locale], description[locale], path);
 }
-

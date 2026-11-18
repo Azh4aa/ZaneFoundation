@@ -1,156 +1,93 @@
 export type Locale = "en" | "ku";
-
 export type LocalizedText = Record<Locale, string>;
 
 export const locales: Locale[] = ["en", "ku"];
 
 export const site = {
-  name: "Zane Foundation",
-  legalName: {
-    en: "Zane Organization for the Advocacy of People with Down Syndrome and Intellectual Disabilities",
-    ku: "ڕێکخراوی زەنێ بۆ داکۆکیکردن لە مافی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری",
+  name: "Zane Organization",
+  localName: { en: "Zane Organization", ku: "ڕێکخراوی زەنێ" },
+  description: {
+    en: "Based in Sulaymaniyah, Zane advocates for the right of people with Down syndrome and intellectual disabilities to study, work and make decisions about their own lives.",
+    ku: "زەنێ ڕێکخراوێکە لە سلێمانی. داکۆکی لە مافی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری دەکات بۆ خوێندن، کارکردن و بڕیاردان لەسەر ژیانی خۆیان.",
   },
-  email: "hello@zanefoundation.org",
-  partnershipsEmail: "partnerships@zanefoundation.org",
-  volunteerEmail: "volunteer@zanefoundation.org",
-  careersEmail: "careers@zanefoundation.org",
-  privacyEmail: "privacy@zanefoundation.org",
-  safeguardingEmail: "safeguarding@zanefoundation.org",
-  complaintsEmail: "feedback@zanefoundation.org",
-  url: "https://zanefoundation.org",
-  registrationNumber: "",
-  registrationStatus: {
-    en: "Registration in progress",
-    ku: "پرۆسەی تۆمارکردن بەردەوامە",
+  email: "info@zanefoundation.org",
+  url: process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000"),
+  location: { en: "Sulaymaniyah, Kurdistan Region of Iraq", ku: "سلێمانی، هەرێمی کوردستان، عێراق" },
+  registration: {
+    authority: {
+      en: "Kurdistan Regional Government, Directorate of NGOs",
+      ku: "حکومەتی هەرێمی کوردستان، فەرمانگەی ڕێکخراوە ناحکومییەکان",
+    },
+    url: { en: "https://gov.krd/dngo-en/", ku: "https://gov.krd/dngo/" },
+    date: { en: "16 September 2026", ku: "١٦ی ئەیلوولی ٢٠٢٦" },
+    dateTime: "2026-09-16",
   },
-  location: {
-    en: "Sulaymaniyah, Kurdistan Region of Iraq",
-    ku: "سلێمانی، هەرێمی کوردستانی عێراق",
+  social: {
+    LinkedIn: "https://www.linkedin.com/company/zane-organization/",
+    Facebook: "https://www.facebook.com/profile.php?id=61595047065509&sk=followers",
+    Instagram: "https://www.instagram.com/zaneorg.krd/",
   },
-  officeAddress: {
-    en: "",
-    ku: "",
-  },
-  officeNote: {
-    en: "The full visitor address will be published when the office opens.",
-    ku: "ناونیشانی تەواوی سەردان دوای کردنەوەی نووسینگە بڵاودەکرێتەوە.",
-  },
-  workingHours: {
-    en: "Meetings by prior appointment",
-    ku: "دیدار بە کاتی پێشوەختە",
-  },
-  phone: "",
-  mapUrl: "",
 };
 
-export const navItems: Array<{ href: string; label: LocalizedText }> = [
-  { href: "/about", label: { en: "About", ku: "دەربارە" } },
-  { href: "/programs", label: { en: "Our work", ku: "کارەکانمان" } },
-  { href: "/resources", label: { en: "Resources", ku: "سەرچاوە" } },
-  { href: "/get-involved", label: { en: "Get involved", ku: "بەشدار بە" } },
-];
+export const navItems = [
+  { href: "/about", label: { en: "About Zane", ku: "دەربارەی زەنێ" } },
+  { href: "/programs", label: { en: "Our focus", ku: "خوێندن و کار" } },
+  { href: "/resources", label: { en: "Family resources", ku: "بۆ خێزانەکان" } },
+] as const;
 
-export const programData = [
+export const inclusionTopics = [
+  {
+    id: "my-classroom",
+    title: { en: "At school", ku: "لە قوتابخانە" },
+    summary: {
+      en: "A pupil can be in the room and still miss the lesson. A teacher might use a picture to explain a task or give the pupil more time to answer.",
+      ku: "هەندێک جار قوتابی لە پۆلدایە، بەڵام وانەکەی بۆ ڕوون نییە. مامۆستا دەتوانێت بە وێنە مەبەستەکەی بگەیەنێت یان کاتی زیاتری پێ بدات بۆ وەڵامدانەوە.",
+    },
+    detail: {
+      en: "For group work, give each pupil a part. Ask the pupil which part they want to try, then check that they can use the materials the group has been given.",
+      ku: "کاتێک قوتابییەکان بە گرووپ کار دەکەن، با هەر یەکەیان ئەرکێکی هەبێت. لە قوتابییەکە بپرسن حەز دەکات چی بکات و پێویستی بە چییە بۆ ئەو کارە.",
+    },
+  },
   {
     id: "early-steps",
-    number: "01",
-    title: { en: "Early Steps", ku: "هەنگاوەکانی سەرەتا" },
-    stage: { en: "Early support", ku: "پشتگیریی زوو" },
+    title: { en: "The early years", ku: "ساڵانی یەکەمی منداڵی" },
     summary: {
-      en: "Expanding access to qualified speech, occupational and physical support during the years when timely help matters most.",
-      ku: "یارمەتیدانی منداڵان لە ساڵانی سەرەتای ژیاندا، بۆ دەستگەیشتن بە پشتگیریی ئاخاوتن، پیشەیی و جەستەیی لە کاتی گونجاودا.",
+      en: "A child might ask for a favourite toy with a word, a look or a gesture. Knowing how they ask helps the adults around them understand what they want.",
+      ku: "منداڵێک بۆ داواکردنی یارییەکی دڵخواز لەوانەیە وشەیەک بڵێت یان بە دەست ئاماژە بکات. کە گەورەکان ئەو ئاماژانە بناسن، ئاسانتر لە مەبەستی منداڵەکە تێدەگەن.",
     },
-    outcome: {
-      en: "Children receive timely, individualized support and families can see and understand progress.",
-      ku: "منداڵەکە پشتگیریی گونجاوی خۆی وەردەگرێت و خێزانەکەش لە پێشکەوتنەکانی تێدەگات.",
+    detail: {
+      en: "At an appointment, describe something your child likes doing at home. A familiar game or routine gives you and the specialist a starting point for talking about support.",
+      ku: "لە چاوپێکەوتن لەگەڵ پسپۆڕدا، باسی شتێک بکەن کە منداڵەکەتان لە ماڵەوە بە خۆشییەوە دەیکات. یارییەکی ئاشنا دەتوانێت ببێتە سەرەتای گفتوگۆ لەسەر ئەو یارمەتییەی پێویستیەتی.",
     },
   },
   {
     id: "family-line",
-    number: "02",
-    title: { en: "Family Guidance", ku: "ڕێنماییی خێزان" },
-    stage: { en: "Family guidance", ku: "ڕێنماییی خێزان" },
+    title: { en: "Questions families ask", ku: "پرسیارەکانی خێزان" },
     summary: {
-      en: "Clear, multilingual guidance that helps families understand options, find reliable information and choose practical next steps.",
-      ku: "ڕێنماییی ڕوون و بە زمانێکی ئاسان، بۆ ئەوەی خێزانەکان زانیاریی دروست بدۆزنەوە و بزانن هەنگاوی داهاتوو چییە.",
+      en: "After a meeting, a family should know whom to call, what to try at home and when to meet again. It is reasonable to ask for that in writing.",
+      ku: "باشە خێزان لە کۆتایی چاوپێکەوتنەکەدا بزانێت لە ماڵەوە چی تاقی بکاتەوە، پرسیاری هەبوو پەیوەندی بە کێوە بکات و کەی دووبارە یەکتر دەبیننەوە.",
     },
-    outcome: {
-      en: "Families feel less isolated and make informed decisions without navigating the system alone.",
-      ku: "خێزانەکان هەست ناکەن بە تەنها ماونەتەوە و بە زانیاریی دروستەوە بڕیار دەدەن.",
-    },
-  },
-  {
-    id: "my-classroom",
-    number: "03",
-    title: { en: "My Classroom", ku: "پۆلەکەم" },
-    stage: { en: "Inclusive education", ku: "پەروەردەی گشتگیر" },
-    summary: {
-      en: "Practical teacher training and school support designed to turn inclusion from a promise into an everyday classroom practice.",
-      ku: "ڕاهێنان و پشتگیریی کرداری بۆ مامۆستا و قوتابخانە، تا هەموو منداڵێک بتوانێت لە پۆلدا فێربێت و بەشدار بێت.",
-    },
-    outcome: {
-      en: "More schools are prepared to welcome, teach and support learners with different needs.",
-      ku: "قوتابخانەکان باشتر ئامادە دەبن بۆ پێشوازی و فێرکردنی منداڵانی خاوەن پێداویستیی جیاواز.",
+    detail: {
+      en: "Ask for unfamiliar words to be explained in the language you use at home. If a decision concerns your child, give them time to say or show what they think.",
+      ku: "ئەگەر وشەیەکتان بۆ ڕوون نەبوو، داوا بکەن بەو زمانە بۆتانی ڕوون بکەنەوە کە لە ماڵەوە قسەی پێ دەکەن. لە بڕیارێکدا کە پەیوەندی بە منداڵەکەتانەوە هەیە، کاتی پێ بدەن بۆ ئەوەی ڕای خۆی بڵێت یان بە ئاماژە بیگەیەنێت.",
     },
   },
   {
     id: "more-alike",
-    number: "04",
-    title: { en: "More Alike Than Different", ku: "لێکچوونمان لە جیاوازیمان زیاترە" },
-    stage: { en: "Public understanding", ku: "تێگەیشتنی کۆمەڵگا" },
+    title: { en: "At work", ku: "لە شوێنی کار" },
     summary: {
-      en: "A rights-led public campaign that replaces pity and stigma with accurate representation, expectation and belonging.",
-      ku: "کەمپەینێک بۆ گۆڕینی تێڕوانینی کۆمەڵگا؛ لە بەزەیی و پێشداوەریی هەڵەوە بۆ ڕێزگرتن لە ماف، توانا و کەسایەتیی تاک.",
+      en: "A job description should tell applicants what they will actually do. A chance to demonstrate a task can show an employer something an interview misses.",
+      ku: "لە ڕاگەیاندنی هەلی کاردا با ڕوون بێت کارەکە چییە. هەندێک جار داواکار بە ئەنجامدانی خودی کارەکە باشتر دەتوانێت توانای خۆی پیشان بدات.",
     },
-    outcome: {
-      en: "Public language and attitudes move from limitation toward potential, rights and full participation.",
-      ku: "زمان و تێڕوانینی کۆمەڵگا دەگۆڕێت، تا کەسان بە تواناکان و مافەکانیان بناسرێن.",
-    },
-  },
-] as const;
-
-export const values = [
-  {
-    title: { en: "Dignity", ku: "شکۆ" },
-    text: {
-      en: "Every person deserves respect, choice and the opportunity to take part.",
-      ku: "هەموو کەسێک شایەنی ڕێز، هەڵبژاردن و دەرفەتی بەشدارییە.",
+    detail: {
+      en: "Before someone starts, explain the hours, the pay and who can answer questions on shift. Ask the worker how they prefer to learn a new task.",
+      ku: "پێش دەستبەکاربوون، کاتژمێرەکانی کار و مووچەکە ڕوون بکەنەوە. لە کارمەندەکە بپرسن بە چ شێوازێک ئاسانتر فێری کارێکی نوێ دەبێت و پێی بڵێن بۆ پرسیارەکانی پەیوەندی بە کێوە بکات.",
     },
   },
-  {
-    title: { en: "Empowerment", ku: "بەهێزکردن" },
-    text: {
-      en: "We begin with strengths and help people build confidence, choice and independence.",
-      ku: "لە تواناکانی تاک دەست پێدەکەین و یارمەتی دەدەین متمانە بە خۆ، هەڵبژاردن و سەربەخۆیی بەهێز بکرێت.",
-    },
-  },
-  {
-    title: { en: "Compassion", ku: "هاوسۆزی" },
-    text: {
-      en: "We listen with kindness and take time to understand each person and family.",
-      ku: "بە میهرەبانی گوێ دەگرین و کات دەدەین بۆ تێگەیشتن لە هەلومەرجی هەموو تاک و خێزانێک.",
-    },
-  },
-  {
-    title: { en: "Excellence", ku: "کوالێتیی بەرز" },
-    text: {
-      en: "We hold our work to high standards and keep learning how to do it better.",
-      ku: "کارەکانمان بە پێوەری بەرز ئەنجام دەدەین و بەردەوام فێردەبین چۆن باشتر بین.",
-    },
-  },
-  {
-    title: { en: "Inclusion", ku: "گشتگیری" },
-    text: {
-      en: "We work so every person has a place, a voice and a genuine chance to belong.",
-      ku: "کار دەکەین بۆ ئەوەی هەموو کەسێک شوێن، دەنگ و دەرفەتی ڕاستەقینەی بەشداریی هەبێت.",
-    },
-  },
-] as const;
+];
 
 export function isLocale(value: string): value is Locale {
   return value === "en" || value === "ku";
-}
-
-export function tx(text: LocalizedText, locale: Locale): string {
-  return text[locale];
 }

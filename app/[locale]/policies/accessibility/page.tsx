@@ -1,25 +1,26 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PolicyPage } from "@/components/PolicyPage";
 import { makePageMetadata } from "@/lib/metadata";
-import { isLocale, site } from "@/lib/site";
+import { isLocale } from "@/lib/site";
 
-const title = { en: "Accessibility statement", ku: "بەیاننامەی دەستگەیشتن" };
-const description = { en: "Zane Foundation’s commitment to an accessible, understandable website.", ku: "پابەندبوونی فاوندەیشنی زەنێ بە ماڵپەڕێکی دەستپێگەیشتوو و ئاسان بۆ تێگەیشتن." };
-export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { return makePageMetadata(params, title, description, "/policies/accessibility"); }
+const title = { en: "Website accessibility", ku: "ئاسانکارییەکانی ماڵپەڕ" };
+const intro = {
+  en: "You can read Zane’s website in Sorani Kurdish or English and move between links using a keyboard. The site follows your device’s reduced-motion setting.",
+  ku: "ماڵپەڕەکە بە کوردیی سۆرانی و ئینگلیزی بەردەستە. بە کیبۆردیش دەتوانن لە بەستەرێکەوە بۆ بەستەرێکی تر بچن. ئەگەر لە ئامێرەکەتاندا جووڵەتان کەم کردبێتەوە، ماڵپەڕەکەش ئەو ڕێکخستنە بەکار دەهێنێت.",
+};
+const body = [
+  {
+    en: "If a page is difficult to read or use, send us its address and describe the difficulty. You can also ask for its contents in another format.",
+    ku: "ئەگەر خوێندنەوە یان بەکارهێنانی پەڕەیەک بۆتان قورس بوو، بەستەرەکەمان بۆ بنێرن و کێشەکە باس بکەن. دەتوانن داوا بکەن ناوەڕۆکی پەڕەکە بە شێوەیەکی تر وەربگرن.",
+  },
+];
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return makePageMetadata(params, title, intro, "/policies/accessibility");
+}
 
 export default async function AccessibilityPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const isKu = raw === "ku";
-  const sections = isKu ? [
-    { title: "ئامانجمان", paragraphs: ["ئامانجمان ئەوەیە ماڵپەڕەکە بە کیبۆرد، خوێنەری شاشە و گەورەکردنی دەق بەکاربهێنرێت و کۆنتراستی ڕەنگ و پێکهاتەی ناوەڕۆک ڕوون بێت."] },
-    { title: "ئەوەی جێبەجێ کراوە", items: ["زمان و ئاراستەی دەق بۆ کوردی و ئینگلیزی", "ناونیشان و نیشانەی فۆڕم", "ڕێگای بازدان بۆ ناوەڕۆکی سەرەکی", "دیاریبوونی فوکەسی کیبۆرد", "جوڵەی سنووردار بۆ بەکارهێنەرانی کەمکردنەوەی جوڵە"] },
-    { title: "سنوورە ئێستاکان", paragraphs: ["هەندێک بەڵگەنامە لەوانەیە بە شێوەی PDF بڵاوبکرێتەوە و پێویستی بە پشکنینی زیاتر هەبێت، تا دڵنیابین کە بۆ هەمووان ئاسانە بەکاری بهێنن."] },
-    { title: "کێشەیەکت بینی؟", paragraphs: ["ناوی لاپەڕە، ئەو شتەی نەتوانیت بەکاری بهێنیت و تەکنەلۆژیی یارمەتیدەرەکەت بنێرە. هەوڵ دەدەین وەشانی جێگرەوە دابین بکەین و کێشەکە چاک بکەینەوە."] },
-  ] : [
-    { title: "Our aim", paragraphs: ["The site is designed to support keyboard navigation, screen readers and text enlargement, with visible focus, meaningful structure and sufficient color contrast."] },
-    { title: "Measures included", items: ["Correct language and text direction for Kurdish and English", "Structured headings and labelled form controls", "A skip link to the main content", "Visible keyboard focus", "Reduced motion support for users who request it"] },
-    { title: "Known limitations", paragraphs: ["Some documents may be published as PDFs and need an accessibility review. Kurdish copy is reviewed and improved as language feedback is received."] },
-    { title: "Report a barrier", paragraphs: ["Tell us the page, the task you could not complete and any assistive technology you use. We will aim to provide an alternative format and correct the underlying issue."] },
-  ];
-  return <PolicyPage locale={raw} eyebrow={isKu ? "دەستگەیشتن" : "Accessibility"} title={title[raw]} intro={description[raw]} status={isKu ? "بەیاننامەی ماڵپەڕ · نوێکراوەی ئاب ٢٠٢٦" : "Website accessibility statement · updated August 2026"} sections={sections} email={site.email} />;
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  return <PolicyPage locale={locale} title={title} intro={intro} body={body} />;
 }

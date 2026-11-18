@@ -1,25 +1,60 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
-import { SectionHeading } from "@/components/SectionHeading";
 import { makePageMetadata } from "@/lib/metadata";
 import { isLocale } from "@/lib/site";
 
-const title = { en: "Family resources", ku: "سەرچاوەی خێزان" };
-const description = { en: "Sourced information and practical guidance for families of people with Down syndrome and intellectual disabilities.", ku: "زانیاریی سەرچاوەدار و ڕێنماییی کرداری بۆ خێزانەکانی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری." };
-export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { return makePageMetadata(params, title, description, "/resources"); }
+const title = { en: "For families", ku: "بۆ خێزانەکان" };
+const description = {
+  en: "Questions to take to a school meeting or appointment, and further reading on disability rights.",
+  ku: "چەند پرسیارێک بۆ چاوپێکەوتن لەگەڵ مامۆستا یان پسپۆڕ، لەگەڵ سەرچاوە بۆ خوێندنەوە لەبارەی مافەکانەوە.",
+};
+const questions = [
+  { en: "What does my child enjoy doing here? When is it harder for them to join in?", ku: "منداڵەکەم لێرە حەز لە چ کارێک دەکات؟ کەی بەشداریکردنی بۆ قورسە؟" },
+  { en: "What has helped so far? Is there something we can try together at home?", ku: "تا ئێستا چی یارمەتیی داوە؟ ئێمە لە ماڵەوە چی لەگەڵی تاقی بکەینەوە؟" },
+  { en: "Whom can I contact with a question, and when should we meet again?", ku: "ئەگەر پرسیارم هەبوو پەیوەندی بە کێوە بکەم؟ کەی جارێکی تر یەکتر ببینینەوە؟" },
+];
+const references = [
+  {
+    title: { en: "Convention on the Rights of Persons with Disabilities (PDF)", ku: "پەیماننامەی مافەکانی کەسانی خاوەن کەمتوانایی (PDF)" },
+    publisher: { en: "United Nations", ku: "نەتەوە یەکگرتووەکان" },
+    href: "https://treaties.un.org/doc/Publication/CTC/Ch_IV_15.pdf#page=33",
+  },
+  {
+    title: { en: "Global report on children with developmental disabilities", ku: "ڕاپۆرتی جیهانی لەبارەی ئەو منداڵانەی لە گەشەکردندا کەمتوانایییان هەیە" },
+    publisher: { en: "WHO and UNICEF", ku: "ڕێکخراوی جیهانیی تەندروستی و یونیسێف" },
+    href: "https://www.unicef.org/documents/global-report-children-developmental-disabilities",
+  },
+];
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return makePageMetadata(params, title, description, "/resources");
+}
 
 export default async function ResourcesPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const isKu = raw === "ku";
-  return <>
-    <PageHero eyebrow={isKu ? "بۆ خێزانەکان" : "For families"} title={isKu ? "زانیاریی ڕوون. ڕێنماییی کرداری." : <>Clear information.<br /><em>Practical guidance.</em></>} intro={<p>{isKu ? "ئەم بەشە سەرچاوە سەرەکییەکان و ڕێنماییی لەسەر بنەمای ماف بۆ خێزان و پشتیوانان کۆدەکاتەوە." : "This section brings together primary references and rights-based guidance for families and supporters."}</p>} aside={<p>{isKu ? "زانیاریی ئەم ماڵپەڕە گشتییە و جێگرەوەی ڕاوێژی تایبەتیی پزیشکی، یاسایی یان پەروەردەیی نییە." : "Website information is general and does not replace individual medical, legal or educational advice."}</p>} />
-    <section className="section-pad"><div className="shell"><SectionHeading eyebrow={isKu ? "سەرچاوەی بەردەست" : "Available now"} title={isKu ? "سەرچاوە سەرەکییە جیهانییەکان لە یەک شوێندا." : "Primary global references in one place."} /><div className="resource-grid"><a href="https://www.un.org/development/desa/disabilities/convention-on-the-rights-of-persons-with-disabilities.html" target="_blank" rel="noreferrer"><span>{isKu ? "ماف" : "Rights"}</span><h3>{isKu ? "ڕێککەوتننامەی نەتەوە یەکگرتووەکان بۆ مافی کەسانی خاوەن کەمتوانایی" : "UN Convention on the Rights of Persons with Disabilities"}</h3><p>{isKu ? "بنەمای نێودەوڵەتی بۆ شکۆ، بەشداری، گشتگیری و دەستگەیشتن." : "The international rights framework for dignity, participation, inclusion and access."}</p><b>↗</b></a><a href="https://www.unicef.org/unicef-disability-inclusion-policy-and-strategy-dipas-2022-2030" target="_blank" rel="noreferrer"><span>{isKu ? "گشتگیری" : "Inclusion"}</span><h3>{isKu ? "سیاسەت و ستراتیژیی گشتگیریی کەمتواناییی یونیسێف" : "UNICEF Disability Inclusion Policy and Strategy"}</h3><p>{isKu ? "ڕێنمایی بۆ دروستکردنی کۆمەڵگایەکی بێ کۆسپ و گشتگیر بۆ هەموو منداڵان." : "A framework for barrier-free, inclusive communities for every child."}</p><b>↗</b></a><a href="https://www.unicef.org/documents/global-report-children-developmental-disabilities" target="_blank" rel="noreferrer"><span>{isKu ? "توێژینەوە" : "Evidence"}</span><h3>{isKu ? "ڕاپۆرتی جیهانی لەسەر منداڵانی خاوەن کەمتواناییی گەشەیی" : "Global report on children with developmental disabilities"}</h3><p>{isKu ? "ڕاپۆرتێکی هاوبەشی ڕێکخراوی تەندروستیی جیهانی و یونیسێف بۆ گشتگیری و یەکسانیی تەندروستی." : "A joint WHO–UNICEF call for inclusion and health equity."}</p><b>↗</b></a></div></div></section>
-    <section className="resource-roadmap section-pad section-sand"><div className="shell"><SectionHeading eyebrow={isKu ? "ڕێنماییی کرداری" : "Practical guidance"} title={isKu ? "لە پرسیاری دروستەوە دەست پێبکە." : "Start with the right questions."} /><div className="roadmap-list">{[
-      [isKu ? "لە کاتی دۆزینەوەی پسپۆڕ" : "When choosing a professional", isKu ? "لە شایستەیی، ئەزموون، شێوازی پەیوەندی و چۆنیەتی بەشداریی خێزان بپرسە." : "Ask about qualifications, experience, communication and how families take part."],
-      [isKu ? "لە کاتی گفتوگۆ لەگەڵ قوتابخانە" : "When speaking with a school", isKu ? "لە تواناکان، پێداویستیی فێربوون و چۆنیەتی بەشداریی ناو پۆل دەست پێبکە." : "Begin with strengths, learning needs and meaningful classroom participation."],
-      [isKu ? "لە کاتی خوێندنەوەی زانیاری" : "When reading information", isKu ? "سەرچاوە، بەروار، بەڵگە و ئەوەی کێ پێداچوونەوەی بۆ کردووە بپشکنە." : "Check the source, date, evidence and who reviewed the information."],
-      [isKu ? "لە کاتی باسکردنی سندرۆمی داون" : "When talking about Down syndrome", isKu ? "سەرەتا کەسەکە ببینە، نەک ناوی سندرۆمەکە؛ هەمیشە زمانێکی بەڕێز بەکاربهێنە." : "See the person before the diagnosis and use respectful, individual language."],
-    ].map(([h,p],i) => <article key={h}><span>0{i+1}</span><div><h3>{h}</h3><p>{p}</p></div></article>)}</div></div></section>
-    <section className="resource-disclaimer"><div className="shell"><strong>{isKu ? "تێبینی گرنگ" : "Important note"}</strong><p>{isKu ? "زانیاری ئەم ماڵپەڕە گشتییە و جێگرەوەی ڕاوێژی پزیشکی، یاسایی یان پەروەردەیی تاکەکەسی نییە. بۆ دۆخی فریاکەوتن پەیوەندی بە خزمەتگوزاری فریاکەوتنی ناوخۆ بکە." : "Information on this site is general and is not a substitute for individual medical, legal or educational advice. In an emergency, contact the appropriate local emergency service."}</p></div></section>
-  </>;
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const isKu = locale === "ku";
+  return (
+    <>
+      <PageHero title={title[locale]} intro={<p>{isKu ? "پێش دیدار لەگەڵ مامۆستا یان پسپۆڕ، ئەو شتانە بنووسنەوە کە منداڵەکەتان حەزی لێیانە یان بۆی قورسن. ئەم پرسیارانە دەتوانن یارمەتیتان بدەن دەست بە گفتوگۆکە بکەن." : "Before you meet a teacher or specialist, make a note of what your child enjoys and what they find difficult. These questions can help you start the conversation."}</p>} />
+      <div className="shell topic-list">
+        <section>
+          <h2>{isKu ? "لە کاتی چاوپێکەوتندا" : "At the meeting"}</h2>
+          <div>
+            <ul className="questions">{questions.map((q) => <li key={q.en}>{q[locale]}</li>)}</ul>
+            <Link className="text-link" href={`/${locale}/stories/early-support-begins-with-listening`}>{isKu ? "ئامادەکاری بۆ یەکەم چاوپێکەوتن" : "Preparing for a first appointment"}<span className="arrow" aria-hidden="true">→</span></Link>
+          </div>
+        </section>
+        <section>
+          <h2>{isKu ? "بۆ خوێندنەوەی زیاتر" : "Further reading"}</h2>
+          <ul className="reference-list">
+            {references.map((ref) => (
+              <li key={ref.href}><small>{ref.publisher[locale]}{isKu ? " · بە ئینگلیزی" : ""}</small><a href={ref.href}>{ref.title[locale]} <span aria-hidden="true">↗</span></a></li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </>
+  );
 }

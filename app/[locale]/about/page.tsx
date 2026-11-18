@@ -1,71 +1,46 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
-import { SectionHeading } from "@/components/SectionHeading";
 import { makePageMetadata } from "@/lib/metadata";
-import { isLocale, site, tx, values } from "@/lib/site";
+import { isLocale, site } from "@/lib/site";
 
-const title = { en: "About", ku: "دەربارە" };
-const description = { en: "Why Zane Foundation exists, what it believes and how it is governed.", ku: "بۆچی فاوندەیشنی زەنێ هەیە، باوەڕی بە چییە و چۆن بەڕێوەدەبرێت." };
+const title = { en: "About Zane", ku: "دەربارەی زەنێ" };
 
-export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  return makePageMetadata(params, title, description, "/about");
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return makePageMetadata(params, title, site.description, "/about");
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale: raw } = await params;
-  if (!isLocale(raw)) notFound();
-  const locale = raw;
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
   const isKu = locale === "ku";
-
   return (
     <>
-      <PageHero
-        eyebrow={isKu ? "دەربارەی زەنێ" : "About Zane"}
-        title={isKu ? "زەنێ بۆ چی دامەزراوە؟" : <>Why Zane<br /><em>exists.</em></>}
-        intro={<p>{isKu ? "زەنێ ڕێکخراوێکی ناحکومی و ناقازانجییە؛ بۆ داکۆکیکردن لە ماف و فراوانکردنی دەرفەتی کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری لە کوردستان." : "Zane is a non-governmental, not-for-profit organization advancing the rights and opportunities of people with Down syndrome and intellectual disabilities in Kurdistan."}</p>}
-        aside={<p>{isKu ? "ناوەندی سەرەکی: " : "Based in "}<strong>{tx(site.location, locale)}</strong></p>}
-      />
-
-      <section className="section-pad">
-        <div className="shell narrative-grid">
-          <div className="narrative-sticky"><p className="eyebrow">{isKu ? "هۆکاری دامەزراندن" : "The need"}</p><h2>{isKu ? "خێزان نابێت بە تەنها بەدوای وەڵامدا بگەڕێت." : "Families should not have to search for answers alone."}</h2></div>
-          <div className="prose-large">
-            <p>{isKu ? "لە کوردستاندا دەستگەیشتن بە خزمەتگوزاریی گەشەپێدان و پشتگیریی پسپۆڕانە سنووردار و تێچووبەرزە. زانیاریی دروست لە یەک شوێن بەردەست نییە، قوتابخانەکان بە یەک ئاست ئامادە نین و تێڕوانینی هەڵە هێشتا زۆر کەس لە بەشداریی کۆمەڵایەتی دوور دەخاتەوە." : "Across Kurdistan, access to developmental services and qualified support is limited and expensive. Reliable guidance is fragmented, schools are unevenly prepared, and social stigma continues to restrict participation."}</p>
-            <p>{isKu ? "کارەکانی زەنێ لەسەر چوار بواری پەیوەست دادەمەزرێن: پشتگیریی زوو، ڕێنماییی خێزان، پەروەردەی گشتگیر و گۆڕینی تێڕوانینی کۆمەڵگا." : "Zane is organized around four connected areas: early support, family guidance, inclusive education and public understanding."}</p>
-            <blockquote>{isKu ? "کەسانی خاوەن سندرۆمی داون بەشێکن لە کۆمەڵگا؛ ماف و دەرفەتەکانیان بابەتی خێرخوازی نییە." : "People with Down syndrome are part of society. Their rights and opportunities are not an act of charity."}</blockquote>
+      <PageHero title={title[locale]} intro={<p>{isKu ? "زەنێ بۆ داکۆکی لە مافەکانی ئەو کەسانە دامەزراوە کە سندرۆمی داون یان کەمتواناییی هزرییان هەیە. بنکەکەمان لە سلێمانییە." : "Zane is an organization in Sulaymaniyah, in the Kurdistan Region of Iraq. We were founded to advocate for people with Down syndrome and intellectual disabilities."}</p>} />
+      <div className="shell topic-list">
+        <section>
+          <h2>{isKu ? "بۆچی زەنێ دامەزرا؟" : "Why was Zane founded?"}</h2>
+          <div>
+            <p>{isKu ? "کاتێک باس لە خوێندن یان کاری کەسێک دەکرێت، زۆرجار پرسیارەکان لە خێزانەکەی دەکرێن. لە زەنێ پێمان وایە خۆی دەبێت ڕای هەبێت لەو بڕیارانەی کە پەیوەندییان بە ژیانی ئەوەوە هەیە." : "When someone is choosing a school or a job, questions are often directed to their family. The person most affected has a right to speak for themselves and to get the support they need to do so."}</p>
+            <p>{isKu ? "بۆ منداڵێک، ئەمە لەوانەیە هەڵبژاردنی یارییەک بێت لەگەڵ هاوپۆلەکانی. بۆ کەسێکی گەورەش، هەلی ئەوەیە کارێک تاقی بکاتەوە کە خۆی حەزی لێیە." : "For a child, that can mean choosing a game with classmates. For an adult, it can mean getting to try a job they are interested in."}</p>
           </div>
-        </div>
-      </section>
-
-      <section className="mission-band">
-        <div className="shell mission-grid">
-          <article><p className="eyebrow eyebrow--gold">{isKu ? "پەیام" : "Mission"}</p><h2>{isKu ? "پشتیوانی لە کەسانی خاوەن سندرۆمی داون و کەمتواناییی هزری، تا بتوانن تواناکانی خۆیان بگەشێنن." : "Enable people with Down syndrome and intellectual disabilities to reach their full potential."}</h2><p>{isKu ? "بە سەرچاوەی پێویست، هۆشیارکردنەوەی کۆمەڵگا و داکۆکیکردن لە مافەکانیان." : "Through essential resources, public education and advocacy for rights."}</p></article>
-          <article><p className="eyebrow eyebrow--gold">{isKu ? "دیدگا" : "Vision"}</p><h2>{isKu ? "داهاتوویەک کە تێیدا هەموو کەسێک بەهادار بێت، ڕێزی لێ بگیرێت و بە شکۆوە بژیێت." : "A future where every person is a valued, respected and dignified member of society."}</h2><p>{isKu ? "ژیانێک کە تێیدا دەرفەت، هەڵبژاردن و بەشداری بۆ هەمووان هەبێت." : "With access to a life rich in opportunity, choice and participation."}</p></article>
-        </div>
-      </section>
-
-      <section className="values-section section-pad">
-        <div className="shell">
-          <SectionHeading eyebrow={isKu ? "شێوازی کارمان" : "How we work"} title={isKu ? "پێنج بەها؛ یەک پێوەری کار." : "Five values. One standard of practice."} />
-          <div className="values-grid">{values.map((value, index) => <article className="value-card" key={value.title.en}><p>0{index + 1}</p><h3>{tx(value.title, locale)}</h3><span>{tx(value.text, locale)}</span></article>)}</div>
-        </div>
-      </section>
-
-      <section className="governance-section section-pad section-sand">
-        <div className="shell">
-          <SectionHeading eyebrow={isKu ? "بەڕێوەبردن" : "Governance"} title={isKu ? "دەنگی کۆمەڵگا. چاودێریی بەرپرسانە. کاری پیشەیی." : "Community voice. Responsible oversight. Professional practice."} text={isKu ? "بەڕێوەبردنی باش بڕیارەکان ڕوون دەکاتەوە، بەرپرسیارێتی جیادەکاتەوە و مافی ئەو کەسانەی خزمەتیان دەکرێت دەپارێزێت." : "Good governance makes decisions clear, separates responsibilities and protects the rights of the people an organization serves."} />
-          <div className="governance-flow">
-            {[
-              [isKu ? "دەنگی کۆمەڵگا" : "Community voice", isKu ? "ئەزموونی تاک و خێزان ئاراستەی کار و پێشینەکان ڕوون دەکاتەوە." : "The experience of people and families informs priorities and practice."],
-              [isKu ? "چاودێری" : "Oversight", isKu ? "چاودێریی سەربەخۆ بەرپرسیارێتی، پاراستن و پابەندبوون بە بەهاکان بەهێز دەکات." : "Independent oversight strengthens accountability, safeguarding and adherence to values."],
-              [isKu ? "تیمی پیشەیی" : "Professional team", isKu ? "تیمێکی شیاو بەرنامە، پەیوەندی و کارە ڕۆژانەکان بەڕێوە دەبات." : "A qualified team manages programs, partnerships and daily operations."],
-            ].map(([heading, body], index) => <article key={heading}><span>0{index + 1}</span><h3>{heading}</h3><p>{body}</p></article>)}
+        </section>
+        <section>
+          <h2>{isKu ? "تۆمارکردنی ڕێکخراوەکە" : "Registration"}</h2>
+          <div>
+            <p>{isKu ? "زەنێ لە هەرێمی کوردستان وەک ڕێکخراوێکی ناحکومی تۆمار کراوە." : "Zane is registered with the Kurdistan Regional Government’s Directorate of NGOs."}</p>
+            <Link className="text-link" href={`/${locale}/transparency`}>{isKu ? "زانیاریی بڕوانامەی تۆمارکردن" : "Registration details"}<span className="arrow" aria-hidden="true">→</span></Link>
           </div>
-          <div className="governance-note"><p>{isKu ? "زانیاریی یاسایی و ڕێگاکانی پاراستن، پاراستنی زانیاری و سکاڵا لە بەشی بەڕێوەبردن و لێپرسراوێتیدا بەردەستن." : "Legal information and routes for safeguarding, privacy and complaints are published under Governance & Accountability."}</p><Link className="text-link" href={`/${locale}/transparency`}>{isKu ? "بەڕێوەبردن و لێپرسراوێتی" : "Governance and accountability"}<span aria-hidden="true">↗</span></Link></div>
-        </div>
-      </section>
+        </section>
+        <section id="photography" className="photo-credits">
+          <h2>{isKu ? "وێنە و ڤیدیۆکان" : "Photography and film"}</h2>
+          <div>
+            <p>{isKu ? "ڤیدیۆ و وێنەی وانەی وێنەکێشان، " : "Painting workshop footage and stills by "}<a href="https://www.pexels.com/video/woman-teaching-a-girl-to-paint-7898522/" dir="ltr" lang="en">cottonbro studio</a>.</p>
+            <p>{isKu ? "وێنەکانی ئەنتۆنی شکرابا لە دایکێک و کچەکەی، " : "Family photographs by Antoni Shkraba, "}<a href="https://www.pexels.com/photo/mother-and-daughter-painting-together-6288114/">{isKu ? "وێنەکێشان" : "painting together"}</a>{isKu ? " و " : " and "}<a href="https://www.pexels.com/photo/a-woman-and-girl-playing-together-6288088/">{isKu ? "یاری لەسەر مێز" : "playing at the table"}</a>.</p>
+            <p><a href="https://www.pexels.com/license/">{isKu ? "مۆڵەتی بەکارهێنانی وێنە و ڤیدیۆکانی Pexels" : "Pexels photo and video license"}</a></p>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

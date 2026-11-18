@@ -1,5 +1,5 @@
 {
-  "name": "zane-foundation",
+  "name": "zane-organization",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.3.0",
-    "@fontsource-variable/noto-kufi-arabic": "^5.3.0",
     "next": "^16.3.1",
     "react": "19.2.6",
     "react-dom": "19.2.6"

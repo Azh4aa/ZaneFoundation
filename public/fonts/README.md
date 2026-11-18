@@ -1,8 +1,5 @@
-# Typography
+# Website typefaces
 
-The website self-hosts both active typefaces through Fontsource packages, so visitors do not depend on an external font service.
+English uses Montserrat Variable, served locally by Fontsource. Sorani uses UniSIRWAN Montserrat by Sirwan Yassin in Regular, Medium, SemiBold and Bold. The WOFF2 files in this directory are compressed versions of the supplied installed typefaces and retain their character sets and shaping tables.
 
-- English and Latin text: **Montserrat Variable**
-- Sorani Kurdish text: **Noto Kufi Arabic Variable**
-
-To replace the Kurdish font later, add the approved webfont files here and declare them as `Zane Kurdish` in `app/globals.css` or `app/brand-v2.css`. Keep Noto Kufi Arabic as the fallback so Kurdish characters always render correctly.
+The declarations are in `app/globals.css`. The language-specific font stacks are in `app/brand-v2.css`.

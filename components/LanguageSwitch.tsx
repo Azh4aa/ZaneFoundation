@@ -8,12 +8,11 @@ export function LanguageSwitch({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const target = locale === "en" ? "ku" : "en";
   const targetPath = pathname.replace(/^\/(en|ku)(?=\/|$)/, `/${target}`);
-
+  const english = target === "en";
   return (
-    <div className="language-switch" aria-label={locale === "en" ? "Choose language" : "زمان هەڵبژێرە"}>
-      {locale === "en" ? <span aria-current="page">EN</span> : <Link href={targetPath || "/en"} lang="en" dir="ltr">EN</Link>}
-      <i aria-hidden="true" />
-      {locale === "ku" ? <span aria-current="page">کوردی</span> : <Link href={targetPath || "/ku"} lang="ku" dir="rtl">کوردی</Link>}
-    </div>
+    <Link className="language-switch" href={targetPath || `/${target}`} lang={english ? "en" : "ckb"}
+      hrefLang={english ? "en" : "ckb"} dir={english ? "ltr" : "rtl"} aria-label={english ? "Read in English" : "بە کوردی بخوێننەوە"}>
+      {english ? "English" : "کوردی"}
+    </Link>
   );
 }

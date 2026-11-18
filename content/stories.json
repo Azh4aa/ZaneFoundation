@@ -1,38 +1,45 @@
 [
   {
     "slug": "what-inclusion-looks-like-every-day",
-    "date": "2026-08-15",
-    "kind": { "en": "Perspective", "ku": "تێڕوانین" },
-    "title": { "en": "What inclusion looks like in everyday life", "ku": "گشتگیری لە ژیانی ڕۆژانەدا چۆنە" },
-    "excerpt": {
-      "en": "Inclusion is more than being present. It means having a voice, meaningful choices and a real place in community life.",
-      "ku": "گشتگیری تەنها ئامادەبوون نییە؛ واتە دەنگ، هەڵبژاردن و شوێنێکی ڕاستەقینە لە ژیانی کۆمەڵگادا."
+    "date": "2026-11-18",
+    "kind": {
+      "en": "School",
+      "ku": "قوتابخانە"
     },
-    "readTime": { "en": "4 minute read", "ku": "خوێندنەوەی ٤ خولەک" },
+    "title": {
+      "en": "When a class works in pairs",
+      "ku": "کاتێک قوتابییەکان دوو بە دوو کار دەکەن"
+    },
+    "excerpt": {
+      "en": "Being assigned a partner is a start. What matters next is whether both pupils get to do the work.",
+      "ku": "مامۆستا بۆ هەر قوتابییەک هاوکارێک دیاری دەکات. چۆن دڵنیا بێت هەردووکیان بەشداری دەکەن؟"
+    },
     "sections": [
       {
-        "heading": { "en": "Presence is only the beginning", "ku": "ئامادەبوون تەنها دەستپێکە" },
+        "heading": {
+          "en": "Give each pupil a turn",
+          "ku": "با نۆرە بەر هەردووکیان بکەوێت"
+        },
         "body": {
           "en": [
-            "A child can sit in a classroom and still be excluded from learning, friendship and decision-making. An adult can be present at an event and still have no meaningful role. Inclusion asks a deeper question: can the person participate, contribute and belong?",
-            "That requires attention to communication, physical access, attitudes and the way choices are offered. Small changes in daily practice can remove barriers that once seemed permanent."
+            "Suppose the class is sorting picture cards. One pupil can choose a card and the other can decide where it belongs. They can swap roles after a few cards. Both get to make a decision the other pupil needs."
           ],
           "ku": [
-            "منداڵێک دەتوانێت لە پۆلدا دابنیشێت، بەڵام لە فێربوون، هاوڕێیەتی و بڕیاردان بەشدار نەبێت. گەورەیەک دەتوانێت لە چالاکییەکدا ئامادە بێت، بەڵام هیچ ڕۆڵێکی بەواتای نەبێت. گشتگیری پرسیارێکی قووڵتر دەکات: ئایا تاک دەتوانێت بەشداربێت، بەرهەم بهێنێت و هەست بە خۆماڵی بکات؟",
-            "ئەمە پێویستی بە سەرنجدانە لە پەیوەندی، دەستگەیشتن، هەڵسوکەوت و شێوازی پێشکەشکردنی هەڵبژاردنەکان. گۆڕانێکی بچووک لە کاری ڕۆژانەدا دەتوانێت کۆسپێک لاببات کە پێشتر چارەسەرنەکراو دیار بوو."
+            "بۆ نموونە، مامۆستا داوا دەکات قوتابییەکان چەند کارتێکی وێنەدار بە پێی بابەتەکانیان دابەش بکەن. یەکێکیان کارتێک هەڵدەبژێرێت، ئەوی تر بڕیار دەدات لە کام گرووپ دایبنێت. دوای چەند کارتێک ڕۆڵەکانیان دەگۆڕنەوە."
           ]
         }
       },
       {
-        "heading": { "en": "Belonging is shared work", "ku": "هەست بە خۆماڵی کارێکی هاوبەشە" },
+        "heading": {
+          "en": "Ask before stepping in",
+          "ku": "پێش یارمەتیدان بپرسن"
+        },
         "body": {
           "en": [
-            "Families should not have to carry inclusion alone. Schools, health professionals, employers, media, public institutions and neighbours all influence whether a person is welcomed and respected.",
-            "The most useful starting point is simple: listen to the person, ask what support helps and make room for contribution—not only care."
+            "If one pupil takes over, ask their partner which part they want to do. They might answer by pointing. Give them time to make that choice before offering help."
           ],
           "ku": [
-            "خێزان نابێت بە تەنها بەرپرسیاریی گشتگیری هەڵبگرێت. قوتابخانە، پسپۆڕانی تەندروستی، خاوەنکار، میدیا، ڕێکخراوە گشتییەکان و دراوسێکان هەموویان کاریگەرییان هەیە لەسەر ئەوەی چۆن پێشوازی لە کەسەکە دەکرێت و ڕێزی لێ دەگیرێت.",
-            "باشترین دەستپێک سادەیە: گوێ لە تاک بگرە، بپرسە چ پشتگیرییەک یارمەتیدەرە و تەنها شوێن بۆ چاودێری نەکە، بەڵکو شوێن بۆ بەشداری و بەرهەمهێنان دروست بکە."
+            "ئەگەر یەکێکیان هەموو کارەکەی گرتە ئەستۆ، لە هاوکارەکەی بپرسن حەز دەکات کام بەش بکات. لەوانەیە بە ئاماژە وەڵام بداتەوە. کاتی پێ بدەن بۆ ئەوەی خۆی هەڵبژێرێت."
           ]
         }
       }
@@ -40,38 +47,45 @@
   },
   {
     "slug": "early-support-begins-with-listening",
-    "date": "2026-08-15",
-    "kind": { "en": "Family guidance", "ku": "ڕێنماییی خێزان" },
-    "title": { "en": "Early support begins with listening", "ku": "پشتگیریی زوو لە گوێگرتنەوە دەست پێدەکات" },
-    "excerpt": {
-      "en": "Good support responds to the whole child and the priorities of the family—not to a diagnosis alone.",
-      "ku": "پشتگیریی باش وەڵامی تەواوی منداڵ و پێشینەکانی خێزان دەداتەوە؛ نەک تەنها دەستنیشانکردنێک."
+    "date": "2026-11-18",
+    "kind": {
+      "en": "Family",
+      "ku": "خێزان"
     },
-    "readTime": { "en": "4 minute read", "ku": "خوێندنەوەی ٤ خولەک" },
+    "title": {
+      "en": "What to take to a first appointment",
+      "ku": "بۆ یەکەم چاوپێکەوتن چی لەگەڵ خۆمان ببەین؟"
+    },
+    "excerpt": {
+      "en": "A short note about something your child enjoys can be more useful than trying to remember everything on the day.",
+      "ku": "یادداشتێکی کورت لەبارەی یارییەکی دڵخوازی منداڵەکەتان یان شتێک کە بۆی قورسە، دەتوانێت یارمەتیتان بدات قسەکانتان لەبیر نەچێت."
+    },
     "sections": [
       {
-        "heading": { "en": "Start with the child in front of you", "ku": "لەو منداڵەوە دەست پێبکە کە لەبەردەمتە" },
+        "heading": {
+          "en": "Before the meeting",
+          "ku": "پێش چاوپێکەوتنەکە"
+        },
         "body": {
           "en": [
-            "Children with the same diagnosis can communicate, learn, move and respond in very different ways. A useful support plan starts with the individual child: what they enjoy, how they communicate and what helps them feel secure enough to try.",
-            "Families bring essential knowledge. Professionals bring specialist skills. The strongest relationship treats both forms of knowledge with respect."
+            "Write down one thing your child enjoys and one thing you would like help with. For example, they may want to join a game with their cousins but find it hard to ask for a turn. An example from home gives the specialist something specific to ask about."
           ],
           "ku": [
-            "منداڵانی خاوەن هەمان دەستنیشانکردن دەتوانن بە شێوازی زۆر جیاواز پەیوەندی بکەن، فێرببن، بجوڵێن و وەڵام بدەنەوە. پلانی پشتگیریی سوودبەخش لە منداڵەکە خۆیەوە دەست پێدەکات: چی خۆشدەوێت، چۆن پەیوەندی دەکات و چی یارمەتی دەدات هەست بە ئارامی بکات و هەوڵ بدات.",
-            "خێزان زانیاریی گرنگی هەیە؛ پسپۆڕیش شارەزاییی تایبەتی هەیە. باشترین پەیوەندی هەردوو جۆرە زانیارییەکە بە ڕێزەوە وەردەگرێت."
+            "شتێک بنووسنەوە کە منداڵەکەتان حەزی لێیە و شتێکیش کە پێویستتان بە یارمەتی هەیە بۆی. بۆ نموونە، منداڵەکە حەز دەکات لەگەڵ منداڵانی خزمەکانتان یاری بکات، بەڵام بۆی قورسە داوای نۆرە بکات. بەو نموونەیە ئاسانتر دەتوانن مەبەستتان بۆ پسپۆڕەکە ڕوون بکەنەوە."
           ]
         }
       },
       {
-        "heading": { "en": "Questions families can ask", "ku": "ئەو پرسیارانەی خێزان دەتوانێت بیکات" },
+        "heading": {
+          "en": "Before you leave",
+          "ku": "پێش ئەوەی بگەڕێنەوە"
+        },
         "body": {
           "en": [
-            "Ask a professional how goals are chosen, how progress is explained, how the family can take part and what happens if an approach does not feel right. Clear answers are part of respectful support.",
-            "A family should also feel able to ask for simpler language, more time, a second opinion or a different approach. Partnership includes room to question."
+            "Ask what you can try at home and how you will know if it helps. Write the answer in your own words. If there will be another appointment, note the date and whom you can contact in between."
           ],
           "ku": [
-            "لە پسپۆڕ بپرسە ئامانجەکان چۆن هەڵدەبژێردرێن، پێشکەوتن چۆن ڕووندەکرێتەوە، خێزان چۆن بەشدار دەبێت و ئەگەر شێوازێک گونجاو نەبوو چی دەکرێت. وەڵامی ڕوون بەشێکە لە پشتگیریی بەڕێز.",
-            "خێزان دەبێت بتوانێت داوای زمانی سادەتر، کاتی زیاتر، ڕای دووەم یان شێوازێکی تر بکات. هاوبەشی شوێن بۆ پرسیارکردنیش دەگرێتەوە."
+            "بپرسن لە ماڵەوە چی تاقی بکەنەوە و چۆن بزانن سوودی هەبووە. وەڵامەکە بە وشەی خۆتان بنووسنەوە. ئەگەر دیدارێکی ترتان هەیە، بەروارەکەی دیاری بکەن و بپرسن تا ئەو کاتە پرسیارتان هەبوو پەیوەندی بە کێوە بکەن."
           ]
         }
       }
@@ -79,38 +93,45 @@
   },
   {
     "slug": "language-can-open-or-close-doors",
-    "date": "2026-08-15",
-    "kind": { "en": "Public awareness", "ku": "هۆشیاریی گشتی" },
-    "title": { "en": "Language can open—or close—doors", "ku": "زمان دەتوانێت دەرگا بکاتەوە یان دایبخات" },
-    "excerpt": {
-      "en": "The words used about disability shape expectations, relationships and the opportunities people are offered.",
-      "ku": "ئەو وشانەی بۆ کەمتوانایی بەکاردێن کاریگەری لەسەر چاوەڕوانی، پەیوەندی و دەرفەتەکان هەیە."
+    "date": "2026-11-18",
+    "kind": {
+      "en": "Conversation",
+      "ku": "گفتوگۆ"
     },
-    "readTime": { "en": "3 minute read", "ku": "خوێندنەوەی ٣ خولەک" },
+    "title": {
+      "en": "Who gets asked the question?",
+      "ku": "پرسیارەکە لە کێ دەکەین؟"
+    },
+    "excerpt": {
+      "en": "When someone comes to a meeting with a relative, a small change in whom you address can change the whole conversation.",
+      "ku": "کەسێک لەگەڵ خزمێکی دێتە چاوپێکەوتنێک. ئەگەر پرسیارێکتان لەسەر ژیانی ئەو هەیە، لە خۆی بپرسن."
+    },
     "sections": [
       {
-        "heading": { "en": "See the person first", "ku": "یەکەم کەسەکە ببینە" },
+        "heading": {
+          "en": "Speak to the person",
+          "ku": "لەگەڵ خۆی قسە بکەن"
+        },
         "body": {
           "en": [
-            "No person is fully described by a diagnosis. People have names, preferences, humour, relationships, skills and ambitions. Respectful language leaves room for that full identity.",
-            "Different people may prefer different words. When possible, ask the person or family what language they use and follow their preference."
+            "At a reception desk, it is easy to turn to the person who answers first. Ask the person whose appointment it is how they would like to be addressed and whether they want their companion to help. Keep speaking to them when the companion joins in."
           ],
           "ku": [
-            "هیچ کەسێک تەنها بە دەستنیشانکردنێک تەواو وەسف ناکرێت. خەڵک ناو، ئارەزوو، تەنز، پەیوەندی، لێهاتوویی و ئاواتیان هەیە. زمانی بەڕێز شوێن بۆ ئەو ناسنامە تەواوە جێدەهێڵێت.",
-            "کەسانی جیاواز لەوانەیە وشەی جیاواز پەسەند بکەن. کاتێک دەکرێت، لە تاک یان خێزان بپرسە چ زمانێک بەکاردەهێنن و ڕێز لە هەڵبژاردنیان بگرە."
+            "لە شوێنی پێشوازی، زۆرجار قسە لەگەڵ ئەو کەسە دەکرێت کە زووتر وەڵام دەداتەوە. ڕوو بکەنە خاوەن چاوپێکەوتنەکە. لە خۆی بپرسن چۆن بانگی بکەن و ئایا دەیەوێت هاوڕێکەی یارمەتی بدات. کاتێک هاوڕێکەشی قسە دەکات، هەر گوێ لە خۆیشی بگرن."
           ]
         }
       },
       {
-        "heading": { "en": "Move beyond pity", "ku": "لە بەزەیی تێپەڕە" },
+        "heading": {
+          "en": "Leave time for an answer",
+          "ku": "کات بدەن بۆ وەڵامدانەوە"
+        },
         "body": {
           "en": [
-            "Stories that show only suffering or inspiration can flatten a person into a message for someone else. Better representation includes ordinary life, real choices, contribution and complexity.",
-            "The aim is not to pretend barriers do not exist. It is to name the barrier accurately without turning the person into the problem."
+            "Ask one question at a time. Someone might use a word, point to a picture or need a moment to think. If you are unsure what they mean, say what you understood and ask if you have it right."
           ],
           "ku": [
-            "چیرۆکێک کە تەنها ئازار یان سەرسوڕمان پیشان دەدات دەتوانێت تاک بکاتە پەیامێک بۆ کەسانی تر. نوێنەرایەتیی باش ژیانی ئاسایی، هەڵبژاردنی ڕاستەقینە، بەشداری و ئاڵۆزییەکانیش پیشان دەدات.",
-            "ئامانج ئەوە نییە بڵێین کۆسپ نییە؛ ئامانج ئەوەیە کۆسپەکە بە دروستی ناوببرێت، بەبێ ئەوەی تاکەکە خۆی بکرێتە کێشە."
+            "پرسیارەکان یەک بە یەک بکەن. کەسێک لەوانەیە بە وشە وەڵام بداتەوە، ئاماژە بۆ وێنەیەک بکات یان پێویستی بە کەمێک کات بێت بۆ بیرکردنەوە. ئەگەر دڵنیا نین لە مەبەستی، ئەوەی تێگەیشتوون بۆی بڵێنەوە و لێی بپرسن دروستە یان نا."
           ]
         }
       }
